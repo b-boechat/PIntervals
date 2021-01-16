@@ -2,6 +2,12 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
+
+# Additions
+
+.DS_Store
+sandbox/
+
 ## User settings
 xcuserdata/
 
