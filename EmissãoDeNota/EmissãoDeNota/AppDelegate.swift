@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  TesteEmissaoDeNota
+//  EmissãoDeNota
 //
-//  Created by André Cardozo on 23/01/2021.
+//  Created by André Cardozo on 26/01/2021.
 //  Copyright © 2021 Rafael Melo. All rights reserved.
 //
 

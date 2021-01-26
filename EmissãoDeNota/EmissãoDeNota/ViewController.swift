@@ -13,34 +13,57 @@ var sequence : MusicSequence? = nil
 var track : MusicTrack? = nil
 
 class ViewController: UIViewController {
-
+    
     
     var musicSequenceStatus: OSStatus = NewMusicSequence(&sequence)
     var musicTrack = MusicSequenceNewTrack(sequence!, &track)
-    var time = MusicTimeStamp(2.0)
+    var time = MusicTimeStamp(1.0)
     var note = MIDINoteMessage(channel: 0,
                                note: 69,
                                velocity: 255,
                                releaseVelocity: 0,
                                duration: 5.0)
-    
+    var currentInterval : UInt8 = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func EmitirNota(_ sender: UIButton) {
+    
+    
+    @IBAction func Options(_ sender: UIButton) {
+    
+    let noteInterval = UInt8 (sender.tag + 1)
         
-        CreateInterval()
-        PlayNote()
         
+        if noteInterval == currentInterval{
+            
+          print("certo")
+            
+        }else{
+            
+            print("errado")
+        }
+    
     }
-    func CreateInterval(){
+    
+    @IBAction func RepeatInterval(_ sender: UIButton) {
+        PlayNote()
+    }
+    
+    @IBAction func EmitNewNote(_ sender: UIButton) {
+    
+    currentInterval = CreateInterval()
+    PlayNote()
+    
+    }
+    
+    func CreateInterval() -> UInt8{
         
         var baseNote : UInt8 = 0
         var interval : UInt8 = 0
@@ -61,9 +84,9 @@ class ViewController: UIViewController {
                                        duration: 1.0)
             guard let track = track else {fatalError()}
             musicTrack = MusicTrackNewMIDINoteEvent(track, time, &note)
-            time += 2
+            time += 1
         }
-        
+        return interval
     }
     
     func PlayNote(){
@@ -74,6 +97,7 @@ class ViewController: UIViewController {
         player = MusicPlayerStart(musicPlayer!)
         
     }
-
+    
 }
+
 
