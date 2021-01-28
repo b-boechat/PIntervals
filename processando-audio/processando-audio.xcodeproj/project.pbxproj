@@ -7,25 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E25FA8F825BB52A2002F34FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25FA8F725BB52A2002F34FB /* AppDelegate.swift */; };
-		E25FA8FA25BB52A2002F34FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25FA8F925BB52A2002F34FB /* ViewController.swift */; };
-		E25FA8FD25BB52A2002F34FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E25FA8FB25BB52A2002F34FB /* Main.storyboard */; };
-		E25FA8FF25BB52A3002F34FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E25FA8FE25BB52A3002F34FB /* Assets.xcassets */; };
-		E25FA90225BB52A3002F34FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E25FA90025BB52A3002F34FB /* LaunchScreen.storyboard */; };
+		E2A2C6A125C34FAE0016CDD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6A025C34FAE0016CDD5 /* AppDelegate.swift */; };
+		E2A2C6A325C34FAE0016CDD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6A225C34FAE0016CDD5 /* ViewController.swift */; };
+		E2A2C6A625C34FAE0016CDD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A2C6A425C34FAE0016CDD5 /* Main.storyboard */; };
+		E2A2C6A825C34FAF0016CDD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2A2C6A725C34FAF0016CDD5 /* Assets.xcassets */; };
+		E2A2C6AB25C34FAF0016CDD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A2C6A925C34FAF0016CDD5 /* LaunchScreen.storyboard */; };
+		E2A2C6B525C351150016CDD5 /* TempiAudioInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6B225C351140016CDD5 /* TempiAudioInput.swift */; };
+		E2A2C6B625C351150016CDD5 /* TempiFFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6B325C351150016CDD5 /* TempiFFT.swift */; };
+		E2A2C6B725C351150016CDD5 /* TempiUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6B425C351150016CDD5 /* TempiUtilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E25FA8F425BB52A2002F34FB /* recepcao-nota.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "recepcao-nota.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E25FA8F725BB52A2002F34FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E25FA8F925BB52A2002F34FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E25FA8FC25BB52A2002F34FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E25FA8FE25BB52A3002F34FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E25FA90125BB52A3002F34FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E25FA90325BB52A3002F34FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2A2C69D25C34FAE0016CDD5 /* processando-audio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "processando-audio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2A2C6A025C34FAE0016CDD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E2A2C6A225C34FAE0016CDD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E2A2C6A525C34FAE0016CDD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E2A2C6A725C34FAF0016CDD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E2A2C6AA25C34FAF0016CDD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E2A2C6AC25C34FAF0016CDD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2A2C6B225C351140016CDD5 /* TempiAudioInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiAudioInput.swift; sourceTree = "<group>"; };
+		E2A2C6B325C351150016CDD5 /* TempiFFT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiFFT.swift; sourceTree = "<group>"; };
+		E2A2C6B425C351150016CDD5 /* TempiUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiUtilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E25FA8F125BB52A2002F34FB /* Frameworks */ = {
+		E2A2C69A25C34FAE0016CDD5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,71 +41,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E25FA8EB25BB52A2002F34FB = {
+		E2A2C69425C34FAE0016CDD5 = {
 			isa = PBXGroup;
 			children = (
-				E25FA8F625BB52A2002F34FB /* recepcao-nota */,
-				E25FA8F525BB52A2002F34FB /* Products */,
+				E2A2C69F25C34FAE0016CDD5 /* processando-audio */,
+				E2A2C69E25C34FAE0016CDD5 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E25FA8F525BB52A2002F34FB /* Products */ = {
+		E2A2C69E25C34FAE0016CDD5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E25FA8F425BB52A2002F34FB /* recepcao-nota.app */,
+				E2A2C69D25C34FAE0016CDD5 /* processando-audio.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E25FA8F625BB52A2002F34FB /* recepcao-nota */ = {
+		E2A2C69F25C34FAE0016CDD5 /* processando-audio */ = {
 			isa = PBXGroup;
 			children = (
-				E25FA8F725BB52A2002F34FB /* AppDelegate.swift */,
-				E25FA8F925BB52A2002F34FB /* ViewController.swift */,
-				E25FA8FB25BB52A2002F34FB /* Main.storyboard */,
-				E25FA8FE25BB52A3002F34FB /* Assets.xcassets */,
-				E25FA90025BB52A3002F34FB /* LaunchScreen.storyboard */,
-				E25FA90325BB52A3002F34FB /* Info.plist */,
+				E2A2C6A025C34FAE0016CDD5 /* AppDelegate.swift */,
+				E2A2C6A225C34FAE0016CDD5 /* ViewController.swift */,
+				E2A2C6B225C351140016CDD5 /* TempiAudioInput.swift */,
+				E2A2C6B325C351150016CDD5 /* TempiFFT.swift */,
+				E2A2C6B425C351150016CDD5 /* TempiUtilities.swift */,
+				E2A2C6A425C34FAE0016CDD5 /* Main.storyboard */,
+				E2A2C6A725C34FAF0016CDD5 /* Assets.xcassets */,
+				E2A2C6A925C34FAF0016CDD5 /* LaunchScreen.storyboard */,
+				E2A2C6AC25C34FAF0016CDD5 /* Info.plist */,
 			);
-			path = "recepcao-nota";
+			path = "processando-audio";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E25FA8F325BB52A2002F34FB /* recepcao-nota */ = {
+		E2A2C69C25C34FAE0016CDD5 /* processando-audio */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E25FA90625BB52A3002F34FB /* Build configuration list for PBXNativeTarget "recepcao-nota" */;
+			buildConfigurationList = E2A2C6AF25C34FAF0016CDD5 /* Build configuration list for PBXNativeTarget "processando-audio" */;
 			buildPhases = (
-				E25FA8F025BB52A2002F34FB /* Sources */,
-				E25FA8F125BB52A2002F34FB /* Frameworks */,
-				E25FA8F225BB52A2002F34FB /* Resources */,
+				E2A2C69925C34FAE0016CDD5 /* Sources */,
+				E2A2C69A25C34FAE0016CDD5 /* Frameworks */,
+				E2A2C69B25C34FAE0016CDD5 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "recepcao-nota";
-			productName = "recepcao-nota";
-			productReference = E25FA8F425BB52A2002F34FB /* recepcao-nota.app */;
+			name = "processando-audio";
+			productName = "processando-audio";
+			productReference = E2A2C69D25C34FAE0016CDD5 /* processando-audio.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E25FA8EC25BB52A2002F34FB /* Project object */ = {
+		E2A2C69525C34FAE0016CDD5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Bernardo;
 				TargetAttributes = {
-					E25FA8F325BB52A2002F34FB = {
+					E2A2C69C25C34FAE0016CDD5 = {
 						CreatedOnToolsVersion = 9.3.1;
 					};
 				};
 			};
-			buildConfigurationList = E25FA8EF25BB52A2002F34FB /* Build configuration list for PBXProject "recepcao-nota" */;
+			buildConfigurationList = E2A2C69825C34FAE0016CDD5 /* Build configuration list for PBXProject "processando-audio" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -107,54 +116,57 @@
 				en,
 				Base,
 			);
-			mainGroup = E25FA8EB25BB52A2002F34FB;
-			productRefGroup = E25FA8F525BB52A2002F34FB /* Products */;
+			mainGroup = E2A2C69425C34FAE0016CDD5;
+			productRefGroup = E2A2C69E25C34FAE0016CDD5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E25FA8F325BB52A2002F34FB /* recepcao-nota */,
+				E2A2C69C25C34FAE0016CDD5 /* processando-audio */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E25FA8F225BB52A2002F34FB /* Resources */ = {
+		E2A2C69B25C34FAE0016CDD5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E25FA90225BB52A3002F34FB /* LaunchScreen.storyboard in Resources */,
-				E25FA8FF25BB52A3002F34FB /* Assets.xcassets in Resources */,
-				E25FA8FD25BB52A2002F34FB /* Main.storyboard in Resources */,
+				E2A2C6AB25C34FAF0016CDD5 /* LaunchScreen.storyboard in Resources */,
+				E2A2C6A825C34FAF0016CDD5 /* Assets.xcassets in Resources */,
+				E2A2C6A625C34FAE0016CDD5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E25FA8F025BB52A2002F34FB /* Sources */ = {
+		E2A2C69925C34FAE0016CDD5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E25FA8FA25BB52A2002F34FB /* ViewController.swift in Sources */,
-				E25FA8F825BB52A2002F34FB /* AppDelegate.swift in Sources */,
+				E2A2C6B625C351150016CDD5 /* TempiFFT.swift in Sources */,
+				E2A2C6B525C351150016CDD5 /* TempiAudioInput.swift in Sources */,
+				E2A2C6B725C351150016CDD5 /* TempiUtilities.swift in Sources */,
+				E2A2C6A325C34FAE0016CDD5 /* ViewController.swift in Sources */,
+				E2A2C6A125C34FAE0016CDD5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E25FA8FB25BB52A2002F34FB /* Main.storyboard */ = {
+		E2A2C6A425C34FAE0016CDD5 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E25FA8FC25BB52A2002F34FB /* Base */,
+				E2A2C6A525C34FAE0016CDD5 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		E25FA90025BB52A3002F34FB /* LaunchScreen.storyboard */ = {
+		E2A2C6A925C34FAF0016CDD5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E25FA90125BB52A3002F34FB /* Base */,
+				E2A2C6AA25C34FAF0016CDD5 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -162,7 +174,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		E25FA90425BB52A3002F34FB /* Debug */ = {
+		E2A2C6AD25C34FAF0016CDD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -222,7 +234,7 @@
 			};
 			name = Debug;
 		};
-		E25FA90525BB52A3002F34FB /* Release */ = {
+		E2A2C6AE25C34FAF0016CDD5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -276,36 +288,36 @@
 			};
 			name = Release;
 		};
-		E25FA90725BB52A3002F34FB /* Debug */ = {
+		E2A2C6B025C34FAF0016CDD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T9GQDZPKSJ;
-				INFOPLIST_FILE = "recepcao-nota/Info.plist";
+				INFOPLIST_FILE = "processando-audio/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.boechat.bernardo.recepcao-nota";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.boechat.bernardo.processando-audio";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		E25FA90825BB52A3002F34FB /* Release */ = {
+		E2A2C6B125C34FAF0016CDD5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T9GQDZPKSJ;
-				INFOPLIST_FILE = "recepcao-nota/Info.plist";
+				INFOPLIST_FILE = "processando-audio/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.boechat.bernardo.recepcao-nota";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.boechat.bernardo.processando-audio";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -315,25 +327,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E25FA8EF25BB52A2002F34FB /* Build configuration list for PBXProject "recepcao-nota" */ = {
+		E2A2C69825C34FAE0016CDD5 /* Build configuration list for PBXProject "processando-audio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E25FA90425BB52A3002F34FB /* Debug */,
-				E25FA90525BB52A3002F34FB /* Release */,
+				E2A2C6AD25C34FAF0016CDD5 /* Debug */,
+				E2A2C6AE25C34FAF0016CDD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E25FA90625BB52A3002F34FB /* Build configuration list for PBXNativeTarget "recepcao-nota" */ = {
+		E2A2C6AF25C34FAF0016CDD5 /* Build configuration list for PBXNativeTarget "processando-audio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E25FA90725BB52A3002F34FB /* Debug */,
-				E25FA90825BB52A3002F34FB /* Release */,
+				E2A2C6B025C34FAF0016CDD5 /* Debug */,
+				E2A2C6B125C34FAF0016CDD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E25FA8EC25BB52A2002F34FB /* Project object */;
+	rootObject = E2A2C69525C34FAE0016CDD5 /* Project object */;
 }

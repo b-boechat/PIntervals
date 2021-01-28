@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:recepcao-nota.xcodeproj">
+      location = "self:processando-audio.xcodeproj">
    </FileRef>
 </Workspace>
