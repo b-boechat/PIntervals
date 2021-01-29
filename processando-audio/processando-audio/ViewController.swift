@@ -10,9 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // Variável na qual é instanciado o engine para gravaçao. Ver funçao viewDidLoad()
     var audioInput: TempiAudioInput!
     
+    // Guarda picos de frequencia da DFT ao longo de instantes de tempo
     var freqsOverTime: [Float] = []
+    
+    
+    var magnitudes: [Float] = []
     
     
     @IBOutlet weak var debugLabel: UILabel!
@@ -27,8 +32,7 @@ class ViewController: UIViewController {
     
     @IBAction func recordButton(_ sender: Any) {
         audioInput.startRecording()
-        stopOutlet.isEnabled = true
-        recordOutlet.isEnabled = false
+        setRecordingState(recordingFlag: true)
     }
     
     
@@ -44,25 +48,24 @@ class ViewController: UIViewController {
         freqLabel.text = "\(meanPeakFreq)"
         freqsOverTime = []
         
-        stopOutlet.isEnabled = false
-        recordOutlet.isEnabled = true
+        setRecordingState(recordingFlag: false)
         
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Instancia o engine de audio, passando a funçao gotSomeAudio() para ser executada em callback.
         let audioInputCallback: TempiAudioInputCallback = { (timeStamp, numberOfFrames, samples) -> Void in
             self.gotSomeAudio(timeStamp: Double(timeStamp), numberOfFrames: Int(numberOfFrames), samples: samples)
         }
-        
         audioInput = TempiAudioInput(audioInputCallback: audioInputCallback, sampleRate: 44100, numberOfChannels: 1)
         
         // DEBUGGING
         //checkBufferDuration()
         
-        stopOutlet.isEnabled = false
-        recordOutlet.isEnabled = true
+        setRecordingState(recordingFlag: false)
     }
     
     func gotSomeAudio(timeStamp: Double, numberOfFrames: Int, samples: [Float]) {
@@ -92,6 +95,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func setRecordingState (recordingFlag: Bool) {
+        // Enable or disable buttons accordingly, depending on whether the app is currently recording or not.
+        recordOutlet.isEnabled = !recordingFlag
+        stopOutlet.isEnabled = recordingFlag
+    }
 
 }
 
