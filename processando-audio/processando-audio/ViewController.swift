@@ -10,23 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    // Variável na qual é instanciado o engine para gravaçao. Ver funçao viewDidLoad()
+    // Recording sample rate.
+    let sampleRate : Float = 44100.0
+    
+    // Intantied audio engine for recording and callback. See viewDidLoad()
     var audioInput: TempiAudioInput!
     
-    // Guarda picos de frequencia da DFT ao longo de instantes de tempo
+    // Stores detected frequencies over consecutive frames.
     var freqsOverTime: [Float] = []
     
-    
-    var magnitudes: [Float] = []
+    // Buffer, acummulates callback samples until the desired number
+    var accumulatedSamples: [Float] = []
+    let desiredNumSamplesFFT = 4096
     
     
     @IBOutlet weak var debugLabel: UILabel!
-    
     @IBOutlet weak var recordOutlet: UIButton!
-    
     @IBOutlet weak var stopOutlet: UIButton!
-    
-    
     @IBOutlet weak var freqLabel: UILabel!
     
     
@@ -39,13 +39,11 @@ class ViewController: UIViewController {
     @IBAction func stopButton(_ sender: Any) {
         audioInput.stopRecording()
         
-        var meanPeakFreq: Float = 0
-        for i in 0...(freqsOverTime.count - 1) {
-            meanPeakFreq += freqsOverTime[i]
-        }
-        meanPeakFreq /= Float(freqsOverTime.count - 1)
+        //DEBBUGING
+        //debugLabel.text = "\(freqsOverTime.count)"
         
-        freqLabel.text = "\(meanPeakFreq)"
+        let medianPeakFreq = calculateMedian(array: freqsOverTime)
+        freqLabel.text = "\(medianPeakFreq)"
         freqsOverTime = []
         
         setRecordingState(recordingFlag: false)
@@ -60,46 +58,81 @@ class ViewController: UIViewController {
         let audioInputCallback: TempiAudioInputCallback = { (timeStamp, numberOfFrames, samples) -> Void in
             self.gotSomeAudio(timeStamp: Double(timeStamp), numberOfFrames: Int(numberOfFrames), samples: samples)
         }
-        audioInput = TempiAudioInput(audioInputCallback: audioInputCallback, sampleRate: 44100, numberOfChannels: 1)
+        audioInput = TempiAudioInput(audioInputCallback: audioInputCallback, sampleRate: sampleRate, numberOfChannels: 1)
         
         // DEBUGGING
-        //checkBufferDuration()
+        checkBufferDuration()
         
         setRecordingState(recordingFlag: false)
     }
     
     func gotSomeAudio(timeStamp: Double, numberOfFrames: Int, samples: [Float]) {
         
-        let fft = TempiFFT(withSize: numberOfFrames, sampleRate: 44100.0)
-        
-        fft.windowType = TempiFFTWindowType.hanning
-        fft.fftForward(samples)
-        
-        let magnitudes = fft.getMagnitudes()
-        
-        // DEBUGGING
-        // debugLabel.text = "\(numberOfFrames)"
-        //debugLabel.text = "\(samples.count)"
+        // Add received samples to accumulated buffer.
+        accumulatedSamples += samples
+        let accumulatedCount = accumulatedSamples.count
         
         
-        let peak_mag = magnitudes.max()
-        let freq : Float = Float(magnitudes.index(of: peak_mag!)!) * Float(44100.0) / Float(numberOfFrames)
-        
-        freqsOverTime.append(freq)
+        // When the accumulated buffer size reaches the desired value, process data.
+        if accumulatedCount >= desiredNumSamplesFFT {
+            
+            // DEBUGGING
+            // debugLabel.text = "\(numberOfFrames)"
+            debugLabel.text = "\(accumulatedCount)"
+            
+            let magnitudes = calculateFFT(size: accumulatedCount)
+            
+            
+            let peak_mag = magnitudes.max()
+            let freq : Float = Float(magnitudes.index(of: peak_mag!)!) * sampleRate / Float(accumulatedCount)
+            freqsOverTime.append(freq)
+        }
         
     }
     
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     func setRecordingState (recordingFlag: Bool) {
         // Enable or disable buttons accordingly, depending on whether the app is currently recording or not.
         recordOutlet.isEnabled = !recordingFlag
         stopOutlet.isEnabled = recordingFlag
     }
+    
+    
+    func calculateFFT(size: Int) -> [Float] {
+        // Calculate FFT of the accumulatedSamples buffer, resetting it afterwards.
+        let fft = TempiFFT(withSize: size, sampleRate: sampleRate)
+        fft.windowType = TempiFFTWindowType.hanning
+        fft.fftForward(accumulatedSamples)
+        accumulatedSamples = []
+        return fft.getDBMagnitudes()
+    }
 
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+
+    
 }
+
+func calculateMedian(array: [Float]) -> Float {
+    // Helper function that calculates median of Float array.
+    let sorted = array.sorted()
+    
+    //DEBBUGING (function has to be defined inside class)
+    //debugLabel.text = "\(sorted.count)"
+    
+    if sorted.count % 2 == 0 {
+        return (array[sorted.count/2] + array[sorted.count/2 - 1])/2.0
+    }
+    else {
+        return array[sorted.count/2]
+    }
+}
+
+
+
+
 
