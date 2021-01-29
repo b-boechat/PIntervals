@@ -78,14 +78,16 @@ class ViewController: UIViewController {
             
             // DEBUGGING
             // debugLabel.text = "\(numberOfFrames)"
-            debugLabel.text = "\(accumulatedCount)"
+            //debugLabel.text = "\(accumulatedCount)"
             
+            // FFT calculation
             let magnitudes = calculateFFT(size: accumulatedCount)
             
+            // Frequency detection
+            let freq = detectFrequency(fftMagnitudes: magnitudes, numOfBins: accumulatedCount)
             
-            let peak_mag = magnitudes.max()
-            let freq : Float = Float(magnitudes.index(of: peak_mag!)!) * sampleRate / Float(accumulatedCount)
             freqsOverTime.append(freq)
+            
         }
         
     }
@@ -99,14 +101,30 @@ class ViewController: UIViewController {
     
     
     func calculateFFT(size: Int) -> [Float] {
-        // Calculate FFT of the accumulatedSamples buffer, resetting it afterwards.
+        // Calculate FFT of the accumulatedSamples buffer, resetting it afterwards. Returns array of bin magnitudes, converted to decibels.
         let fft = TempiFFT(withSize: size, sampleRate: sampleRate)
         fft.windowType = TempiFFTWindowType.hanning
         fft.fftForward(accumulatedSamples)
         accumulatedSamples = []
         return fft.getDBMagnitudes()
     }
-
+ 
+    func detectFrequency(fftMagnitudes: [Float], numOfBins: Int) -> Float {
+        // Performs frequency detection on a given FFT outputs.
+        // Assumes fftMagnitudes values are scaled to decibels, and numOfBins is equal to the FFT input vector's length (fftMagnitudes has half this size, since from numOfBins/2 + 1 onwards the FFT information is redundant for real inputs)
+        
+        // Get peak magnitude and index from output.
+        let peakMag = fftMagnitudes.max()
+        let peakIndex = fftMagnitudes.index(of: peakMag!)
+        
+        // Perform parabolic interpolation:
+        let magBefore = fftMagnitudes[peakIndex!-1]
+        let magAfter = fftMagnitudes[peakIndex!+1]
+        let indexOffset : Float = 1.0/2.0 * (magBefore - magAfter)/(magBefore - 2*peakMag! + magAfter)
+        let freq: Float = sampleRate/Float(numOfBins) * (Float(peakIndex!) + indexOffset)
+        
+        return freq
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -116,6 +134,7 @@ class ViewController: UIViewController {
 
     
 }
+
 
 func calculateMedian(array: [Float]) -> Float {
     // Helper function that calculates median of Float array.
