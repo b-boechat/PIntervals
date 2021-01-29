@@ -41,11 +41,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Debug label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojG-gz-RDX">
+                                <rect key="frame" x="144" y="75" width="197" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="debugLabel" destination="ojG-gz-RDX" id="yAj-Ub-0fh"/>
                         <outlet property="freqLabel" destination="bDw-At-ras" id="uxM-PT-RM8"/>
                         <outlet property="recordOutlet" destination="ejX-2f-GBh" id="b9T-Qo-ETr"/>
                         <outlet property="stopOutlet" destination="9Rt-mc-N2e" id="R1t-ZG-CDk"/>

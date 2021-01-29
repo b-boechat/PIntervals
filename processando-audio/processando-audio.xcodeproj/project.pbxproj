@@ -15,6 +15,7 @@
 		E2A2C6B525C351150016CDD5 /* TempiAudioInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6B225C351140016CDD5 /* TempiAudioInput.swift */; };
 		E2A2C6B625C351150016CDD5 /* TempiFFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6B325C351150016CDD5 /* TempiFFT.swift */; };
 		E2A2C6B725C351150016CDD5 /* TempiUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6B425C351150016CDD5 /* TempiUtilities.swift */; };
+		E2FEF4CB25C387E800465EBA /* debugFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FEF4CA25C387E800465EBA /* debugFuncs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E2A2C6B225C351140016CDD5 /* TempiAudioInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiAudioInput.swift; sourceTree = "<group>"; };
 		E2A2C6B325C351150016CDD5 /* TempiFFT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiFFT.swift; sourceTree = "<group>"; };
 		E2A2C6B425C351150016CDD5 /* TempiUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiUtilities.swift; sourceTree = "<group>"; };
+		E2FEF4CA25C387E800465EBA /* debugFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = debugFuncs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				E2A2C6A025C34FAE0016CDD5 /* AppDelegate.swift */,
 				E2A2C6A225C34FAE0016CDD5 /* ViewController.swift */,
+				E2FEF4CA25C387E800465EBA /* debugFuncs.swift */,
 				E2A2C6B225C351140016CDD5 /* TempiAudioInput.swift */,
 				E2A2C6B325C351150016CDD5 /* TempiFFT.swift */,
 				E2A2C6B425C351150016CDD5 /* TempiUtilities.swift */,
@@ -147,6 +150,7 @@
 				E2A2C6B625C351150016CDD5 /* TempiFFT.swift in Sources */,
 				E2A2C6B525C351150016CDD5 /* TempiAudioInput.swift in Sources */,
 				E2A2C6B725C351150016CDD5 /* TempiUtilities.swift in Sources */,
+				E2FEF4CB25C387E800465EBA /* debugFuncs.swift in Sources */,
 				E2A2C6A325C34FAE0016CDD5 /* ViewController.swift in Sources */,
 				E2A2C6A125C34FAE0016CDD5 /* AppDelegate.swift in Sources */,
 			);

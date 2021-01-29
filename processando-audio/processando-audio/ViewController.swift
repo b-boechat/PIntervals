@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     var freqsOverTime: [Float] = []
     
     
+    @IBOutlet weak var debugLabel: UILabel!
+    
     @IBOutlet weak var recordOutlet: UIButton!
     
     @IBOutlet weak var stopOutlet: UIButton!
@@ -56,6 +58,9 @@ class ViewController: UIViewController {
         
         audioInput = TempiAudioInput(audioInputCallback: audioInputCallback, sampleRate: 44100, numberOfChannels: 1)
         
+        // DEBUGGING
+        //checkBufferDuration()
+        
         stopOutlet.isEnabled = false
         recordOutlet.isEnabled = true
     }
@@ -68,6 +73,12 @@ class ViewController: UIViewController {
         fft.fftForward(samples)
         
         let magnitudes = fft.getMagnitudes()
+        
+        // DEBUGGING
+        // debugLabel.text = "\(numberOfFrames)"
+        //debugLabel.text = "\(samples.count)"
+        
+        
         let peak_mag = magnitudes.max()
         let freq : Float = Float(magnitudes.index(of: peak_mag!)!) * Float(44100.0) / Float(numberOfFrames)
         
