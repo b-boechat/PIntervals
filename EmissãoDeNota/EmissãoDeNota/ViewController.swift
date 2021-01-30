@@ -9,21 +9,13 @@
 import UIKit
 import AudioToolbox
 
-var sequence : MusicSequence? = nil
-var track : MusicTrack? = nil
-
 class ViewController: UIViewController {
     
+    let noteArray = ["45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68"]
     
-    var musicSequenceStatus: OSStatus = NewMusicSequence(&sequence)
-    var musicTrack = MusicSequenceNewTrack(sequence!, &track)
-    var time = MusicTimeStamp(1.0)
-    var note = MIDINoteMessage(channel: 0,
-                               note: 69,
-                               velocity: 255,
-                               releaseVelocity: 0,
-                               duration: 5.0)
-    var currentInterval : UInt8 = 0
+    var baseNote : Int = 0
+    var interval : Int = 0
+    var nextNote : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +30,10 @@ class ViewController: UIViewController {
     
     @IBAction func Options(_ sender: UIButton) {
     
-    let noteInterval = UInt8 (sender.tag + 1)
+    let noteInterval = Int (sender.tag + 1)
         
         
-        if noteInterval == currentInterval{
+        if noteInterval == interval{
             
           print("certo")
             
@@ -53,49 +45,45 @@ class ViewController: UIViewController {
     }
     
     @IBAction func RepeatInterval(_ sender: UIButton) {
-        PlayNote()
+        PlayNote(baseNote: baseNote,nextNote: nextNote)
     }
     
     @IBAction func EmitNewNote(_ sender: UIButton) {
     
-    currentInterval = CreateInterval()
-    PlayNote()
+    var currentInterval = CreateInterval()
+        print(currentInterval.0)
+        print(currentInterval.1)
+        print(currentInterval.2)
+        PlayNote(baseNote: currentInterval.0,nextNote: currentInterval.2)
     
     }
     
-    func CreateInterval() -> UInt8{
+    func CreateInterval() -> (Int,Int,Int){
         
-        var baseNote : UInt8 = 0
-        var interval : UInt8 = 0
-        var nextNote : UInt8 = 0
-        baseNote = UInt8(arc4random_uniform(24)+45) //Make a note between A3 and A5
-        interval = UInt8(arc4random_uniform(12)+1)  //Make an interval between Minor second to a Perfect Octave
+        var baseNote : Int = 0
+        var interval : Int = 0
+        var nextNote : Int = 0
+        baseNote = Int(arc4random_uniform(12)) //Make a note between A2 and A4
+        interval = Int(arc4random_uniform(12)+1)  //Make an interval between Minor second to a Perfect Octave
         nextNote = interval + baseNote
-        print (baseNote)
-        print (interval)
-        print(nextNote)
-        var notes: [UInt8] = [baseNote,nextNote]
-        time = 0
-        for index:Int in 0...1 {
-            var note = MIDINoteMessage(channel: 0,
-                                       note: notes[index],
-                                       velocity: 64,
-                                       releaseVelocity: 1,
-                                       duration: 1.0)
-            guard let track = track else {fatalError()}
-            musicTrack = MusicTrackNewMIDINoteEvent(track, time, &note)
-            time += 1
-        }
-        return interval
+        return (baseNote,interval,nextNote)
     }
     
-    func PlayNote(){
+    func PlayNote(baseNote: Int,nextNote: Int){
         
-        var musicPlayer : MusicPlayer? = nil
-        var player = NewMusicPlayer(&musicPlayer)
-        player = MusicPlayerSetSequence(musicPlayer!, sequence)
-        player = MusicPlayerStart(musicPlayer!)
-        
+        if let soundURL = Bundle.main.url(forResource: noteArray[baseNote], withExtension: "wav") {
+            var mySound: SystemSoundID = 0
+            AudioServicesCreateSystemSoundID(soundURL as CFURL, &mySound)
+            // Play
+            AudioServicesPlaySystemSound(mySound);
+            print("to aqui")
+        }
+        if let soundURL = Bundle.main.url(forResource: noteArray[nextNote], withExtension: "wav") {
+            var mySound: SystemSoundID = 0
+            AudioServicesCreateSystemSoundID(soundURL as CFURL, &mySound)
+            // Play
+            AudioServicesPlaySystemSound(mySound);
+        }
     }
     
 }

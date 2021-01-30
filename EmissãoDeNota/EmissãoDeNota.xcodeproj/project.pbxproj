@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13023EFB25C6116900E33C7D /* 46.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EE325C6116800E33C7D /* 46.wav */; };
+		13023EFC25C6116900E33C7D /* 48.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EE425C6116800E33C7D /* 48.wav */; };
+		13023EFD25C6116900E33C7D /* 59.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EE525C6116800E33C7D /* 59.wav */; };
+		13023EFE25C6116900E33C7D /* 62.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EE625C6116800E33C7D /* 62.wav */; };
+		13023EFF25C6116900E33C7D /* 58.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EE725C6116800E33C7D /* 58.wav */; };
+		13023F0025C6116900E33C7D /* 64.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EE825C6116800E33C7D /* 64.wav */; };
+		13023F0125C6116900E33C7D /* 53.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EE925C6116800E33C7D /* 53.wav */; };
+		13023F0225C6116900E33C7D /* 45.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EEA25C6116800E33C7D /* 45.wav */; };
+		13023F0325C6116900E33C7D /* 60.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EEB25C6116800E33C7D /* 60.wav */; };
+		13023F0425C6116900E33C7D /* 66.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EEC25C6116800E33C7D /* 66.wav */; };
+		13023F0525C6116900E33C7D /* 61.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EED25C6116800E33C7D /* 61.wav */; };
+		13023F0625C6116900E33C7D /* 47.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EEE25C6116800E33C7D /* 47.wav */; };
+		13023F0725C6116900E33C7D /* 67.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EEF25C6116800E33C7D /* 67.wav */; };
+		13023F0825C6116900E33C7D /* 68.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EF025C6116800E33C7D /* 68.wav */; };
+		13023F0925C6116900E33C7D /* 51.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EF125C6116900E33C7D /* 51.wav */; };
+		13023F0A25C6116900E33C7D /* 56.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EF225C6116900E33C7D /* 56.wav */; };
+		13023F0B25C6116900E33C7D /* 63.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EF325C6116900E33C7D /* 63.wav */; };
+		13023F0C25C6116900E33C7D /* 52.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EF425C6116900E33C7D /* 52.wav */; };
+		13023F0D25C6116900E33C7D /* 54.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EF525C6116900E33C7D /* 54.wav */; };
+		13023F0E25C6116900E33C7D /* 65.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EF625C6116900E33C7D /* 65.wav */; };
+		13023F0F25C6116900E33C7D /* 57.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EF725C6116900E33C7D /* 57.wav */; };
+		13023F1025C6116900E33C7D /* 49.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EF825C6116900E33C7D /* 49.wav */; };
+		13023F1125C6116900E33C7D /* 55.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EF925C6116900E33C7D /* 55.wav */; };
+		13023F1225C6116900E33C7D /* 50.wav in Resources */ = {isa = PBXBuildFile; fileRef = 13023EFA25C6116900E33C7D /* 50.wav */; };
 		137CFC9025C0C6540026DA67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137CFC8F25C0C6540026DA67 /* AppDelegate.swift */; };
 		137CFC9225C0C6540026DA67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137CFC9125C0C6540026DA67 /* ViewController.swift */; };
 		137CFC9525C0C6540026DA67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137CFC9325C0C6540026DA67 /* Main.storyboard */; };
@@ -15,6 +39,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13023EE325C6116800E33C7D /* 46.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 46.wav; path = "EmissãoDeNota/notas/46.wav"; sourceTree = SOURCE_ROOT; };
+		13023EE425C6116800E33C7D /* 48.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 48.wav; path = "EmissãoDeNota/notas/48.wav"; sourceTree = SOURCE_ROOT; };
+		13023EE525C6116800E33C7D /* 59.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 59.wav; path = "EmissãoDeNota/notas/59.wav"; sourceTree = SOURCE_ROOT; };
+		13023EE625C6116800E33C7D /* 62.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 62.wav; path = "EmissãoDeNota/notas/62.wav"; sourceTree = SOURCE_ROOT; };
+		13023EE725C6116800E33C7D /* 58.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 58.wav; path = "EmissãoDeNota/notas/58.wav"; sourceTree = SOURCE_ROOT; };
+		13023EE825C6116800E33C7D /* 64.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 64.wav; path = "EmissãoDeNota/notas/64.wav"; sourceTree = SOURCE_ROOT; };
+		13023EE925C6116800E33C7D /* 53.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 53.wav; path = "EmissãoDeNota/notas/53.wav"; sourceTree = SOURCE_ROOT; };
+		13023EEA25C6116800E33C7D /* 45.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 45.wav; path = "EmissãoDeNota/notas/45.wav"; sourceTree = SOURCE_ROOT; };
+		13023EEB25C6116800E33C7D /* 60.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 60.wav; path = "EmissãoDeNota/notas/60.wav"; sourceTree = SOURCE_ROOT; };
+		13023EEC25C6116800E33C7D /* 66.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 66.wav; path = "EmissãoDeNota/notas/66.wav"; sourceTree = SOURCE_ROOT; };
+		13023EED25C6116800E33C7D /* 61.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 61.wav; path = "EmissãoDeNota/notas/61.wav"; sourceTree = SOURCE_ROOT; };
+		13023EEE25C6116800E33C7D /* 47.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 47.wav; path = "EmissãoDeNota/notas/47.wav"; sourceTree = SOURCE_ROOT; };
+		13023EEF25C6116800E33C7D /* 67.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 67.wav; path = "EmissãoDeNota/notas/67.wav"; sourceTree = SOURCE_ROOT; };
+		13023EF025C6116800E33C7D /* 68.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 68.wav; path = "EmissãoDeNota/notas/68.wav"; sourceTree = SOURCE_ROOT; };
+		13023EF125C6116900E33C7D /* 51.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 51.wav; path = "EmissãoDeNota/notas/51.wav"; sourceTree = SOURCE_ROOT; };
+		13023EF225C6116900E33C7D /* 56.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 56.wav; path = "EmissãoDeNota/notas/56.wav"; sourceTree = SOURCE_ROOT; };
+		13023EF325C6116900E33C7D /* 63.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 63.wav; path = "EmissãoDeNota/notas/63.wav"; sourceTree = SOURCE_ROOT; };
+		13023EF425C6116900E33C7D /* 52.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 52.wav; path = "EmissãoDeNota/notas/52.wav"; sourceTree = SOURCE_ROOT; };
+		13023EF525C6116900E33C7D /* 54.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 54.wav; path = "EmissãoDeNota/notas/54.wav"; sourceTree = SOURCE_ROOT; };
+		13023EF625C6116900E33C7D /* 65.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 65.wav; path = "EmissãoDeNota/notas/65.wav"; sourceTree = SOURCE_ROOT; };
+		13023EF725C6116900E33C7D /* 57.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 57.wav; path = "EmissãoDeNota/notas/57.wav"; sourceTree = SOURCE_ROOT; };
+		13023EF825C6116900E33C7D /* 49.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 49.wav; path = "EmissãoDeNota/notas/49.wav"; sourceTree = SOURCE_ROOT; };
+		13023EF925C6116900E33C7D /* 55.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 55.wav; path = "EmissãoDeNota/notas/55.wav"; sourceTree = SOURCE_ROOT; };
+		13023EFA25C6116900E33C7D /* 50.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 50.wav; path = "EmissãoDeNota/notas/50.wav"; sourceTree = SOURCE_ROOT; };
 		137CFC8C25C0C6540026DA67 /* EmissãoDeNota.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EmissãoDeNota.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		137CFC8F25C0C6540026DA67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		137CFC9125C0C6540026DA67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +83,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13023EE225C6114100E33C7D /* MusicalNotes */ = {
+			isa = PBXGroup;
+			children = (
+				13023EEA25C6116800E33C7D /* 45.wav */,
+				13023EE325C6116800E33C7D /* 46.wav */,
+				13023EEE25C6116800E33C7D /* 47.wav */,
+				13023EE425C6116800E33C7D /* 48.wav */,
+				13023EF825C6116900E33C7D /* 49.wav */,
+				13023EFA25C6116900E33C7D /* 50.wav */,
+				13023EF125C6116900E33C7D /* 51.wav */,
+				13023EF425C6116900E33C7D /* 52.wav */,
+				13023EE925C6116800E33C7D /* 53.wav */,
+				13023EF525C6116900E33C7D /* 54.wav */,
+				13023EF925C6116900E33C7D /* 55.wav */,
+				13023EF225C6116900E33C7D /* 56.wav */,
+				13023EF725C6116900E33C7D /* 57.wav */,
+				13023EE725C6116800E33C7D /* 58.wav */,
+				13023EE525C6116800E33C7D /* 59.wav */,
+				13023EEB25C6116800E33C7D /* 60.wav */,
+				13023EED25C6116800E33C7D /* 61.wav */,
+				13023EE625C6116800E33C7D /* 62.wav */,
+				13023EF325C6116900E33C7D /* 63.wav */,
+				13023EE825C6116800E33C7D /* 64.wav */,
+				13023EF625C6116900E33C7D /* 65.wav */,
+				13023EEC25C6116800E33C7D /* 66.wav */,
+				13023EEF25C6116800E33C7D /* 67.wav */,
+				13023EF025C6116800E33C7D /* 68.wav */,
+			);
+			name = MusicalNotes;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		137CFC8325C0C6540026DA67 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +140,7 @@
 				137CFC9625C0C6560026DA67 /* Assets.xcassets */,
 				137CFC9825C0C6560026DA67 /* LaunchScreen.storyboard */,
 				137CFC9B25C0C6560026DA67 /* Info.plist */,
+				13023EE225C6114100E33C7D /* MusicalNotes */,
 			);
 			path = "EmissãoDeNota";
 			sourceTree = "<group>";
@@ -122,9 +203,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13023F1125C6116900E33C7D /* 55.wav in Resources */,
+				13023F1225C6116900E33C7D /* 50.wav in Resources */,
+				13023F0925C6116900E33C7D /* 51.wav in Resources */,
+				13023F0425C6116900E33C7D /* 66.wav in Resources */,
+				13023F0125C6116900E33C7D /* 53.wav in Resources */,
+				13023EFC25C6116900E33C7D /* 48.wav in Resources */,
+				13023F0025C6116900E33C7D /* 64.wav in Resources */,
+				13023F1025C6116900E33C7D /* 49.wav in Resources */,
+				13023EFB25C6116900E33C7D /* 46.wav in Resources */,
+				13023F0F25C6116900E33C7D /* 57.wav in Resources */,
+				13023F0625C6116900E33C7D /* 47.wav in Resources */,
+				13023F0525C6116900E33C7D /* 61.wav in Resources */,
+				13023F0A25C6116900E33C7D /* 56.wav in Resources */,
+				13023F0825C6116900E33C7D /* 68.wav in Resources */,
+				13023EFE25C6116900E33C7D /* 62.wav in Resources */,
+				13023F0D25C6116900E33C7D /* 54.wav in Resources */,
 				137CFC9A25C0C6560026DA67 /* LaunchScreen.storyboard in Resources */,
 				137CFC9725C0C6560026DA67 /* Assets.xcassets in Resources */,
+				13023EFD25C6116900E33C7D /* 59.wav in Resources */,
+				13023F0325C6116900E33C7D /* 60.wav in Resources */,
+				13023F0B25C6116900E33C7D /* 63.wav in Resources */,
 				137CFC9525C0C6540026DA67 /* Main.storyboard in Resources */,
+				13023F0E25C6116900E33C7D /* 65.wav in Resources */,
+				13023F0C25C6116900E33C7D /* 52.wav in Resources */,
+				13023F0225C6116900E33C7D /* 45.wav in Resources */,
+				13023EFF25C6116900E33C7D /* 58.wav in Resources */,
+				13023F0725C6116900E33C7D /* 67.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
