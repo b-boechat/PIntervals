@@ -68,8 +68,8 @@ class ViewController: UIViewController {
         var baseNote : UInt8 = 0
         var interval : UInt8 = 0
         var nextNote : UInt8 = 0
-        baseNote = UInt8(arc4random_uniform(24)+45)
-        interval = UInt8(arc4random_uniform(12)+1)
+        baseNote = UInt8(arc4random_uniform(24)+45) //Make a note between A3 and A5
+        interval = UInt8(arc4random_uniform(12)+1)  //Make an interval between Minor second to a Perfect Octave
         nextNote = interval + baseNote
         print (baseNote)
         print (interval)
