@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     // Buffer, acummulates callback samples until the desired number
     var accumulatedSamples: [Float] = []
-    let desiredNumSamplesFFT = 4096
+    let desiredNumSamplesFFT = 8192
     
     
     @IBOutlet weak var debugLabel: UILabel!
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
         audioInput = TempiAudioInput(audioInputCallback: audioInputCallback, sampleRate: sampleRate, numberOfChannels: 1)
         
         // DEBUGGING
-        checkBufferDuration()
+        //checkBufferDuration()
         
         setRecordingState(recordingFlag: false)
     }
@@ -81,11 +81,12 @@ class ViewController: UIViewController {
             //debugLabel.text = "\(accumulatedCount)"
             
             // FFT calculation
-            let magnitudes = calculateFFT(size: accumulatedCount)
+            var magnitudes = calculateFFT(size: accumulatedCount)
             
             // Frequency detection
-            let freq = detectFrequency(fftMagnitudes: magnitudes, numOfBins: accumulatedCount)
+            //let freq = detectFrequency(fftMagnitudes: magnitudes, numOfBins: accumulatedCount)
             
+            let freq = detectPitch(fftMagnitudes: &magnitudes, numOfBins: accumulatedCount, startFreq: 100.0, endFreq: 1200.0, maxNumberOfProducts: 3)
             freqsOverTime.append(freq)
             
         }
@@ -106,12 +107,62 @@ class ViewController: UIViewController {
         fft.windowType = TempiFFTWindowType.hanning
         fft.fftForward(accumulatedSamples)
         accumulatedSamples = []
+        //return fft.getMagnitudes()
         return fft.getDBMagnitudes()
     }
+    
+    
+    func detectPitch(fftMagnitudes: inout [Float], numOfBins: Int, startFreq: Float, endFreq: Float, maxNumberOfProducts: Int) -> Float {
+        /* Performs pitch detection on a given FFT output, using the Harmonic Product Spectrum technique.
+         fftMagnitudes: FFT output, magnitudes must be logarithmically scaled.
+         numOfBins: FFT input vector length. (fftMagnitudes has half this size, since from numOfBins/2 + 1 onwards the FFT information is redundant for real inputs and they're discarded)
+         startFreq and endFreq: Define minimum range of frequencies considered. They define a upper bound on the number of downsamples/products used in calculation.
+         maxNumberOfProducts: If provided, defines another ceiling on number of downsamples/products used in calculation.
+         
+         Returns detected pitch.
+        */
+        
+        // Gets the FFT index for startFreq, rounded down to the nearest bin.
+        let startIndex : Int = Int(floorf(Float(numOfBins)*startFreq/sampleRate))
+        // Gets the FFT index for endFreq, rounded up to the nearest bin.
+        let endIndex : Int = Int(ceilf(Float(numOfBins)*endFreq/sampleRate))
+
+
+        // Removes elements from fftMagnitudes before startIndex, and stores new size.
+        //let reducedFFTSize = numOfBins - startIndex
+        
+        //fftMagnitudes.removeSubrange(0..<startIndex)
+        
+        
+        let numberOfProducts = maxNumberOfProducts // For now.
+        
+        // Initialize spectrum with elements from reduced fftMagnitudes corresponding to the considered frequency range.
+        var harmonicProductSpectrum = Array(fftMagnitudes.prefix(upTo: endIndex+1))
+        
+        // Loops through each downsample
+        for k in 2...numberOfProducts {
+            // Pointwise sum harmonic spectrum with the downsampled reduced fftMagnitudes.
+            // Since magnitudes are logarithmically scaled, this corresponds to a product in linear scale.
+            for i in startIndex...endIndex {
+                harmonicProductSpectrum[i] += fftMagnitudes[k*i]
+            }
+        }
+        
+        // Find harmonic product spectrum peak.
+        let peakMag = harmonicProductSpectrum[startIndex...].max()
+        let peakIndex = harmonicProductSpectrum.index(of: peakMag!)
+        // Calculate the corresponding frequency.
+        let freq : Float = sampleRate/Float(numOfBins) * Float(peakIndex!)
+        
+        return freq
+    }
  
+    /*
+     
     func detectFrequency(fftMagnitudes: [Float], numOfBins: Int) -> Float {
-        // Performs frequency detection on a given FFT outputs.
-        // Assumes fftMagnitudes values are scaled to decibels, and numOfBins is equal to the FFT input vector's length (fftMagnitudes has half this size, since from numOfBins/2 + 1 onwards the FFT information is redundant for real inputs)
+        /* Performs frequency detection on a given FFT output, using peak bin magnitude and parabolic interpolation.
+         Assumes fftMagnitudes values are scaled to decibels, and numOfBins is equal to the FFT input vector's length (fftMagnitudes has half this size, since from numOfBins/2 + 1 onwards the FFT information is redundant for real inputs)
+        */
         
         // Get peak magnitude and index from output.
         let peakMag = fftMagnitudes.max()
@@ -125,7 +176,8 @@ class ViewController: UIViewController {
         
         return freq
     }
-    
+    */
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -57,6 +57,11 @@ import Accelerate
     // After performing the FFT, contains size/2 magnitudes, one for each frequency band.
     private var magnitudes: [Float] = []
     
+    
+    func getMagnitudes() -> [Float] {
+        return magnitudes
+    }
+    
     func getDBMagnitudes() -> [Float] {
         // Returns dB magnitude values, as in mag_db = 10log10(mag)
         let correction_constant = 10.0/log2f(10.0)
