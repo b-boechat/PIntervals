@@ -45,10 +45,10 @@ class TempiAudioInput: NSObject {
         do {
             
             if self.audioUnit == nil {
-                setupAudioSession()
                 setupAudioUnit()
             }
-            
+            // Edited (Bernardo)! This was previously inside the if block, but audioPlayerWrapper changes the setup, so this should always be called.
+            setupAudioSession()
             try self.audioSession.setActive(true)
             var osErr: OSStatus = 0
             

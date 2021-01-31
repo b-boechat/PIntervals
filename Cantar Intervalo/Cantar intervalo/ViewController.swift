@@ -11,11 +11,12 @@ import Pitchy
 
 // Possible states for the interval singing exercise.
 enum IntervalSingingStates {
-    case startup
-    case active
-    case recording
-    case right
-    case wrong
+    case startup // Before first exercise begins.
+    case setup // Setting up exercise.
+    case active // Exercise active and waiting for recording.
+    case recording // Recording answer to exercise.
+    case right // Correct answer received.
+    case wrong // Wrong answer received.
 }
 
 class ViewController: UIViewController {
@@ -43,9 +44,6 @@ class ViewController: UIViewController {
     
     // Instantied audio engine for playing notes.
     var audioPlayer: AudioPlayerWrapper?
-    
-    // Stores detected frequencies over consecutive frames.
-    //var freqsOverTime: [Float] = []
     
     // Buffer, acummulates callback samples until the desired number
     var accumulatedSamples: [Float] = []
@@ -91,7 +89,6 @@ class ViewController: UIViewController {
         default:
             assert(false, "Should not be able to press repeat button!")
         }
-        audioPlayer!.playAudio(notePitchyIndex: -1)
     }
     
     @IBAction func answerButton(_ sender: Any) {
@@ -109,24 +106,25 @@ class ViewController: UIViewController {
     
   
     @IBAction func recordButton(_ sender: Any) {
+        
         switch intervalSingingState {
         case .startup:
             // At startup, button is "Começar". If pressed, changes the program state to active.
-            changeIntervalSingingState(state: .active)
+            changeIntervalSingingState(state: .setup)
         case .active:
             // If program state is active, recording starts when the button is pressed.
             changeIntervalSingingState(state: .recording)
             
         case .right:
             // If exercised has been answered, button is "Próximo". If pressed, change program state to active.
-            changeIntervalSingingState(state: .active)
+            changeIntervalSingingState(state: .setup)
         
         case .wrong:
             // Same as case .right.
-            changeIntervalSingingState(state: .active)
+            changeIntervalSingingState(state: .setup)
             
-        case .recording:
-            assert(false, "Should not be able to press record button while recording!")
+        default:
+            assert(false, "Should not be able to press record button while recording or setting up!")
         }
     }
     
@@ -142,13 +140,13 @@ class ViewController: UIViewController {
         // Instantiates audioPlayer.
         audioPlayer = AudioPlayerWrapper()
         
+        
         // Initializes program state as startup.
         changeIntervalSingingState(state: .startup)
     }
     
     func changeIntervalSingingState(state: IntervalSingingStates) {
         // Changes program state and updates buttons and labels accordingly.
-        
         intervalSingingState = state
         switch state {
         case .startup:
@@ -156,8 +154,16 @@ class ViewController: UIViewController {
             recordOutlet.isEnabled = true // At this point, recordOutlet reads "Começar"
             repeatOutlet.isEnabled = false
             answerOutlet.isEnabled = false
-        case .active:
+        case .setup:
+            // Disables all buttons while setting up.
+            recordOutlet.isEnabled = false
+            repeatOutlet.isEnabled = false
+            answerOutlet.isEnabled = false
+            // Sets up randomized exercise, changing state to active in the process.
             setupExercise()
+        case .active:
+            // setupExercise() already does the work, no more updates are necessary.
+            ()
         case .recording:
             startRecordingWrapper()
         case .right:
@@ -184,8 +190,10 @@ class ViewController: UIViewController {
         
         // Updates labels.
         upperLabel.text = "Cante o intervalo pedido."
+        upperLabel.textColor = UIColor.white
         intervalLabel.alpha = 1.0
         intervalLabel.text = intervalsArray[intervalIndex]
+        intervalLabel.textColor = UIColor.white
         
         // Updates buttons.
         answerOutlet.alpha = 0.0
@@ -194,6 +202,8 @@ class ViewController: UIViewController {
         repeatOutlet.isEnabled = true
         recordOutlet.setTitle("Gravar", for: .normal)
         recordOutlet.isEnabled = true
+        
+        changeIntervalSingingState(state: .active)
         
         // Plays reference note.
         audioPlayer!.playAudio(notePitchyIndex: referenceNote)
@@ -229,7 +239,7 @@ class ViewController: UIViewController {
                 // If a note has been maintained, recording should stop.
                 audioInput.stopRecording()
                 // Compares note memory to the exercise answer.
-                if (compareToExpected(expectedPitchIndex: 4)) {
+                if (compareToExpected(expectedPitchIndex: targetNote)) {
                     DispatchQueue.main.async { self.changeIntervalSingingState(state: .right) }
                 }
                 else {
@@ -269,8 +279,13 @@ class ViewController: UIViewController {
         // Called when program changes to right (answer) state.
         
         DispatchQueue.main.async {
-            // Updates upper label.
+            // Updates labels.
             self.upperLabel.text = "Correto! :)"
+            self.upperLabel.textColor = UIColor.init(red: 0.670, // 171/255
+                                                     green: 1.0, // 255/255
+                                                     blue: 0.365, // 93/255
+                                                     alpha: 1)
+            self.intervalLabel.textColor = UIColor.init(red: 0.670, green: 1.0, blue: 0.365, alpha: 1)
             
             // Updates buttons.
             self.answerOutlet.alpha = 1.0
@@ -286,8 +301,13 @@ class ViewController: UIViewController {
         // Called when program changes to wrong (answer) state.
         
         DispatchQueue.main.async {
-            // Updates upper label.
+            // Updates labels.
             self.upperLabel.text = "Errado. :("
+            self.upperLabel.textColor = UIColor.init(red: 1.0, // 255/255
+                                                    green: 0.365, // 255/255
+                                                    blue: 0.282, // 93/255
+                                                    alpha: 1)
+            self.intervalLabel.textColor = UIColor.init(red: 1.0, green: 0.365, blue: 0.282, alpha: 1)
             
             // Updates buttons.
             self.answerOutlet.alpha = 1.0
