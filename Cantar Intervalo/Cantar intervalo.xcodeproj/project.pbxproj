@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		565BFBBF85C12B9274AD3535 /* Pods_Cantar_intervalo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7760332BA70595B9A54F6167 /* Pods_Cantar_intervalo.framework */; };
 		E2A2C6A125C34FAE0016CDD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6A025C34FAE0016CDD5 /* AppDelegate.swift */; };
 		E2A2C6A325C34FAE0016CDD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6A225C34FAE0016CDD5 /* ViewController.swift */; };
 		E2A2C6A625C34FAE0016CDD5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A2C6A425C34FAE0016CDD5 /* Main.storyboard */; };
@@ -19,7 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E2A2C69D25C34FAE0016CDD5 /* processando-audio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "processando-audio.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C222F30E877F781846D3658 /* Pods-Cantar intervalo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cantar intervalo.release.xcconfig"; path = "Target Support Files/Pods-Cantar intervalo/Pods-Cantar intervalo.release.xcconfig"; sourceTree = "<group>"; };
+		7356D742A5ED2F5570761B85 /* Pods-Cantar intervalo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cantar intervalo.debug.xcconfig"; path = "Target Support Files/Pods-Cantar intervalo/Pods-Cantar intervalo.debug.xcconfig"; sourceTree = "<group>"; };
+		7760332BA70595B9A54F6167 /* Pods_Cantar_intervalo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cantar_intervalo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2A2C69D25C34FAE0016CDD5 /* Cantar intervalo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cantar intervalo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A2C6A025C34FAE0016CDD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2A2C6A225C34FAE0016CDD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E2A2C6A525C34FAE0016CDD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -37,29 +41,50 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				565BFBBF85C12B9274AD3535 /* Pods_Cantar_intervalo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A8A25780C9FA4B25F33645F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7356D742A5ED2F5570761B85 /* Pods-Cantar intervalo.debug.xcconfig */,
+				4C222F30E877F781846D3658 /* Pods-Cantar intervalo.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		729375BED61823BBB0A8A915 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7760332BA70595B9A54F6167 /* Pods_Cantar_intervalo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E2A2C69425C34FAE0016CDD5 = {
 			isa = PBXGroup;
 			children = (
-				E2A2C69F25C34FAE0016CDD5 /* processando-audio */,
+				E2A2C69F25C34FAE0016CDD5 /* Cantar intervalo */,
 				E2A2C69E25C34FAE0016CDD5 /* Products */,
+				5A8A25780C9FA4B25F33645F /* Pods */,
+				729375BED61823BBB0A8A915 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		E2A2C69E25C34FAE0016CDD5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E2A2C69D25C34FAE0016CDD5 /* processando-audio.app */,
+				E2A2C69D25C34FAE0016CDD5 /* Cantar intervalo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E2A2C69F25C34FAE0016CDD5 /* processando-audio */ = {
+		E2A2C69F25C34FAE0016CDD5 /* Cantar intervalo */ = {
 			isa = PBXGroup;
 			children = (
 				E2A2C6A025C34FAE0016CDD5 /* AppDelegate.swift */,
@@ -73,27 +98,29 @@
 				E2A2C6A925C34FAF0016CDD5 /* LaunchScreen.storyboard */,
 				E2A2C6AC25C34FAF0016CDD5 /* Info.plist */,
 			);
-			path = "processando-audio";
+			path = "Cantar intervalo";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E2A2C69C25C34FAE0016CDD5 /* processando-audio */ = {
+		E2A2C69C25C34FAE0016CDD5 /* Cantar intervalo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2A2C6AF25C34FAF0016CDD5 /* Build configuration list for PBXNativeTarget "processando-audio" */;
+			buildConfigurationList = E2A2C6AF25C34FAF0016CDD5 /* Build configuration list for PBXNativeTarget "Cantar intervalo" */;
 			buildPhases = (
+				4965D460A87A995F293077DA /* [CP] Check Pods Manifest.lock */,
 				E2A2C69925C34FAE0016CDD5 /* Sources */,
 				E2A2C69A25C34FAE0016CDD5 /* Frameworks */,
 				E2A2C69B25C34FAE0016CDD5 /* Resources */,
+				E97D35EF19C6EAF74CBCAB69 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "processando-audio";
+			name = "Cantar intervalo";
 			productName = "processando-audio";
-			productReference = E2A2C69D25C34FAE0016CDD5 /* processando-audio.app */;
+			productReference = E2A2C69D25C34FAE0016CDD5 /* Cantar intervalo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -111,7 +138,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E2A2C69825C34FAE0016CDD5 /* Build configuration list for PBXProject "processando-audio" */;
+			buildConfigurationList = E2A2C69825C34FAE0016CDD5 /* Build configuration list for PBXProject "Cantar intervalo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -124,7 +151,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E2A2C69C25C34FAE0016CDD5 /* processando-audio */,
+				E2A2C69C25C34FAE0016CDD5 /* Cantar intervalo */,
 			);
 		};
 /* End PBXProject section */
@@ -141,6 +168,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4965D460A87A995F293077DA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cantar intervalo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E97D35EF19C6EAF74CBCAB69 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cantar intervalo/Pods-Cantar intervalo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cantar intervalo/Pods-Cantar intervalo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cantar intervalo/Pods-Cantar intervalo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E2A2C69925C34FAE0016CDD5 /* Sources */ = {
@@ -294,16 +363,17 @@
 		};
 		E2A2C6B025C34FAF0016CDD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7356D742A5ED2F5570761B85 /* Pods-Cantar intervalo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T9GQDZPKSJ;
-				INFOPLIST_FILE = "processando-audio/Info.plist";
+				INFOPLIST_FILE = "Cantar intervalo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.boechat.bernardo.processando-audio";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.boechat.bernardo.cantar-intervalo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -312,16 +382,17 @@
 		};
 		E2A2C6B125C34FAF0016CDD5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C222F30E877F781846D3658 /* Pods-Cantar intervalo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T9GQDZPKSJ;
-				INFOPLIST_FILE = "processando-audio/Info.plist";
+				INFOPLIST_FILE = "Cantar intervalo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.boechat.bernardo.processando-audio";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.boechat.bernardo.cantar-intervalo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -331,7 +402,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E2A2C69825C34FAE0016CDD5 /* Build configuration list for PBXProject "processando-audio" */ = {
+		E2A2C69825C34FAE0016CDD5 /* Build configuration list for PBXProject "Cantar intervalo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2A2C6AD25C34FAF0016CDD5 /* Debug */,
@@ -340,7 +411,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2A2C6AF25C34FAF0016CDD5 /* Build configuration list for PBXNativeTarget "processando-audio" */ = {
+		E2A2C6AF25C34FAF0016CDD5 /* Build configuration list for PBXNativeTarget "Cantar intervalo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2A2C6B025C34FAF0016CDD5 /* Debug */,
