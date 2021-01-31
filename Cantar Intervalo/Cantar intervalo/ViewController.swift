@@ -50,10 +50,19 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var debugLabel: UILabel!
-    @IBOutlet weak var recordOutlet: UIButton!
     @IBOutlet weak var freqLabel: UILabel!
+    @IBOutlet weak var upperLabel: UILabel!
+    @IBOutlet weak var intervalLabel: UILabel!
+    @IBOutlet weak var repeatOutlet: UIButton!
+    @IBOutlet weak var recordOutlet: UIButton!
     
     
+    
+    @IBAction func repeatButton(_ sender: Any) {
+    }
+    
+    
+  
     @IBAction func recordButton(_ sender: Any) {
         audioInput.startRecording()
         setRecordingState(recordingFlag: true)
@@ -109,7 +118,7 @@ class ViewController: UIViewController {
                     self.setRecordingState(recordingFlag: false)
                 }
                 // Compares note memory to the exercise answer.
-                if (compareToExpected(expectedPitchIndex: 0)) {
+                if (compareToExpected(expectedPitchIndex: 4)) {
                     correctAnswerReceived()
                 }
                 else {
@@ -144,7 +153,7 @@ class ViewController: UIViewController {
             self.debugLabel.text = "Wrong!"
             
         }
-        // Debug
+        // DEBUG
         if self.currentPitchIndex == nil {
             self.freqLabel.text = "Nenhuma"
         }
