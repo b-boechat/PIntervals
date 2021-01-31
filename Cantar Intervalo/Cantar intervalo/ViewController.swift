@@ -9,6 +9,15 @@
 import UIKit
 import Pitchy
 
+// Possible states for the interval singing exercise.
+enum IntervalSingingStates {
+    case startup
+    case active
+    case recording
+    case right
+    case wrong
+}
+
 class ViewController: UIViewController {
 
     // Recording sample rate.
@@ -29,8 +38,11 @@ class ViewController: UIViewController {
     let centOffsetTolerance : Double = 20.0
     
     
-    // Intantied audio engine for recording and callback. See viewDidLoad()
+    // Instanstied audio engine for recording and callback. See viewDidLoad()
     var audioInput: TempiAudioInput!
+    
+    // Instantied audio engine for playing notes.
+    var audioPlayer: AudioPlayerWrapper?
     
     // Stores detected frequencies over consecutive frames.
     //var freqsOverTime: [Float] = []
@@ -46,7 +58,13 @@ class ViewController: UIViewController {
     
     // Stores currently maintained pitch index (index is based on Pitchy's library, with A440Hz as 0.
     var currentPitchIndex : Int?
-
+    
+    // Stores current reference and target notes as Pitchy indexes. The default value is not used.
+    var targetNote : Int = 0
+    var referenceNote : Int = 0
+    
+    // Stores program state. The default value is not needed, since it's reinitialized after.
+    var intervalSingingState : IntervalSingingStates = .startup
     
     
     @IBOutlet weak var debugLabel: UILabel!
@@ -55,17 +73,61 @@ class ViewController: UIViewController {
     @IBOutlet weak var intervalLabel: UILabel!
     @IBOutlet weak var repeatOutlet: UIButton!
     @IBOutlet weak var recordOutlet: UIButton!
+    @IBOutlet weak var answerOutlet: UIButton!
     
     
     
     @IBAction func repeatButton(_ sender: Any) {
+        switch intervalSingingState {
+        case .active:
+            // Reference note can be repeated arbitrarily, on active, right or wrong states.
+            audioPlayer!.playAudio(notePitchyIndex: referenceNote)
+        case .right:
+            // Same as .active.
+            audioPlayer!.playAudio(notePitchyIndex: referenceNote)
+        case .wrong:
+            // Same as .active.
+            audioPlayer!.playAudio(notePitchyIndex: referenceNote)
+        default:
+            assert(false, "Should not be able to press repeat button!")
+        }
+        audioPlayer!.playAudio(notePitchyIndex: -1)
     }
     
+    @IBAction func answerButton(_ sender: Any) {
+        switch intervalSingingState {
+        case .right:
+            // Listening to the target note is allowed after answering, regardless of getting it right or wrong.
+            audioPlayer!.playAudio(notePitchyIndex: targetNote)
+        case .wrong:
+            // Same as case .right.
+            audioPlayer!.playAudio(notePitchyIndex: targetNote)
+        default:
+            assert(false, "Should not be able to press answer button!")
+        }
+    }
     
   
     @IBAction func recordButton(_ sender: Any) {
-        audioInput.startRecording()
-        setRecordingState(recordingFlag: true)
+        switch intervalSingingState {
+        case .startup:
+            // At startup, button is "Começar". If pressed, changes the program state to active.
+            changeIntervalSingingState(state: .active)
+        case .active:
+            // If program state is active, recording starts when the button is pressed.
+            changeIntervalSingingState(state: .recording)
+            
+        case .right:
+            // If exercised has been answered, button is "Próximo". If pressed, change program state to active.
+            changeIntervalSingingState(state: .active)
+        
+        case .wrong:
+            // Same as case .right.
+            changeIntervalSingingState(state: .active)
+            
+        case .recording:
+            assert(false, "Should not be able to press record button while recording!")
+        }
     }
     
     override func viewDidLoad() {
@@ -77,12 +139,64 @@ class ViewController: UIViewController {
         }
         audioInput = TempiAudioInput(audioInputCallback: audioInputCallback, sampleRate: sampleRate, numberOfChannels: 1)
         
-        //DEBUGGING
-        //let pitch = try! Pitch(frequency: 440.0)
-        //debugLabel.text = "\(pitch.note.index)"
-        //checkBufferDuration()
+        // Instantiates audioPlayer.
+        audioPlayer = AudioPlayerWrapper()
         
-        setRecordingState(recordingFlag: false)
+        // Initializes program state as startup.
+        changeIntervalSingingState(state: .startup)
+    }
+    
+    func changeIntervalSingingState(state: IntervalSingingStates) {
+        // Changes program state and updates buttons and labels accordingly.
+        
+        intervalSingingState = state
+        switch state {
+        case .startup:
+            // These are not needed, since default values can be established.
+            recordOutlet.isEnabled = true // At this point, recordOutlet reads "Começar"
+            repeatOutlet.isEnabled = false
+            answerOutlet.isEnabled = false
+        case .active:
+            setupExercise()
+        case .recording:
+            startRecordingWrapper()
+        case .right:
+            rightAnswerReceived()
+        case .wrong:
+            wrongAnswerReceived()
+        }
+    }
+    
+    func setupExercise() {
+        // Sets up randomized exercise.
+        
+        // Sorts interval.
+        let intervalIndex = Int( arc4random_uniform(UInt32(intervalsArray.count)) )
+        
+        
+        // Sorts target note, converting it to Pitchy index. Sorting should be careful such that referenceNote is also inside the allowed range.
+        targetNote = Int(arc4random_uniform(UInt32(
+            notesArray.count - (intervalIndex+1)
+        ))) + (intervalIndex+1) + firstNotePitchyIndex
+        
+        // Calculates reference from target, according to the interval.
+        referenceNote = targetNote - (intervalIndex+1)
+        
+        // Updates labels.
+        upperLabel.text = "Cante o intervalo pedido."
+        intervalLabel.alpha = 1.0
+        intervalLabel.text = intervalsArray[intervalIndex]
+        
+        // Updates buttons.
+        answerOutlet.alpha = 0.0
+        answerOutlet.isEnabled = false
+        repeatOutlet.alpha = 1.0
+        repeatOutlet.isEnabled = true
+        recordOutlet.setTitle("Gravar", for: .normal)
+        recordOutlet.isEnabled = true
+        
+        // Plays reference note.
+        audioPlayer!.playAudio(notePitchyIndex: referenceNote)
     }
     
     func gotSomeAudio(timeStamp: Double, numberOfFrames: Int, samples: [Float]) {
@@ -114,55 +228,82 @@ class ViewController: UIViewController {
             if updateNoteMemory(newPitch: newPitch) {
                 // If a note has been maintained, recording should stop.
                 audioInput.stopRecording()
-                DispatchQueue.main.async {
-                    self.setRecordingState(recordingFlag: false)
-                }
                 // Compares note memory to the exercise answer.
                 if (compareToExpected(expectedPitchIndex: 4)) {
-                    correctAnswerReceived()
+                    DispatchQueue.main.async { self.changeIntervalSingingState(state: .right) }
                 }
                 else {
-                    wrongAnswerReceived()
+                    DispatchQueue.main.async { self.changeIntervalSingingState(state: .wrong) }
                 }
             }
             
             // If maximum recording time has passed with no maintained note being identified, answer is also considered wrong.
             else if currentFramesNumber > maximumFramesNumber {
                 audioInput.stopRecording()
-                DispatchQueue.main.async {
-                    self.setRecordingState(recordingFlag: false)
-                }
-                wrongAnswerReceived()
+                DispatchQueue.main.async { self.changeIntervalSingingState(state: .wrong) }
             }
             
         }
         
     }
     
-    func correctAnswerReceived() {
-        DispatchQueue.main.async {
-            self.debugLabel.text = "Right!"
-        }
+    func startRecordingWrapper() {
+        // Called when program changes to recording state.
+        
+        // Disables all buttons while recording.
+        recordOutlet.isEnabled = false
+        repeatOutlet.isEnabled = false
+        answerOutlet.isEnabled = false // Not needed, answerOutlet is already disabled.
+        
+        // Resets note memory and samples buffer.
         currentPitchIndex = nil
         currentPersistence = 0
         currentFramesNumber = 0
+        accumulatedSamples = []
+        
+        // Starts recording
+        audioInput.startRecording()
+    }
+    
+    func rightAnswerReceived() {
+        // Called when program changes to right (answer) state.
+        
+        DispatchQueue.main.async {
+            // Updates upper label.
+            self.upperLabel.text = "Correto! :)"
+            
+            // Updates buttons.
+            self.answerOutlet.alpha = 1.0
+            self.answerOutlet.isEnabled = true
+            self.repeatOutlet.isEnabled = true
+            self.recordOutlet.setTitle("Próximo", for: .normal)
+            self.recordOutlet.isEnabled = true
+        }
+        
     }
     
     func wrongAnswerReceived() {
+        // Called when program changes to wrong (answer) state.
+        
         DispatchQueue.main.async {
-            self.debugLabel.text = "Wrong!"
+            // Updates upper label.
+            self.upperLabel.text = "Errado. :("
             
+            // Updates buttons.
+            self.answerOutlet.alpha = 1.0
+            self.answerOutlet.isEnabled = true
+            self.repeatOutlet.isEnabled = true
+            self.recordOutlet.setTitle("Próximo", for: .normal)
+            self.recordOutlet.isEnabled = true
         }
         // DEBUG
+        /*
         if self.currentPitchIndex == nil {
             self.freqLabel.text = "Nenhuma"
         }
         else {
             self.freqLabel.text = "\(self.currentPitchIndex!)"
-        }
-        currentPitchIndex = nil
-        currentPersistence = 0
-        currentFramesNumber = 0
+        } */
     }
     
     
@@ -202,11 +343,6 @@ class ViewController: UIViewController {
         return expectedPitchIndex == currentPitchIndex! || expectedPitchIndex == currentPitchIndex! + 12 || expectedPitchIndex == currentPitchIndex! - 12
     }
     
-
-    func setRecordingState (recordingFlag: Bool) {
-        // Enable or disable buttons accordingly, depending on whether the app is currently recording or not.
-        recordOutlet.isEnabled = !recordingFlag
-    }
     
     
     func calculateFFT(size: Int) -> [Float] {
@@ -220,7 +356,7 @@ class ViewController: UIViewController {
         // Calculates fft using TempiFFt.
         fft.fftForward(accumulatedSamples)
         
-        // Resets accumulatedSamples buffer.
+        // Resets accumulatedSamples buffer. (Not needed, since it's always done before recording.)
         accumulatedSamples = []
         //return fft.getMagnitudes()
         return fft.getDBMagnitudes()
