@@ -27,11 +27,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     @IBAction func Options(_ sender: UIButton) {
     
     let noteInterval = Int (sender.tag + 1)
-        
         
         if noteInterval == interval{
             
@@ -45,45 +43,51 @@ class ViewController: UIViewController {
     }
     
     @IBAction func RepeatInterval(_ sender: UIButton) {
-        PlayNote(baseNote: baseNote,nextNote: nextNote)
+   
+        let currentInterval = CreateInterval(state: false)
+        baseNote = currentInterval.0
+        nextNote = currentInterval.2
+        PlayNote(currentNote: baseNote)
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false){(_) in
+            self.PlayNote(currentNote: self.nextNote)
+            
+        }
     }
     
     @IBAction func EmitNewNote(_ sender: UIButton) {
     
-    var currentInterval = CreateInterval()
+        let currentInterval = CreateInterval(state:true)
         print(currentInterval.0)
         print(currentInterval.1)
         print(currentInterval.2)
-        PlayNote(baseNote: currentInterval.0,nextNote: currentInterval.2)
+        baseNote = currentInterval.0
+        nextNote = currentInterval.2
+        PlayNote(currentNote: baseNote)
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false){(_) in
+            self.PlayNote(currentNote: self.nextNote)
+            
+        }
     
     }
     
-    func CreateInterval() -> (Int,Int,Int){
+    func CreateInterval(state: Bool) -> (Int,Int,Int){
         
-        var baseNote : Int = 0
-        var interval : Int = 0
-        var nextNote : Int = 0
-        baseNote = Int(arc4random_uniform(12)) //Make a note between A2 and A4
-        interval = Int(arc4random_uniform(12)+1)  //Make an interval between Minor second to a Perfect Octave
-        nextNote = interval + baseNote
+        if state == true{
+            baseNote = Int(arc4random_uniform(12)) //Make a note between A2 and A4
+            interval = Int(arc4random_uniform(12)+1)  //Make an interval between Minor second to a Perfect Octave
+            nextNote = interval + baseNote
+        }
         return (baseNote,interval,nextNote)
     }
     
-    func PlayNote(baseNote: Int,nextNote: Int){
+    func PlayNote(currentNote: Int){
         
-        if let soundURL = Bundle.main.url(forResource: noteArray[baseNote], withExtension: "wav") {
+        if let soundURL = Bundle.main.url(forResource: noteArray[currentNote], withExtension: "wav") {
             var mySound: SystemSoundID = 0
             AudioServicesCreateSystemSoundID(soundURL as CFURL, &mySound)
             // Play
             AudioServicesPlaySystemSound(mySound);
-            print("to aqui")
-        }
-        if let soundURL = Bundle.main.url(forResource: noteArray[nextNote], withExtension: "wav") {
-            var mySound: SystemSoundID = 0
-            AudioServicesCreateSystemSoundID(soundURL as CFURL, &mySound)
-            // Play
-            AudioServicesPlaySystemSound(mySound);
-        }
+            }
     }
     
 }
