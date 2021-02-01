@@ -11,6 +11,7 @@ import AudioToolbox
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var answer: UILabel!
     let noteArray = ["45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68"]
     
     var baseNote : Int = 0
@@ -32,11 +33,11 @@ class ViewController: UIViewController {
     let noteInterval = Int (sender.tag + 1)
         
         if noteInterval == interval{
-            
-          print("certo")
+            answer.text = "Correto"
+            print("certo")
             
         }else{
-            
+            answer.text = "Errado"
             print("errado")
         }
     
