@@ -34,11 +34,13 @@ class ViewController: UIViewController {
         
         if noteInterval == interval{
             answer.text = "Correto"
-            print("certo")
+            answer.textColor = UIColor.init(red: 0.670, green: 1.0, blue: 0.365, alpha: 1)
+            //print("certo")
             
         }else{
             answer.text = "Errado"
-            print("errado")
+            answer.textColor = UIColor.init(red: 1.0, green: 0.365, blue: 0.282, alpha: 1)
+            //print("errado")
         }
     
     }
@@ -58,9 +60,11 @@ class ViewController: UIViewController {
     @IBAction func EmitNewNote(_ sender: UIButton) {
     
         let currentInterval = CreateInterval(state:true)
-        print(currentInterval.0)
+        answer.text = "Qual intervalo?"
+        answer.textColor = UIColor.white
+        //print(currentInterval.0)
         print(currentInterval.1)
-        print(currentInterval.2)
+        //print(currentInterval.2)
         baseNote = currentInterval.0
         nextNote = currentInterval.2
         PlayNote(currentNote: baseNote)
