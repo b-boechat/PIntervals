@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension ViewController {
+extension SingingExerciseViewController {
     
     func checkBufferDuration() {
         let bufferDuration = audioInput.audioSession.ioBufferDuration
