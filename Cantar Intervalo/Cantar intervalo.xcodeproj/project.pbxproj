@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		565BFBBF85C12B9274AD3535 /* Pods_Cantar_intervalo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7760332BA70595B9A54F6167 /* Pods_Cantar_intervalo.framework */; };
-		E2348C1625DB599F00CB29B8 /* IdentificationExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2348C1525DB599F00CB29B8 /* IdentificationExerciseViewController.swift */; };
-		E2348C1925DB59CB00CB29B8 /* IdentificationExercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2348C1725DB59CA00CB29B8 /* IdentificationExercise.storyboard */; };
+		E2348C1E25DB5E9F00CB29B8 /* IdentificationExercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2348C1C25DB5E9F00CB29B8 /* IdentificationExercise.storyboard */; };
+		E2348C2025DB5EF700CB29B8 /* IdentificationExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2348C1F25DB5EF700CB29B8 /* IdentificationExerciseViewController.swift */; };
 		E2A2C6A125C34FAE0016CDD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6A025C34FAE0016CDD5 /* AppDelegate.swift */; };
 		E2A2C6A325C34FAE0016CDD5 /* SingingExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6A225C34FAE0016CDD5 /* SingingExerciseViewController.swift */; };
 		E2A2C6A625C34FAE0016CDD5 /* SingingExercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A2C6A425C34FAE0016CDD5 /* SingingExercise.storyboard */; };
@@ -28,8 +28,8 @@
 		4C222F30E877F781846D3658 /* Pods-Cantar intervalo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cantar intervalo.release.xcconfig"; path = "Target Support Files/Pods-Cantar intervalo/Pods-Cantar intervalo.release.xcconfig"; sourceTree = "<group>"; };
 		7356D742A5ED2F5570761B85 /* Pods-Cantar intervalo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cantar intervalo.debug.xcconfig"; path = "Target Support Files/Pods-Cantar intervalo/Pods-Cantar intervalo.debug.xcconfig"; sourceTree = "<group>"; };
 		7760332BA70595B9A54F6167 /* Pods_Cantar_intervalo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cantar_intervalo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2348C1525DB599F00CB29B8 /* IdentificationExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IdentificationExerciseViewController.swift; path = "../../EmissãoDeNota/EmissãoDeNota/IdentificationExerciseViewController.swift"; sourceTree = "<group>"; };
-		E2348C1825DB59CA00CB29B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../EmissãoDeNota/EmissãoDeNota/Base.lproj/IdentificationExercise.storyboard"; sourceTree = "<group>"; };
+		E2348C1D25DB5E9F00CB29B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/IdentificationExercise.storyboard; sourceTree = "<group>"; };
+		E2348C1F25DB5EF700CB29B8 /* IdentificationExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentificationExerciseViewController.swift; sourceTree = "<group>"; };
 		E2A2C69D25C34FAE0016CDD5 /* Cantar intervalo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cantar intervalo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A2C6A025C34FAE0016CDD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2A2C6A225C34FAE0016CDD5 /* SingingExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingExerciseViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +96,8 @@
 		E2A2C69F25C34FAE0016CDD5 /* Cantar intervalo */ = {
 			isa = PBXGroup;
 			children = (
+				E2348C1F25DB5EF700CB29B8 /* IdentificationExerciseViewController.swift */,
+				E2348C1C25DB5E9F00CB29B8 /* IdentificationExercise.storyboard */,
 				E2A2C6A025C34FAE0016CDD5 /* AppDelegate.swift */,
 				E2A2C6A225C34FAE0016CDD5 /* SingingExerciseViewController.swift */,
 				E2C67F8625C6527B001E9B2A /* definitions.swift */,
@@ -105,8 +107,6 @@
 				E2A2C6B325C351150016CDD5 /* TempiFFT.swift */,
 				E2A2C6B425C351150016CDD5 /* TempiUtilities.swift */,
 				E2A2C6A425C34FAE0016CDD5 /* SingingExercise.storyboard */,
-				E2348C1725DB59CA00CB29B8 /* IdentificationExercise.storyboard */,
-				E2348C1525DB599F00CB29B8 /* IdentificationExerciseViewController.swift */,
 				E2C0B58F25C63B1300A4865E /* notas */,
 				E2A2C6A725C34FAF0016CDD5 /* Assets.xcassets */,
 				E2A2C6A925C34FAF0016CDD5 /* LaunchScreen.storyboard */,
@@ -176,10 +176,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2A2C6AB25C34FAF0016CDD5 /* LaunchScreen.storyboard in Resources */,
-				E2348C1925DB59CB00CB29B8 /* IdentificationExercise.storyboard in Resources */,
 				E2A2C6A825C34FAF0016CDD5 /* Assets.xcassets in Resources */,
 				E2C0B59025C63B1300A4865E /* notas in Resources */,
 				E2A2C6A625C34FAE0016CDD5 /* SingingExercise.storyboard in Resources */,
+				E2348C1E25DB5E9F00CB29B8 /* IdentificationExercise.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,9 +225,9 @@
 				E2C67F8725C6527B001E9B2A /* definitions.swift in Sources */,
 				E2A2C6B625C351150016CDD5 /* TempiFFT.swift in Sources */,
 				E2C67F8525C63D5D001E9B2A /* audioPlayer.swift in Sources */,
-				E2348C1625DB599F00CB29B8 /* IdentificationExerciseViewController.swift in Sources */,
 				E2A2C6B525C351150016CDD5 /* TempiAudioInput.swift in Sources */,
 				E2A2C6B725C351150016CDD5 /* TempiUtilities.swift in Sources */,
+				E2348C2025DB5EF700CB29B8 /* IdentificationExerciseViewController.swift in Sources */,
 				E2FEF4CB25C387E800465EBA /* debugFuncs.swift in Sources */,
 				E2A2C6A325C34FAE0016CDD5 /* SingingExerciseViewController.swift in Sources */,
 				E2A2C6A125C34FAE0016CDD5 /* AppDelegate.swift in Sources */,
@@ -237,10 +237,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E2348C1725DB59CA00CB29B8 /* IdentificationExercise.storyboard */ = {
+		E2348C1C25DB5E9F00CB29B8 /* IdentificationExercise.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E2348C1825DB59CA00CB29B8 /* Base */,
+				E2348C1D25DB5E9F00CB29B8 /* Base */,
 			);
 			name = IdentificationExercise.storyboard;
 			sourceTree = "<group>";
