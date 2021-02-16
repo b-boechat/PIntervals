@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SingingExerciseViewController.swift
 //  processando-audio
 //
 //  Created by Macintosh on 28/01/21.
@@ -19,7 +19,7 @@ enum IntervalSingingStates {
     case wrong // Wrong answer received.
 }
 
-class ViewController: UIViewController {
+class SingingExerciseViewController: UIViewController {
 
     // Recording sample rate.
     let sampleRate : Float = 44100.0

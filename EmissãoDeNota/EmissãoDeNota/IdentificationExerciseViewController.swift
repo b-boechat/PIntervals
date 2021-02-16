@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  IdentificationExerciseViewController.swift
 //  TesteEmissaoDeNota
 //
 //  Created by André Cardozo on 23/01/2021.
@@ -9,7 +9,7 @@
 import UIKit
 import AudioToolbox
 
-class ViewController: UIViewController {
+class IdentificationExerciseViewController: UIViewController {
     
     @IBOutlet weak var answer: UILabel!
     let noteArray = ["45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68"]
@@ -87,7 +87,7 @@ class ViewController: UIViewController {
     
     func PlayNote(currentNote: Int){
         
-        if let soundURL = Bundle.main.url(forResource: noteArray[currentNote], withExtension: "wav") {
+        if let soundURL = Bundle.main.url(forResource: noteArray[currentNote], withExtension: "wav", subdirectory: "notas") {
             var mySound: SystemSoundID = 0
             AudioServicesCreateSystemSoundID(soundURL as CFURL, &mySound)
             // Play
