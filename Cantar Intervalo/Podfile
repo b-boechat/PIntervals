@@ -7,5 +7,4 @@ target 'Cantar intervalo' do
 
   # Pods for Cantar intervalo
 	pod 'Pitchy'
-
 end

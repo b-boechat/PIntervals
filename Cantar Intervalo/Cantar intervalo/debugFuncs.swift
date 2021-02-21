@@ -14,5 +14,8 @@ extension SingingExerciseViewController {
         let bufferDuration = audioInput.audioSession.ioBufferDuration
         debugLabel.text = "\(bufferDuration)"
     }
+
     
 }
+
+

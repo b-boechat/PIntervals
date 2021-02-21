@@ -10,6 +10,7 @@
 		565BFBBF85C12B9274AD3535 /* Pods_Cantar_intervalo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7760332BA70595B9A54F6167 /* Pods_Cantar_intervalo.framework */; };
 		E2348C1E25DB5E9F00CB29B8 /* IdentificationExercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2348C1C25DB5E9F00CB29B8 /* IdentificationExercise.storyboard */; };
 		E2348C2025DB5EF700CB29B8 /* IdentificationExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2348C1F25DB5EF700CB29B8 /* IdentificationExerciseViewController.swift */; };
+		E2348C4425DDC79D00CB29B8 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2348C4225DDC79D00CB29B8 /* DataModel.xcdatamodeld */; };
 		E2A2C6A125C34FAE0016CDD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6A025C34FAE0016CDD5 /* AppDelegate.swift */; };
 		E2A2C6A325C34FAE0016CDD5 /* SingingExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6A225C34FAE0016CDD5 /* SingingExerciseViewController.swift */; };
 		E2A2C6A625C34FAE0016CDD5 /* SingingExercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A2C6A425C34FAE0016CDD5 /* SingingExercise.storyboard */; };
@@ -30,6 +31,7 @@
 		7760332BA70595B9A54F6167 /* Pods_Cantar_intervalo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cantar_intervalo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2348C1D25DB5E9F00CB29B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/IdentificationExercise.storyboard; sourceTree = "<group>"; };
 		E2348C1F25DB5EF700CB29B8 /* IdentificationExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentificationExerciseViewController.swift; sourceTree = "<group>"; };
+		E2348C4325DDC79D00CB29B8 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		E2A2C69D25C34FAE0016CDD5 /* Cantar intervalo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cantar intervalo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A2C6A025C34FAE0016CDD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2A2C6A225C34FAE0016CDD5 /* SingingExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingExerciseViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				E2348C1F25DB5EF700CB29B8 /* IdentificationExerciseViewController.swift */,
 				E2348C1C25DB5E9F00CB29B8 /* IdentificationExercise.storyboard */,
 				E2A2C6A025C34FAE0016CDD5 /* AppDelegate.swift */,
+				E2348C4225DDC79D00CB29B8 /* DataModel.xcdatamodeld */,
 				E2A2C6A225C34FAE0016CDD5 /* SingingExerciseViewController.swift */,
 				E2C67F8625C6527B001E9B2A /* definitions.swift */,
 				E2C67F8425C63D5D001E9B2A /* audioPlayer.swift */,
@@ -223,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2C67F8725C6527B001E9B2A /* definitions.swift in Sources */,
+				E2348C4425DDC79D00CB29B8 /* DataModel.xcdatamodeld in Sources */,
 				E2A2C6B625C351150016CDD5 /* TempiFFT.swift in Sources */,
 				E2C67F8525C63D5D001E9B2A /* audioPlayer.swift in Sources */,
 				E2A2C6B525C351150016CDD5 /* TempiAudioInput.swift in Sources */,
@@ -438,6 +442,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E2348C4225DDC79D00CB29B8 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E2348C4325DDC79D00CB29B8 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = E2348C4325DDC79D00CB29B8 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E2A2C69525C34FAE0016CDD5 /* Project object */;
 }
