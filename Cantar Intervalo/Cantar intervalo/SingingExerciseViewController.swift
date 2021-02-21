@@ -477,7 +477,7 @@ class SingingExerciseViewController: UIViewController {
             exerciseResult.answeredInterval = NO_NOTE_MAINTAINED
         }
         else {
-            exerciseResult.answeredInterval = getIntervalIndex(singed: currentPitchIndex!, reference: referenceNote)
+            exerciseResult.answeredInterval = getInterval(target: currentPitchIndex!, reference: referenceNote)
         }
         do {
             
@@ -516,27 +516,6 @@ class SingingExerciseViewController: UIViewController {
         }
     }
     
-    
-    
-    
-}
-
-
-func calculateMedian(array: [Float]) -> Float {
-    // Helper function that calculates median of Float array.
-    let sorted = array.sorted()
-    
-    if sorted.count % 2 == 0 {
-        return (array[sorted.count/2] + array[sorted.count/2 - 1])/2.0
-    }
-    else {
-        return array[sorted.count/2]
-    }
-}
-
-func getIntervalIndex(singed: Int, reference: Int) -> Int16 {
-    let rem = Int16((singed - reference - 1) % 12)
-    return rem >= 0 ? rem : rem + 12
 }
 
 

@@ -11,6 +11,9 @@ import AudioToolbox
 
 class IdentificationExerciseViewController: UIViewController {
     
+    // Context for core data storage.
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     @IBOutlet weak var answer: UILabel!
     let noteArray = ["45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68"]
     
@@ -44,13 +47,15 @@ class IdentificationExerciseViewController: UIViewController {
             if noteInterval == interval {
                 answer.text = "Correto"
                 answer.textColor = UIColor.init(red: 0.670, green: 1.0, blue: 0.365, alpha: 1)
+                saveExerciseResult(result: true, answeredInterval: noteInterval)
                 //print("certo")
-            
+                
             }
             else {
                 answer.text = "Errado"
                 answer.textColor = UIColor.init(red: 1.0, green: 0.365, blue: 0.282, alpha: 1)
-            //print("errado")
+                saveExerciseResult(result: false, answeredInterval: noteInterval)
+                //print("errado")
             }
             
             answerButtonsOutlets[interval-1].setTitleColor(UIColor.init(red: 0.670, green: 1.0, blue: 0.365, alpha: 1), for: UIControlState.disabled)
@@ -106,6 +111,23 @@ class IdentificationExerciseViewController: UIViewController {
             nextNote = interval + baseNote
         }
         return (baseNote,interval,nextNote)
+    }
+    
+    
+    func saveExerciseResult(result: Bool, answeredInterval: Int) {
+        // Saves exercise result as core data.
+        let exerciseResult = ExerciseResult(context: context)
+        exerciseResult.date = Date()
+        exerciseResult.correctInterval = Int16(interval)
+        exerciseResult.exerciseType = ExerciseType.identificationExercise.rawValue
+        exerciseResult.result = result
+        exerciseResult.answeredInterval = Int16(answeredInterval)
+        do {
+            try context.save()
+        }
+        catch {
+            print("Error saving context: \(error)")
+        }
     }
     
     /*func PlayNote(currentNote: Int){
