@@ -8,6 +8,7 @@
 
 import UIKit
 import Pitchy
+import CoreData
 
 // Possible states for the interval singing exercise.
 enum IntervalSingingStates {
@@ -20,6 +21,9 @@ enum IntervalSingingStates {
 }
 
 class SingingExerciseViewController: UIViewController {
+    
+    // Temporary, just for debugging.
+    var results = [ExerciseResult]()
 
     // Recording sample rate.
     let sampleRate : Float = 44100.0
@@ -64,6 +68,9 @@ class SingingExerciseViewController: UIViewController {
     // Stores program state. The default value is not needed, since it's reinitialized after.
     var intervalSingingState : IntervalSingingStates = .startup
     
+    // Context for core data storage.
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     
     @IBOutlet weak var debugLabel: UILabel!
     @IBOutlet weak var freqLabel: UILabel!
@@ -79,13 +86,13 @@ class SingingExerciseViewController: UIViewController {
         switch intervalSingingState {
         case .active:
             // Reference note can be repeated arbitrarily, on active, right or wrong states.
-            audioPlayer!.playAudio(notePitchyIndex: referenceNote)
+            audioPlayer!.playAudio(noteIndex: referenceNote)
         case .right:
             // Same as .active.
-            audioPlayer!.playAudio(notePitchyIndex: referenceNote)
+            audioPlayer!.playAudio(noteIndex: referenceNote)
         case .wrong:
             // Same as .active.
-            audioPlayer!.playAudio(notePitchyIndex: referenceNote)
+            audioPlayer!.playAudio(noteIndex: referenceNote)
         default:
             assert(false, "Should not be able to press repeat button!")
         }
@@ -95,10 +102,10 @@ class SingingExerciseViewController: UIViewController {
         switch intervalSingingState {
         case .right:
             // Listening to the target note is allowed after answering, regardless of getting it right or wrong.
-            audioPlayer!.playAudio(notePitchyIndex: targetNote)
+            audioPlayer!.playAudio(noteIndex: targetNote)
         case .wrong:
             // Same as case .right.
-            audioPlayer!.playAudio(notePitchyIndex: targetNote)
+            audioPlayer!.playAudio(noteIndex: targetNote)
         default:
             assert(false, "Should not be able to press answer button!")
         }
@@ -206,7 +213,7 @@ class SingingExerciseViewController: UIViewController {
         changeIntervalSingingState(state: .active)
         
         // Plays reference note.
-        audioPlayer!.playAudio(notePitchyIndex: referenceNote)
+        audioPlayer!.playAudio(noteIndex: referenceNote)
     }
     
     func gotSomeAudio(timeStamp: Double, numberOfFrames: Int, samples: [Float]) {
@@ -263,7 +270,7 @@ class SingingExerciseViewController: UIViewController {
         // Disables all buttons while recording.
         recordOutlet.isEnabled = false
         repeatOutlet.isEnabled = false
-        answerOutlet.isEnabled = false // Not needed, answerOutlet is already disabled.
+        answerOutlet.isEnabled = false // Just for clarification, since answerOutlet is already disabled.
         
         // Resets note memory and samples buffer.
         currentPitchIndex = nil
@@ -293,6 +300,9 @@ class SingingExerciseViewController: UIViewController {
             self.repeatOutlet.isEnabled = true
             self.recordOutlet.setTitle("Próximo", for: .normal)
             self.recordOutlet.isEnabled = true
+            
+            self.saveExerciseResult(result: true)
+            
         }
         
     }
@@ -315,6 +325,8 @@ class SingingExerciseViewController: UIViewController {
             self.repeatOutlet.isEnabled = true
             self.recordOutlet.setTitle("Próximo", for: .normal)
             self.recordOutlet.isEnabled = true
+            
+            self.saveExerciseResult(result: false)
         }
         // DEBUG
         /*
@@ -454,23 +466,57 @@ class SingingExerciseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func saveExerciseResult(result: Bool) {
+        // Saves exercise result as core data.
+        let exerciseResult = ExerciseResult(context: context)
+        exerciseResult.date = Date()
+        exerciseResult.correctInterval = Int16(targetNote-referenceNote-1)
+        exerciseResult.exerciseType = ExerciseType.singingExercise.rawValue
+        exerciseResult.result = result
+        if currentPersistence < desiredNotePersistence {
+            exerciseResult.answeredInterval = NO_NOTE_MAINTAINED
+        }
+        else {
+            exerciseResult.answeredInterval = getInterval(target: currentPitchIndex!, reference: referenceNote)
+        }
+        do {
+            
+            try context.save()
+        }
+        catch {
+            print("Error saving context: \(error)")
+        }
+    }
 
     
-}
-
-
-func calculateMedian(array: [Float]) -> Float {
-    // Helper function that calculates median of Float array.
-    let sorted = array.sorted()
+    @IBAction func debugButtonPressed(_ sender: Any) {
+        // Purely for debugging.
+        for result in results {
+            context.delete(result)
+        }
+        results.removeAll()
+        do {
+            try context.save()
+        }
+        catch {
+            print("Error saving context: \(error)")
+        }
+        
+    }
     
-    if sorted.count % 2 == 0 {
-        return (array[sorted.count/2] + array[sorted.count/2 - 1])/2.0
+    @IBAction func otherDebugButtonPressed(_ sender: Any) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request : NSFetchRequest<ExerciseResult> = ExerciseResult.fetchRequest()
+        
+        do {
+            results = try context.fetch(request)
+        }
+        catch {
+            print("Error fetching request. \(error)")
+        }
     }
-    else {
-        return array[sorted.count/2]
-    }
+    
 }
-
 
 
 

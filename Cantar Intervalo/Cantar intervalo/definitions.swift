@@ -28,3 +28,11 @@ let notesArray : [String] = ["45", "46", "47", "48", "49", "50", "51", "52", "53
 // First note (A2) Pitchy index.
 let firstNotePitchyIndex : Int = -24
 
+// Exercise types. Raw value of Int16, so they can be saved with Core Data.
+enum ExerciseType : Int16 {
+    case singingExercise = 0
+    case identificationExercise = 1
+}
+
+// Constant used for Core Data storage for the singing exercise.
+let NO_NOTE_MAINTAINED: Int16 = -1

@@ -185,6 +185,18 @@
                     </view>
                     <connections>
                         <outlet property="answer" destination="6VV-BX-614" id="htn-C0-tCV"/>
+                        <outletCollection property="answerButtonsOutlets" destination="kiQ-KI-Nb2" collectionClass="NSMutableArray" id="7Q6-rU-2eZ"/>
+                        <outletCollection property="answerButtonsOutlets" destination="GIQ-aD-CcR" collectionClass="NSMutableArray" id="Kib-lv-NKX"/>
+                        <outletCollection property="answerButtonsOutlets" destination="ZTc-YY-IQ3" collectionClass="NSMutableArray" id="Tjh-cA-G5T"/>
+                        <outletCollection property="answerButtonsOutlets" destination="fJj-eU-lyb" collectionClass="NSMutableArray" id="QCL-fZ-itw"/>
+                        <outletCollection property="answerButtonsOutlets" destination="HOh-vc-Xt1" collectionClass="NSMutableArray" id="Dg2-6Y-swG"/>
+                        <outletCollection property="answerButtonsOutlets" destination="jvk-Fe-m9t" collectionClass="NSMutableArray" id="fle-BP-3JT"/>
+                        <outletCollection property="answerButtonsOutlets" destination="6xu-z5-Vqv" collectionClass="NSMutableArray" id="yJk-lF-tk0"/>
+                        <outletCollection property="answerButtonsOutlets" destination="LEN-cg-0ay" collectionClass="NSMutableArray" id="ecf-H5-sUw"/>
+                        <outletCollection property="answerButtonsOutlets" destination="nuY-Cf-aGg" collectionClass="NSMutableArray" id="wNp-jP-oiB"/>
+                        <outletCollection property="answerButtonsOutlets" destination="slF-tC-SIz" collectionClass="NSMutableArray" id="pwx-3h-u2i"/>
+                        <outletCollection property="answerButtonsOutlets" destination="jtr-jW-yPQ" collectionClass="NSMutableArray" id="Yd7-23-tF4"/>
+                        <outletCollection property="answerButtonsOutlets" destination="wgf-ho-ctE" collectionClass="NSMutableArray" id="qjF-0a-SiG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

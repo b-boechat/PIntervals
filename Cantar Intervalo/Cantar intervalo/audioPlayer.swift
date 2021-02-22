@@ -18,11 +18,20 @@ class AudioPlayerWrapper : NSObject, AVAudioPlayerDelegate {
     // Pitchy index -24 (A2) corresponds to noteArray index 0
     let offsetFromPitchyIndex = 24
     
-    func playAudio (notePitchyIndex: Int) {
+    func playAudio (noteIndex: Int, isArrayIndex: Bool = false) {
     // Plays note corresponding to the provided index.
         
         // Gets corresponding URL for the note.
-        let noteFilename = notesArray[convertToNoteArrayIndex(notePitchyIndex: notePitchyIndex)]
+        var noteArrayIndex : Int
+        if !isArrayIndex {
+            // In this case, provided index is related to Pitchy.
+            noteArrayIndex = convertToNoteArrayIndex(notePitchyIndex: noteIndex)
+        }
+        else {
+            // In this case, provided index is related to noteArray.
+            noteArrayIndex = noteIndex
+        }
+        let noteFilename = notesArray[noteArrayIndex]
         let noteFileURL = Bundle.main.url(forResource: noteFilename, withExtension: "wav", subdirectory: "notas")
         assert(noteFileURL != nil, "Couldn't find file!")
         

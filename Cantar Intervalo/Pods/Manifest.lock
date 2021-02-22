@@ -1,16 +1,22 @@
 PODS:
+  - Charts (3.1.1):
+    - Charts/Core (= 3.1.1)
+  - Charts/Core (3.1.1)
   - Pitchy (3.0.0)
 
 DEPENDENCIES:
+  - Charts (~> 3.1.1)
   - Pitchy
 
 SPEC REPOS:
   trunk:
+    - Charts
     - Pitchy
 
 SPEC CHECKSUMS:
+  Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
   Pitchy: 15407e4425b6d88fa3e7eef8927ba659fab52d7a
 
-PODFILE CHECKSUM: 376a8929732551dee8bd27a8e25f7c779ced6ff0
+PODFILE CHECKSUM: 78ae4579e0933908999c4e7e6ca304f3faa3adfd
 
 COCOAPODS: 1.10.1

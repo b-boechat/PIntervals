@@ -10,6 +10,8 @@
 		565BFBBF85C12B9274AD3535 /* Pods_Cantar_intervalo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7760332BA70595B9A54F6167 /* Pods_Cantar_intervalo.framework */; };
 		E2348C1E25DB5E9F00CB29B8 /* IdentificationExercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2348C1C25DB5E9F00CB29B8 /* IdentificationExercise.storyboard */; };
 		E2348C2025DB5EF700CB29B8 /* IdentificationExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2348C1F25DB5EF700CB29B8 /* IdentificationExerciseViewController.swift */; };
+		E2348C4425DDC79D00CB29B8 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2348C4225DDC79D00CB29B8 /* DataModel.xcdatamodeld */; };
+		E2348C4825E30F6000CB29B8 /* utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2348C4725E30F6000CB29B8 /* utilities.swift */; };
 		E2A2C6A125C34FAE0016CDD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6A025C34FAE0016CDD5 /* AppDelegate.swift */; };
 		E2A2C6A325C34FAE0016CDD5 /* SingingExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6A225C34FAE0016CDD5 /* SingingExerciseViewController.swift */; };
 		E2A2C6A625C34FAE0016CDD5 /* SingingExercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A2C6A425C34FAE0016CDD5 /* SingingExercise.storyboard */; };
@@ -18,6 +20,8 @@
 		E2A2C6B525C351150016CDD5 /* TempiAudioInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6B225C351140016CDD5 /* TempiAudioInput.swift */; };
 		E2A2C6B625C351150016CDD5 /* TempiFFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6B325C351150016CDD5 /* TempiFFT.swift */; };
 		E2A2C6B725C351150016CDD5 /* TempiUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6B425C351150016CDD5 /* TempiUtilities.swift */; };
+		E2AE6F6225E3FF9C00FAE857 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE6F6125E3FF9C00FAE857 /* StatisticsViewController.swift */; };
+		E2AE6F6425E3FFAB00FAE857 /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2AE6F6325E3FFAB00FAE857 /* Statistics.storyboard */; };
 		E2C0B59025C63B1300A4865E /* notas in Resources */ = {isa = PBXBuildFile; fileRef = E2C0B58F25C63B1300A4865E /* notas */; };
 		E2C67F8525C63D5D001E9B2A /* audioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C67F8425C63D5D001E9B2A /* audioPlayer.swift */; };
 		E2C67F8725C6527B001E9B2A /* definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C67F8625C6527B001E9B2A /* definitions.swift */; };
@@ -30,6 +34,8 @@
 		7760332BA70595B9A54F6167 /* Pods_Cantar_intervalo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cantar_intervalo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2348C1D25DB5E9F00CB29B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/IdentificationExercise.storyboard; sourceTree = "<group>"; };
 		E2348C1F25DB5EF700CB29B8 /* IdentificationExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentificationExerciseViewController.swift; sourceTree = "<group>"; };
+		E2348C4325DDC79D00CB29B8 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		E2348C4725E30F6000CB29B8 /* utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilities.swift; sourceTree = "<group>"; };
 		E2A2C69D25C34FAE0016CDD5 /* Cantar intervalo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cantar intervalo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2A2C6A025C34FAE0016CDD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2A2C6A225C34FAE0016CDD5 /* SingingExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingingExerciseViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +46,8 @@
 		E2A2C6B225C351140016CDD5 /* TempiAudioInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiAudioInput.swift; sourceTree = "<group>"; };
 		E2A2C6B325C351150016CDD5 /* TempiFFT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiFFT.swift; sourceTree = "<group>"; };
 		E2A2C6B425C351150016CDD5 /* TempiUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiUtilities.swift; sourceTree = "<group>"; };
+		E2AE6F6125E3FF9C00FAE857 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		E2AE6F6325E3FFAB00FAE857 /* Statistics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Statistics.storyboard; sourceTree = "<group>"; };
 		E2C0B58F25C63B1300A4865E /* notas */ = {isa = PBXFileReference; lastKnownFileType = folder; path = notas; sourceTree = SOURCE_ROOT; };
 		E2C67F8425C63D5D001E9B2A /* audioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioPlayer.swift; sourceTree = "<group>"; };
 		E2C67F8625C6527B001E9B2A /* definitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = definitions.swift; sourceTree = "<group>"; };
@@ -97,8 +105,10 @@
 			isa = PBXGroup;
 			children = (
 				E2348C1F25DB5EF700CB29B8 /* IdentificationExerciseViewController.swift */,
+				E2348C4725E30F6000CB29B8 /* utilities.swift */,
 				E2348C1C25DB5E9F00CB29B8 /* IdentificationExercise.storyboard */,
 				E2A2C6A025C34FAE0016CDD5 /* AppDelegate.swift */,
+				E2348C4225DDC79D00CB29B8 /* DataModel.xcdatamodeld */,
 				E2A2C6A225C34FAE0016CDD5 /* SingingExerciseViewController.swift */,
 				E2C67F8625C6527B001E9B2A /* definitions.swift */,
 				E2C67F8425C63D5D001E9B2A /* audioPlayer.swift */,
@@ -111,6 +121,8 @@
 				E2A2C6A725C34FAF0016CDD5 /* Assets.xcassets */,
 				E2A2C6A925C34FAF0016CDD5 /* LaunchScreen.storyboard */,
 				E2A2C6AC25C34FAF0016CDD5 /* Info.plist */,
+				E2AE6F6125E3FF9C00FAE857 /* StatisticsViewController.swift */,
+				E2AE6F6325E3FFAB00FAE857 /* Statistics.storyboard */,
 			);
 			path = "Cantar intervalo";
 			sourceTree = "<group>";
@@ -178,6 +190,7 @@
 				E2A2C6AB25C34FAF0016CDD5 /* LaunchScreen.storyboard in Resources */,
 				E2A2C6A825C34FAF0016CDD5 /* Assets.xcassets in Resources */,
 				E2C0B59025C63B1300A4865E /* notas in Resources */,
+				E2AE6F6425E3FFAB00FAE857 /* Statistics.storyboard in Resources */,
 				E2A2C6A625C34FAE0016CDD5 /* SingingExercise.storyboard in Resources */,
 				E2348C1E25DB5E9F00CB29B8 /* IdentificationExercise.storyboard in Resources */,
 			);
@@ -223,9 +236,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2C67F8725C6527B001E9B2A /* definitions.swift in Sources */,
+				E2348C4425DDC79D00CB29B8 /* DataModel.xcdatamodeld in Sources */,
 				E2A2C6B625C351150016CDD5 /* TempiFFT.swift in Sources */,
+				E2AE6F6225E3FF9C00FAE857 /* StatisticsViewController.swift in Sources */,
 				E2C67F8525C63D5D001E9B2A /* audioPlayer.swift in Sources */,
 				E2A2C6B525C351150016CDD5 /* TempiAudioInput.swift in Sources */,
+				E2348C4825E30F6000CB29B8 /* utilities.swift in Sources */,
 				E2A2C6B725C351150016CDD5 /* TempiUtilities.swift in Sources */,
 				E2348C2025DB5EF700CB29B8 /* IdentificationExerciseViewController.swift in Sources */,
 				E2FEF4CB25C387E800465EBA /* debugFuncs.swift in Sources */,
@@ -438,6 +454,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E2348C4225DDC79D00CB29B8 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E2348C4325DDC79D00CB29B8 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = E2348C4325DDC79D00CB29B8 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E2A2C69525C34FAE0016CDD5 /* Project object */;
 }
