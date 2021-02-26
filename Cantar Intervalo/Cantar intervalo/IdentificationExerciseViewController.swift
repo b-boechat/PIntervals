@@ -31,6 +31,7 @@ class IdentificationExerciseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         audioPlayer = AudioPlayerWrapper()
+        setupExercise()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -49,7 +50,6 @@ class IdentificationExerciseViewController: UIViewController {
                 answer.textColor = UIColor.init(red: 0.670, green: 1.0, blue: 0.365, alpha: 1)
                 saveExerciseResult(result: true, answeredInterval: noteInterval)
                 //print("certo")
-                
             }
             else {
                 answer.text = "Errado"
@@ -57,7 +57,6 @@ class IdentificationExerciseViewController: UIViewController {
                 saveExerciseResult(result: false, answeredInterval: noteInterval)
                 //print("errado")
             }
-            
             answerButtonsOutlets[interval-1].setTitleColor(UIColor.init(red: 0.670, green: 1.0, blue: 0.365, alpha: 1), for: UIControlState.disabled)
             
             for button in answerButtonsOutlets {
@@ -81,7 +80,10 @@ class IdentificationExerciseViewController: UIViewController {
     }
     
     @IBAction func EmitNewNote(_ sender: UIButton) {
+        setupExercise()
+    }
     
+    func setupExercise() {
         let currentInterval = CreateInterval(state:true)
         answer.text = "Qual intervalo?"
         answer.textColor = UIColor.white
@@ -90,17 +92,16 @@ class IdentificationExerciseViewController: UIViewController {
         //print(currentInterval.2)
         baseNote = currentInterval.0
         nextNote = currentInterval.2
-        audioPlayer!.playAudio(noteIndex: baseNote, isArrayIndex: true)
         exerciseIsActive = true
         for button in answerButtonsOutlets {
             button.isEnabled = true
             button.setTitleColor(UIColor.white, for: UIControlState.disabled)
             button.setTitleColor(UIColor.white, for: UIControlState.normal)
         }
+        audioPlayer!.playAudio(noteIndex: baseNote, isArrayIndex: true)
         Timer.scheduledTimer(withTimeInterval: 1, repeats: false){(_) in
             self.audioPlayer!.playAudio(noteIndex: self.nextNote, isArrayIndex: true)
         }
-    
     }
     
     func CreateInterval(state: Bool) -> (Int,Int,Int){
