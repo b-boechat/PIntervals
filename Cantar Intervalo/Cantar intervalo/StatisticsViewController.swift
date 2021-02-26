@@ -20,10 +20,12 @@ class StatisticsViewController: UIViewController {
     
     @IBOutlet weak var barChart: BarChartView!
     
+    @IBOutlet weak var portraitViewWarning: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        changeOrientation()
         createDebugResults()
         fetchResults()
         
@@ -36,18 +38,25 @@ class StatisticsViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
+        changeOrientation()
+    }
+    
+    func changeOrientation() {
+        // Change visibility of elements to match current orientation
         if UIDevice.current.orientation.isLandscape {
-            ()
+            // Enable chart and disable portrait warning.
+            barChart.alpha = 1.0
+            barChart.isUserInteractionEnabled = true
+            portraitViewWarning.alpha = 0.0
         }
         else {
-            
+            // Enable portrait warning and disable chart.
+            barChart.alpha = 0.0
+            barChart.isUserInteractionEnabled = false
+            portraitViewWarning.alpha = 1.0
         }
     }
     
-    func changeToPortraitView () {
-        barChart.alpha = 0.0
-        barChart.isUserInteractionEnabled = false
-    }
 
     func fetchResults() {
         // Load exercise results, which are saved as Core Data.

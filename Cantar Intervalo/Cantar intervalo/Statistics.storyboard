@@ -33,6 +33,13 @@
                                     <segue destination="yxY-RD-h7m" kind="show" id="bwq-aE-2qN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Para ver as estatísticas, utilize a orientação horizontal do celular. " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhP-hC-ezW">
+                                <rect key="frame" x="18" y="204" width="286" height="174"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="19"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.074509803921568626" green="0.16078431372549018" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -43,6 +50,7 @@
                     </view>
                     <connections>
                         <outlet property="barChart" destination="nQM-eo-Ew4" id="GIO-ML-Ugy"/>
+                        <outlet property="portraitViewWarning" destination="dhP-hC-ezW" id="XGT-dh-n4q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kYf-B9-Q5n" userLabel="First Responder" sceneMemberID="firstResponder"/>
