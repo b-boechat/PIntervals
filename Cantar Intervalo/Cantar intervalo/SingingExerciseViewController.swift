@@ -505,7 +505,6 @@ class SingingExerciseViewController: UIViewController {
     }
     
     @IBAction func otherDebugButtonPressed(_ sender: Any) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let request : NSFetchRequest<ExerciseResult> = ExerciseResult.fetchRequest()
         
         do {

@@ -25,7 +25,7 @@
 		E2C0B59025C63B1300A4865E /* notas in Resources */ = {isa = PBXBuildFile; fileRef = E2C0B58F25C63B1300A4865E /* notas */; };
 		E2C67F8525C63D5D001E9B2A /* audioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C67F8425C63D5D001E9B2A /* audioPlayer.swift */; };
 		E2C67F8725C6527B001E9B2A /* definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C67F8625C6527B001E9B2A /* definitions.swift */; };
-		E2FEF4CB25C387E800465EBA /* debugFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FEF4CA25C387E800465EBA /* debugFuncs.swift */; };
+		E2FEF4CB25C387E800465EBA /* debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FEF4CA25C387E800465EBA /* debug.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +51,7 @@
 		E2C0B58F25C63B1300A4865E /* notas */ = {isa = PBXFileReference; lastKnownFileType = folder; path = notas; sourceTree = SOURCE_ROOT; };
 		E2C67F8425C63D5D001E9B2A /* audioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioPlayer.swift; sourceTree = "<group>"; };
 		E2C67F8625C6527B001E9B2A /* definitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = definitions.swift; sourceTree = "<group>"; };
-		E2FEF4CA25C387E800465EBA /* debugFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = debugFuncs.swift; sourceTree = "<group>"; };
+		E2FEF4CA25C387E800465EBA /* debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = debug.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +112,7 @@
 				E2A2C6A225C34FAE0016CDD5 /* SingingExerciseViewController.swift */,
 				E2C67F8625C6527B001E9B2A /* definitions.swift */,
 				E2C67F8425C63D5D001E9B2A /* audioPlayer.swift */,
-				E2FEF4CA25C387E800465EBA /* debugFuncs.swift */,
+				E2FEF4CA25C387E800465EBA /* debug.swift */,
 				E2A2C6B225C351140016CDD5 /* TempiAudioInput.swift */,
 				E2A2C6B325C351150016CDD5 /* TempiFFT.swift */,
 				E2A2C6B425C351150016CDD5 /* TempiUtilities.swift */,
@@ -244,7 +244,7 @@
 				E2348C4825E30F6000CB29B8 /* utilities.swift in Sources */,
 				E2A2C6B725C351150016CDD5 /* TempiUtilities.swift in Sources */,
 				E2348C2025DB5EF700CB29B8 /* IdentificationExerciseViewController.swift in Sources */,
-				E2FEF4CB25C387E800465EBA /* debugFuncs.swift in Sources */,
+				E2FEF4CB25C387E800465EBA /* debug.swift in Sources */,
 				E2A2C6A325C34FAE0016CDD5 /* SingingExerciseViewController.swift in Sources */,
 				E2A2C6A125C34FAE0016CDD5 /* AppDelegate.swift in Sources */,
 			);
