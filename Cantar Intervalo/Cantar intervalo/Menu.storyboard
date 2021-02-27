@@ -18,32 +18,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQJ-5Z-ly5">
-                                <rect key="frame" x="94" y="121" width="132" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Identificar intervalo"/>
-                                <connections>
-                                    <segue destination="wWk-4q-DHW" kind="show" id="3b6-j0-rmU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kd-0H-Mbh">
-                                <rect key="frame" x="121" y="337" width="79" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Estatísticas"/>
-                                <connections>
-                                    <segue destination="3f1-lt-1f8" kind="show" id="oVQ-va-cyP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGX-C8-lGq">
-                                <rect key="frame" x="106" y="228" width="109" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cantar intervalo"/>
-                                <connections>
-                                    <segue destination="adH-Zk-Wqc" kind="show" id="Esj-CZ-OFX"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sKT-2Z-rok" userLabel="Top Container">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="167"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aprendizado Musical" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwL-Pv-v5I">
+                                        <rect key="frame" x="19" y="62" width="282" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="0tS-d1-kxu"/>
+                                            <constraint firstAttribute="width" constant="282" id="Irt-lg-Nmr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="30"/>
+                                        <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="UwL-Pv-v5I" firstAttribute="centerX" secondItem="sKT-2Z-rok" secondAttribute="centerX" id="K1V-Sa-b0D"/>
+                                    <constraint firstItem="UwL-Pv-v5I" firstAttribute="centerY" secondItem="sKT-2Z-rok" secondAttribute="centerY" id="mhH-oN-bVk"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciG-a0-hLy" userLabel="Middle Container">
+                                <rect key="frame" x="0.0" y="169" width="320" height="230"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kd-0H-Mbh">
+                                        <rect key="frame" x="116" y="158" width="89" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
+                                        <state key="normal" title="Estatísticas">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="3f1-lt-1f8" kind="show" id="oVQ-va-cyP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGX-C8-lGq">
+                                        <rect key="frame" x="98" y="97" width="124" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
+                                        <state key="normal" title="Cantar intervalo">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="adH-Zk-Wqc" kind="show" id="Esj-CZ-OFX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQJ-5Z-ly5">
+                                        <rect key="frame" x="84" y="36" width="152" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
+                                        <state key="normal" title="Identificar intervalo">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="wWk-4q-DHW" kind="show" id="3b6-j0-rmU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="E6r-2m-UYX"/>
+                                    <constraint firstAttribute="height" constant="230" id="O8a-r5-77p"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.074509803921568626" green="0.16078431372549018" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="sKT-2Z-rok" firstAttribute="leading" secondItem="tai-vc-EPB" secondAttribute="leading" id="9AQ-c5-xci"/>
+                            <constraint firstItem="ciG-a0-hLy" firstAttribute="centerY" secondItem="uxC-Eo-FhO" secondAttribute="centerY" id="aHs-Yt-f1X"/>
+                            <constraint firstItem="sKT-2Z-rok" firstAttribute="trailing" secondItem="tai-vc-EPB" secondAttribute="trailing" id="dMJ-cO-byW"/>
+                            <constraint firstItem="ciG-a0-hLy" firstAttribute="centerX" secondItem="uxC-Eo-FhO" secondAttribute="centerX" id="oYs-YA-XWK"/>
+                            <constraint firstItem="ciG-a0-hLy" firstAttribute="top" secondItem="sKT-2Z-rok" secondAttribute="bottom" constant="2" id="r7L-25-INK"/>
+                            <constraint firstItem="sKT-2Z-rok" firstAttribute="top" secondItem="uxC-Eo-FhO" secondAttribute="top" id="yjb-Dc-fbh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tai-vc-EPB"/>
                     </view>
                 </viewController>
