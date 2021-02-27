@@ -18,6 +18,12 @@ class StatisticsViewController: UIViewController {
     // Stores exercise results.
     var results = [ExerciseResult]()
     
+    // Gets calendar from user device.
+    let calendar = Calendar.current
+    
+    // Gets current date.
+    let currentDate = Date()
+    
     @IBOutlet weak var barChart: BarChartView!
     
     @IBOutlet weak var portraitViewWarning: UILabel!
@@ -26,17 +32,31 @@ class StatisticsViewController: UIViewController {
         super.viewDidLoad()
         
         changeOrientation()
-        createDebugResults()
         fetchResults()
+        //removeResults()
+        replaceWithDebugResults(resultsAsStruct4)
         
-        let filteredResults = filterResults{$0.exerciseType == ExerciseType.singingExercise.rawValue}
+        barChart.noDataText = "Responda mais exercícios para obter estatísticas!"
+        barChart.noDataTextColor = .white
+        barChart.noDataFont = UIFont(name: "KohinoorBangla-Regular", size: 16)!
         
-        plotResultsByInterval(filteredResults)
+    
+        presentSpecifiedStatistics(plotType: .intervalAccuracyPlot, exerciseType: .singingExercise, numberOfPastDaysConsidered: 5)
 
-        // Do any additional setup after loading the view.
+    }
+    
+    func presentSpecifiedStatistics(plotType: PlotType, exerciseType: ExerciseType, numberOfPastDaysConsidered: Int) {
+        
+        // Filter results by specified exercise type and date range.
+        let filteredResults = filterResults{
+            return $0.exerciseType == exerciseType.rawValue &&
+                    (calendar).dateComponents([.day], from: $0.date!, to: currentDate).day! <= numberOfPastDaysConsidered
+        }
+        plotResultsByInterval(filteredResults)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        // If orientation is going to change, call the apropriate changeOrientation function.
         super.viewWillTransition(to: size, with: coordinator)
         changeOrientation()
     }
@@ -70,16 +90,58 @@ class StatisticsViewController: UIViewController {
         }
     }
     
-    func plotResultsByInterval(_ filteredResults: [ExerciseResult]) {
+    func removeResults(){
+        // Removes all saved results. Assumes fetch results has been called previously.
+        for result in results {
+            context.delete(result)
+        }
+        results.removeAll()
+        do {
+            try context.save()
+        }
+        catch {
+            print("Error saving context: \(error)")
+        }
+    }
+    
+    func filterResults(_ providedResults: [ExerciseResult]? = nil, rule: (ExerciseResult) -> Bool) -> [ExerciseResult] {
+        // Filter provided results array based on provided rule. Alternative to the filter() function, which is not available for Xcode 9.x
         
-        barChart.noDataText = "Responda mais exercícios para obter estatísticas!"
-        barChart.noDataTextColor = .white
-        barChart.noDataFont = UIFont(name: "KohinoorBangla-Regular", size: 16)!
+        let consideredResults = providedResults ?? results
+        var filteredResults = [ExerciseResult]()
+        for result in consideredResults where rule(result) {
+            filteredResults.append(result)
+        }
+        return filteredResults
+    }
+    
+    func calculateIntervalAnswerAccuracy(providedResults: [ExerciseResult], rawInterval: Int16) -> Double? {
+        // Returns ratio of correct exercise answers for the given interval, only among consideredResults (so they can be filtered previously, for example by exercise or date).
+        
+        // Filter results by given correct interval, and calculate their total count.
+        let resultsWithSpecifiedInterval = filterResults(providedResults){$0.correctInterval == rawInterval}
+        let totalCount = Double(resultsWithSpecifiedInterval.count)
+        if totalCount == 0 {
+            // No data exists for this interval, among consideredResults.
+            return nil
+        }
+        // Calculate count of correct answers for the given interval.
+        var correctCount : Double = 0.0
+        resultsWithSpecifiedInterval.forEach{
+            if $0.result == true {
+                correctCount += 1
+            }
+        }
+        return correctCount/totalCount
+        
+    }
+    
+    func plotResultsByInterval(_ filteredResults: [ExerciseResult]) {
         
         var entries = [BarChartDataEntry]()
         // Get correct answer percentage for each interval.
         for i in 1 ... 12 {
-            guard let percentage = calculateIntervalAnswerAccuracy(consideredResults: filteredResults,  rawInterval: Int16(i)) else {
+            guard let percentage = calculateIntervalAnswerAccuracy(providedResults: filteredResults,  rawInterval: Int16(i)) else {
                 print("Answer more exercises!")
                 return
             }
@@ -96,9 +158,10 @@ class StatisticsViewController: UIViewController {
         barChart.chartDescription?.font = UIFont(name: "KohinoorBangla-Regular", size: 11)!
         
         barChart.drawValueAboveBarEnabled = true
-        barChart.legend.font = UIFont(name: "KohinoorBangla-Regular", size: 11)!
-        barChart.legend.textColor = .white
-
+        barChart.legend.enabled = false
+        //barChart.legend.font = UIFont(name: "KohinoorBangla-Regular", size: 11)!
+        //barChart.legend.textColor = .white
+        
         
         let formatter = NumberFormatter(); formatter.numberStyle = .percent;
         
@@ -112,19 +175,23 @@ class StatisticsViewController: UIViewController {
         barChart.xAxis.axisMinimum = 0.5
         barChart.xAxis.axisMaximum = 12.5
         
-
+        
         
         barChart.leftAxis.drawAxisLineEnabled = false
         barChart.leftAxis.enabled = false
+        barChart.leftAxis.axisMinimum = 0.0
+        barChart.leftAxis.axisMaximum = 1.05
+        //barChart.leftAxis.labelTextColor = .white
+        //barChart.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: formatter)
         barChart.leftAxis.labelTextColor = .white
         barChart.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: formatter)
         barChart.rightAxis.enabled = false
         
         dataSet.label = "Intervalos"
         dataSet.colors = [UIColor.init(red: 0.70, green: 0.89, blue: 0.80, alpha: 1), // #b3e2cd
-                          UIColor.init(red: 0.99, green: 0.80, blue: 0.67, alpha: 1), // #fdcdac
-                          UIColor.init(red: 0.80, green: 0.84, blue: 0.91, alpha: 1), // #cbd5e8
-                          UIColor.init(red: 0.96, green: 0.79, blue: 0.89, alpha: 1) // #f4cae4
+            UIColor.init(red: 0.99, green: 0.80, blue: 0.67, alpha: 1), // #fdcdac
+            UIColor.init(red: 0.80, green: 0.84, blue: 0.91, alpha: 1), // #cbd5e8
+            UIColor.init(red: 0.96, green: 0.79, blue: 0.89, alpha: 1) // #f4cae4
         ]
         dataSet.valueFont = UIFont(name: "KohinoorBangla-Regular", size: 11)!
         dataSet.valueColors = [UIColor.white]
@@ -137,36 +204,6 @@ class StatisticsViewController: UIViewController {
     
     
     
-    
-    func filterResults(rule: (ExerciseResult) -> Bool) -> [ExerciseResult] {
-        // Filter results array based on provided rule. Alternative to the filter() function, which is not available for Xcode 9.x
-        var filteredResults = [ExerciseResult]()
-        for result in results where rule(result) {
-            filteredResults.append(result)
-        }
-        return filteredResults
-    }
-    
-    func calculateIntervalAnswerAccuracy(consideredResults: [ExerciseResult], rawInterval: Int16) -> Double? {
-        // Returns ratio of correct exercise answers for the given interval, only among consideredResults (so they can be filtered previously, for example by exercise or date).
-        
-        // Filter results by given correct interval, and calculate their total count.
-        let resultsWithSpecifiedInterval = filterResults{$0.correctInterval == rawInterval}
-        let totalCount = Double(resultsWithSpecifiedInterval.count)
-        if totalCount == 0 {
-            // No data exists for this interval, among consideredResults.
-            return nil
-        }
-        // Calculate count of correct answers for the given interval.
-        var correctCount : Double = 0.0
-        resultsWithSpecifiedInterval.forEach{
-            if $0.result == true {
-                correctCount += 1
-            }
-        }
-        return correctCount/totalCount
-        
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -186,22 +223,3 @@ class StatisticsViewController: UIViewController {
 
 }
 
-
-final class CustomFormatter: IAxisValueFormatter {
-    var labels: [String] = []
-    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        let count = self.labels.count
-        guard let axis = axis, count > 0 else {
-            return ""
-        }
-        let factor = axis.axisMaximum / Double(count)
-        let index = Int((value / factor).rounded())
-        if index >= 0 && index < count {
-            return self.labels[index]
-        }
-        return ""
-    }
-    init(labels_: [String]){
-        labels = labels_
-    }
-}

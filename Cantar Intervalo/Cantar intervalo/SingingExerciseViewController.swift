@@ -470,7 +470,7 @@ class SingingExerciseViewController: UIViewController {
         // Saves exercise result as core data.
         let exerciseResult = ExerciseResult(context: context)
         exerciseResult.date = Date()
-        exerciseResult.correctInterval = Int16(targetNote-referenceNote-1)
+        exerciseResult.correctInterval = Int16(targetNote-referenceNote)
         exerciseResult.exerciseType = ExerciseType.singingExercise.rawValue
         exerciseResult.result = result
         if currentPersistence < desiredNotePersistence {
