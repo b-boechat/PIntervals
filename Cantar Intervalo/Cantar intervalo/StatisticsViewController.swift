@@ -177,12 +177,14 @@ class StatisticsViewController: UIViewController {
         
         
         
-        //barChart.leftAxis.drawAxisLineEnabled = false
+        barChart.leftAxis.drawAxisLineEnabled = false
         barChart.leftAxis.enabled = false
         barChart.leftAxis.axisMinimum = 0.0
         barChart.leftAxis.axisMaximum = 1.05
         //barChart.leftAxis.labelTextColor = .white
         //barChart.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: formatter)
+        barChart.leftAxis.labelTextColor = .white
+        barChart.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: formatter)
         barChart.rightAxis.enabled = false
         
         dataSet.label = "Intervalos"
