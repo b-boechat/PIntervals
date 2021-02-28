@@ -11,6 +11,8 @@ import UIKit
 class StatisticsMenuViewController: UIViewController {
     
     var exerciseType : Int = 0
+    var plotType : Int = 0
+    var timeType : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,19 @@ class StatisticsMenuViewController: UIViewController {
         exerciseType = sender.tag
         print (exerciseType)
     }
+    @IBAction func graphicsButton(_ sender: UIButton) {
+    
+        plotType = sender.tag
+        print (plotType)
+    
+    }
+    @IBAction func timeButton(_ sender: UIButton) {
+    
+        timeType = sender.tag
+        print (timeType)
+    
+    }
+    
     @IBAction func goToStatistics(_ sender: UIButton) {
     
         performSegue(withIdentifier: "goToStatistics", sender: self)
@@ -38,7 +53,9 @@ class StatisticsMenuViewController: UIViewController {
     
             let statisticsPath = segue.destination as! StatisticsViewController
             
-            statisticsPath.data = exerciseType
+            statisticsPath.exerciseOption = exerciseType
+            statisticsPath.plotOption = plotType
+            statisticsPath.timeOption = timeType
         }
     }
     /*
