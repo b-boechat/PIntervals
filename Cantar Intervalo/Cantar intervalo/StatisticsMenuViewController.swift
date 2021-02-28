@@ -9,7 +9,9 @@
 import UIKit
 
 class StatisticsMenuViewController: UIViewController {
-
+    
+    var exerciseType : Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,8 +22,25 @@ class StatisticsMenuViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func exerciseButtons(_ sender: UIButton) {
     
-
+        exerciseType = sender.tag
+        print (exerciseType)
+    }
+    @IBAction func goToStatistics(_ sender: UIButton) {
+    
+        performSegue(withIdentifier: "goToStatistics", sender: self)
+    
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToStatistics"{
+    
+            let statisticsPath = segue.destination as! StatisticsViewController
+            
+            statisticsPath.data = exerciseType
+        }
+    }
     /*
     // MARK: - Navigation
 

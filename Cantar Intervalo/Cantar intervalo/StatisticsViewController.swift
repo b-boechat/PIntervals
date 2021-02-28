@@ -12,6 +12,8 @@ import Charts
 
 class StatisticsViewController: UIViewController {
 
+    var data = 0
+    var exerciseTypePassed = 0
     // Context for core data storage.
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -30,6 +32,8 @@ class StatisticsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        exerciseTypePassed = data
         
         changeOrientation()
         fetchResults()

@@ -129,11 +129,11 @@
 				E2A2C6A725C34FAF0016CDD5 /* Assets.xcassets */,
 				E2A2C6A925C34FAF0016CDD5 /* LaunchScreen.storyboard */,
 				E2A2C6AC25C34FAF0016CDD5 /* Info.plist */,
-				E2AE6F6125E3FF9C00FAE857 /* StatisticsViewController.swift */,
 				E2AE6F6325E3FFAB00FAE857 /* Statistics.storyboard */,
 				E2AE6F6525E99E7300FAE857 /* Menu.storyboard */,
 				E2AE6F6725E99ECD00FAE857 /* MenuViewController.swift */,
 				65AABE0525EBCEA600E20BB3 /* StatisticsMenu.storyboard */,
+				E2AE6F6125E3FF9C00FAE857 /* StatisticsViewController.swift */,
 				65AABE0725EBCEB700E20BB3 /* StatisticsMenuViewController.swift */,
 			);
 			path = "Cantar intervalo";
