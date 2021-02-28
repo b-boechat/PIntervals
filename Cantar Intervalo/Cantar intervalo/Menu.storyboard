@@ -48,7 +48,7 @@
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="3f1-lt-1f8" kind="show" id="oVQ-va-cyP"/>
+                                            <segue destination="Zid-33-1Ug" kind="show" id="IaC-Ye-bQB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGX-C8-lGq">
@@ -112,13 +112,13 @@
             </objects>
             <point key="canvasLocation" x="824" y="31"/>
         </scene>
-        <!--Statistics-->
-        <scene sceneID="j8e-3a-dSh">
+        <!--StatisticsMenu-->
+        <scene sceneID="Rkf-R1-WJN">
             <objects>
-                <viewControllerPlaceholder storyboardName="Statistics" id="3f1-lt-1f8" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VR3-PT-TRH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="StatisticsMenu" id="Zid-33-1Ug" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LRU-n6-auB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="821" y="151"/>
+            <point key="canvasLocation" x="812" y="152"/>
         </scene>
     </scenes>
 </document>
