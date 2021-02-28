@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		565BFBBF85C12B9274AD3535 /* Pods_Cantar_intervalo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7760332BA70595B9A54F6167 /* Pods_Cantar_intervalo.framework */; };
+		65AABE0625EBCEA600E20BB3 /* StatisticsMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65AABE0525EBCEA600E20BB3 /* StatisticsMenu.storyboard */; };
+		65AABE0825EBCEB700E20BB3 /* StatisticsMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AABE0725EBCEB700E20BB3 /* StatisticsMenuViewController.swift */; };
 		E2348C1E25DB5E9F00CB29B8 /* IdentificationExercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2348C1C25DB5E9F00CB29B8 /* IdentificationExercise.storyboard */; };
 		E2348C2025DB5EF700CB29B8 /* IdentificationExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2348C1F25DB5EF700CB29B8 /* IdentificationExerciseViewController.swift */; };
 		E2348C4425DDC79D00CB29B8 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2348C4225DDC79D00CB29B8 /* DataModel.xcdatamodeld */; };
@@ -32,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		4C222F30E877F781846D3658 /* Pods-Cantar intervalo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cantar intervalo.release.xcconfig"; path = "Target Support Files/Pods-Cantar intervalo/Pods-Cantar intervalo.release.xcconfig"; sourceTree = "<group>"; };
+		65AABE0525EBCEA600E20BB3 /* StatisticsMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StatisticsMenu.storyboard; sourceTree = "<group>"; };
+		65AABE0725EBCEB700E20BB3 /* StatisticsMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsMenuViewController.swift; sourceTree = "<group>"; };
 		7356D742A5ED2F5570761B85 /* Pods-Cantar intervalo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cantar intervalo.debug.xcconfig"; path = "Target Support Files/Pods-Cantar intervalo/Pods-Cantar intervalo.debug.xcconfig"; sourceTree = "<group>"; };
 		7760332BA70595B9A54F6167 /* Pods_Cantar_intervalo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cantar_intervalo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2348C1D25DB5E9F00CB29B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/IdentificationExercise.storyboard; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				E2AE6F6325E3FFAB00FAE857 /* Statistics.storyboard */,
 				E2AE6F6525E99E7300FAE857 /* Menu.storyboard */,
 				E2AE6F6725E99ECD00FAE857 /* MenuViewController.swift */,
+				65AABE0525EBCEA600E20BB3 /* StatisticsMenu.storyboard */,
+				65AABE0725EBCEB700E20BB3 /* StatisticsMenuViewController.swift */,
 			);
 			path = "Cantar intervalo";
 			sourceTree = "<group>";
@@ -193,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65AABE0625EBCEA600E20BB3 /* StatisticsMenu.storyboard in Resources */,
 				E2AE6F6625E99E7300FAE857 /* Menu.storyboard in Resources */,
 				E2A2C6AB25C34FAF0016CDD5 /* LaunchScreen.storyboard in Resources */,
 				E2A2C6A825C34FAF0016CDD5 /* Assets.xcassets in Resources */,
@@ -246,6 +253,7 @@
 				E2348C4425DDC79D00CB29B8 /* DataModel.xcdatamodeld in Sources */,
 				E2A2C6B625C351150016CDD5 /* TempiFFT.swift in Sources */,
 				E2AE6F6225E3FF9C00FAE857 /* StatisticsViewController.swift in Sources */,
+				65AABE0825EBCEB700E20BB3 /* StatisticsMenuViewController.swift in Sources */,
 				E2C67F8525C63D5D001E9B2A /* audioPlayer.swift in Sources */,
 				E2A2C6B525C351150016CDD5 /* TempiAudioInput.swift in Sources */,
 				E2348C4825E30F6000CB29B8 /* utilities.swift in Sources */,
