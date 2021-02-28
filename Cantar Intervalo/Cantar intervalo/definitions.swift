@@ -35,9 +35,9 @@ enum ExerciseType : Int16 {
 }
 
 // Plot types for statistics view controller.
-enum PlotType {
-    case intervalAccuracyPlot
-    case intervalConfusionPlot
+enum PlotType : Int16 {
+    case intervalAccuracyPlot = 0
+    case intervalConfusionPlot = 1
 }
 
 // Constant used for Core Data storage for the singing exercise.
