@@ -51,13 +51,13 @@ class StatisticsViewController: UIViewController {
         //removeResults()
         replaceWithDebugResults(resultsAsStruct4)
         
+        barChart.noDataText = ""
+        pieChart.noDataText = "Responda mais exercícios para obter resultados para esse intervalo!"
+        pieChart.noDataTextColor = .white
+        pieChart.noDataFont = UIFont(name: "KohinoorBangla-Regular", size: 14)!
         
         presentSpecifiedStatistics(plotType: plotTypePassed, exerciseType: exerciseTypePassed, numberOfPastDaysConsidered: timeTypePassed)
-        
-        
-        
-        
-        barChart.noDataText = ""
+ 
 
     }
     
@@ -198,16 +198,26 @@ class StatisticsViewController: UIViewController {
     
     
     func plotIntervalConfusion (_ filteredResults: [ExerciseResult], reference: Int16 = 1) {
-        let entries = calculateIntervalConfusion(providedResults: filteredResults, reference: reference)
-        if entries == nil {
-            ()
+        guard let entries = calculateIntervalConfusion(providedResults: filteredResults, reference: reference) else {
+            // Display noDataText
+            return
         }
-        let dataSet = PieChartDataSet(values: entries!, label: "Intervalos")
+        let dataSet = PieChartDataSet(values: entries, label: "Intervalos")
         let data = PieChartData(dataSet: dataSet)
         pieChart.data = data
         barChart.chartDescription?.text = ""
         
-        dataSet.colors = ChartColorTemplates.joyful()
+        dataSet.colors = [UIColor.init(red: 0.670, green: 1.0, blue: 0.365, alpha: 1),
+                          
+                          UIColor.init(red: 1.00, green: 1.00, blue: 0.70, alpha: 1), // #ffffb2
+                          UIColor.init(red: 1.00, green: 0.80, blue: 0.36, alpha: 1), // #fecc5c
+                          UIColor.init(red: 0.99, green: 0.55, blue: 0.24, alpha: 1), // #fd8d3c
+                          UIColor.init(red: 0.94, green: 0.23, blue: 0.13, alpha: 1), // #f03b20
+                          UIColor.init(red: 0.74, green: 0.0, blue: 0.15, alpha: 1), // #bd0026
+                          UIColor.init(red: 0.94, green: 0.23, blue: 0.13, alpha: 1), // #f03b20
+                          UIColor.init(red: 1.00, green: 0.80, blue: 0.36, alpha: 1), // #fecc5c
+                          UIColor.init(red: 1.00, green: 1.00, blue: 0.70, alpha: 1), // #ffffb2
+        ]
         
         let formatter = NumberFormatter(); formatter.numberStyle = .percent;
         
