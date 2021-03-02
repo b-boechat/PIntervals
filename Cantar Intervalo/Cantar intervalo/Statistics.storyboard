@@ -27,6 +27,13 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nQM-eo-Ew4" customClass="BarChartView" customModule="Charts">
                                                 <rect key="frame" x="0.0" y="0.0" width="528" height="181"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dc7-PB-0QA" userLabel="PieChart" customClass="PieChartView" customModule="Charts">
+                                                        <rect key="frame" x="122" y="0.0" width="285" height="148"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
@@ -60,6 +67,7 @@
                     </view>
                     <connections>
                         <outlet property="barChart" destination="nQM-eo-Ew4" id="GIO-ML-Ugy"/>
+                        <outlet property="pieChart" destination="dc7-PB-0QA" id="7Hm-EO-p9O"/>
                         <outlet property="portraitViewWarning" destination="dhP-hC-ezW" id="XGT-dh-n4q"/>
                     </connections>
                 </viewController>

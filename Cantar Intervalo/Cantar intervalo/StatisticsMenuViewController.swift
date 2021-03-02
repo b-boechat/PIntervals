@@ -10,9 +10,9 @@ import UIKit
 
 class StatisticsMenuViewController: UIViewController {
     
-    var exerciseType : Int = 0
-    var plotType : Int = 0
-    var timeType : Int = 0
+    var exerciseType : ExerciseType = .singingExercise
+    var plotType : PlotType = .intervalAccuracyPlot
+    var timeType : Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,24 +26,23 @@ class StatisticsMenuViewController: UIViewController {
     }
     @IBAction func exerciseButtons(_ sender: UIButton) {
     
-        exerciseType = sender.tag
-        print (exerciseType)
+        exerciseType = ExerciseType(rawValue: Int16(sender.tag))!
+        //print (exerciseType)
     }
     @IBAction func graphicsButton(_ sender: UIButton) {
     
-        plotType = sender.tag
-        print (plotType)
+        plotType = PlotType(rawValue: Int16(sender.tag))!
+        //print (plotType)
     
     }
     @IBAction func timeButton(_ sender: UIButton) {
     
         timeType = sender.tag
-        print (timeType)
+        //print (timeType)
     
     }
     
     @IBAction func goToStatistics(_ sender: UIButton) {
-    
         performSegue(withIdentifier: "goToStatistics", sender: self)
     
     }

@@ -12,12 +12,9 @@ import Charts
 
 class StatisticsViewController: UIViewController {
 
-    var exerciseOption = 0
-    var plotOption = 0
-    var timeOption = 0
-    var exerciseTypePassed = 0
-    var plotTypePassed = 0
-    var timeTypePassed = 0
+    var exerciseOption: ExerciseType?
+    var plotOption: PlotType?
+    var timeOption: Int?
     
     
     // Context for core data storage.
@@ -33,30 +30,34 @@ class StatisticsViewController: UIViewController {
     let currentDate = Date()
     
     @IBOutlet weak var barChart: BarChartView!
+    @IBOutlet weak var pieChart: PieChartView!
     
     @IBOutlet weak var portraitViewWarning: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        exerciseTypePassed = exerciseOption
-        plotTypePassed = plotOption
-        timeTypePassed = timeOption
+        let exerciseTypePassed = exerciseOption!
+        let plotTypePassed = plotOption!
+        let timeTypePassed = timeOption!
+        
         print (exerciseTypePassed)
         print (plotTypePassed)
         print (timeTypePassed)
         
         changeOrientation()
-        fetchResults()
+        
+        //fetchResults()
         //removeResults()
         replaceWithDebugResults(resultsAsStruct4)
         
-        barChart.noDataText = "Responda mais exercícios para obter estatísticas!"
-        barChart.noDataTextColor = .white
-        barChart.noDataFont = UIFont(name: "KohinoorBangla-Regular", size: 16)!
         
-    
-        presentSpecifiedStatistics(plotType: .intervalAccuracyPlot, exerciseType: .singingExercise, numberOfPastDaysConsidered: 5)
+        presentSpecifiedStatistics(plotType: plotTypePassed, exerciseType: exerciseTypePassed, numberOfPastDaysConsidered: timeTypePassed)
+        
+        
+        
+        
+        barChart.noDataText = ""
 
     }
     
@@ -67,7 +68,12 @@ class StatisticsViewController: UIViewController {
             return $0.exerciseType == exerciseType.rawValue &&
                     (calendar).dateComponents([.day], from: $0.date!, to: currentDate).day! <= numberOfPastDaysConsidered
         }
-        plotResultsByInterval(filteredResults)
+        if plotType == .intervalAccuracyPlot {
+            plotIntervalAccuracy(filteredResults)
+        }
+        else {
+            plotIntervalConfusion(filteredResults)
+        }
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -80,14 +86,24 @@ class StatisticsViewController: UIViewController {
         // Change visibility of elements to match current orientation
         if UIDevice.current.orientation.isLandscape {
             // Enable chart and disable portrait warning.
-            barChart.alpha = 1.0
-            barChart.isUserInteractionEnabled = true
             portraitViewWarning.alpha = 0.0
+            if plotOption == PlotType.intervalAccuracyPlot {
+                barChart.alpha = 1.0
+                pieChart.alpha = 0.0
+                barChart.isUserInteractionEnabled = true
+            }
+            else {
+                pieChart.alpha = 1.0
+                barChart.alpha = 1.0
+                pieChart.isUserInteractionEnabled = true
+            }
         }
         else {
-            // Enable portrait warning and disable chart.
+            // Enable portrait warning and disable charts.
             barChart.alpha = 0.0
             barChart.isUserInteractionEnabled = false
+            pieChart.alpha = 0.0
+            pieChart.isUserInteractionEnabled = false
             portraitViewWarning.alpha = 1.0
         }
     }
@@ -106,7 +122,9 @@ class StatisticsViewController: UIViewController {
     }
     
     func removeResults(){
-        // Removes all saved results. Assumes fetch results has been called previously.
+        // Removes all saved results.
+        
+        fetchResults()
         for result in results {
             context.delete(result)
         }
@@ -151,16 +169,69 @@ class StatisticsViewController: UIViewController {
         
     }
     
-    func plotResultsByInterval(_ filteredResults: [ExerciseResult]) {
+    func calculateIntervalConfusion(providedResults: [ExerciseResult], reference: Int16) -> [PieChartDataEntry]? {
+        // Filter results by given correct interval, and calculate their total count.
+        let resultsWithSpecifiedInterval = filterResults(providedResults){$0.correctInterval == reference}
+        let totalCount = Double(resultsWithSpecifiedInterval.count)
+        if totalCount == 0 {
+            // No data exists for this interval, among consideredResults.
+            return nil
+        }
+        
+        var confusionArray = [PieChartDataEntry]()
+        // Loops through possible intervals.
+        for i in 1 ... 12 {
+            // For each interval, calculate the percentage of times it was answered, when reference was the correct answer.
+            var confusion : Double = 0
+            resultsWithSpecifiedInterval.forEach{
+                if $0.answeredInterval == Int16(i) {
+                    confusion += 1
+                }
+            }
+            print("i = \(i): \(confusion/totalCount)")
+            confusionArray.append(PieChartDataEntry(value: confusion/totalCount, label: "#\(i)"))
+        }
+        
+        return confusionArray
+    }
+    
+    
+    
+    func plotIntervalConfusion (_ filteredResults: [ExerciseResult], reference: Int16 = 1) {
+        let entries = calculateIntervalConfusion(providedResults: filteredResults, reference: reference)
+        if entries == nil {
+            ()
+        }
+        let dataSet = PieChartDataSet(values: entries!, label: "Intervalos")
+        let data = PieChartData(dataSet: dataSet)
+        pieChart.data = data
+        barChart.chartDescription?.text = ""
+        
+        dataSet.colors = ChartColorTemplates.joyful()
+        
+        let formatter = NumberFormatter(); formatter.numberStyle = .percent;
+        
+        dataSet.valueFont = UIFont(name: "KohinoorBangla-Regular", size: 11)!
+        dataSet.valueColors = [UIColor.white]
+        //dataSet.valueFormatter = DefaultAxisValueFormatter(formatter: formatter)
+        
+        
+        pieChart.notifyDataSetChanged()
+        
+    }
+    
+    func plotIntervalAccuracy(_ filteredResults: [ExerciseResult]) {
         
         var entries = [BarChartDataEntry]()
+        var resultsExistForInterval = [Bool](repeating: true, count: 12)
         // Get correct answer percentage for each interval.
         for i in 1 ... 12 {
-            guard let percentage = calculateIntervalAnswerAccuracy(providedResults: filteredResults,  rawInterval: Int16(i)) else {
-                print("Answer more exercises!")
-                return
+            var accuracy = calculateIntervalAnswerAccuracy(providedResults: filteredResults,  rawInterval: Int16(i))
+            if accuracy == nil {
+                accuracy = 0.5
+                resultsExistForInterval[i-1] = false
             }
-            entries.append(BarChartDataEntry(x: Double(i), y: percentage))
+            entries.append(BarChartDataEntry(x: Double(i), y: accuracy!))
         }
         // Create plot
         let dataSet = BarChartDataSet(values: entries, label: "Intervalos")
@@ -169,8 +240,8 @@ class StatisticsViewController: UIViewController {
         // Customize plot.
         
         barChart.chartDescription?.text = ""
-        barChart.chartDescription?.textColor = .white
-        barChart.chartDescription?.font = UIFont(name: "KohinoorBangla-Regular", size: 11)!
+        //barChart.chartDescription?.textColor = .white
+        //barChart.chartDescription?.font = UIFont(name: "KohinoorBangla-Regular", size: 11)!
         
         barChart.drawValueAboveBarEnabled = true
         barChart.legend.enabled = false
@@ -202,11 +273,21 @@ class StatisticsViewController: UIViewController {
         barChart.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: formatter)
         barChart.rightAxis.enabled = false
         
+        let missingResultColor = UIColor.init(red: 0.3, green: 0.3, blue: 0.3, alpha: 1)
+        
         dataSet.label = "Intervalos"
-        dataSet.colors = [UIColor.init(red: 0.70, green: 0.89, blue: 0.80, alpha: 1), // #b3e2cd
-            UIColor.init(red: 0.99, green: 0.80, blue: 0.67, alpha: 1), // #fdcdac
-            UIColor.init(red: 0.80, green: 0.84, blue: 0.91, alpha: 1), // #cbd5e8
-            UIColor.init(red: 0.96, green: 0.79, blue: 0.89, alpha: 1) // #f4cae4
+        dataSet.colors = [resultsExistForInterval[0] ? UIColor.init(red: 0.70, green: 0.89, blue: 0.80, alpha: 1) : missingResultColor, // #b3e2cd
+            resultsExistForInterval[1] ? UIColor.init(red: 0.99, green: 0.80, blue: 0.67, alpha: 1) : missingResultColor, // #fdcdac
+            resultsExistForInterval[2] ? UIColor.init(red: 0.80, green: 0.84, blue: 0.91, alpha: 1) : missingResultColor, // #cbd5e8
+            resultsExistForInterval[3] ? UIColor.init(red: 0.96, green: 0.79, blue: 0.89, alpha: 1) : missingResultColor, // #f4cae4
+            resultsExistForInterval[4] ? UIColor.init(red: 0.70, green: 0.89, blue: 0.80, alpha: 1) : missingResultColor, // #b3e2cd
+            resultsExistForInterval[5] ? UIColor.init(red: 0.99, green: 0.80, blue: 0.67, alpha: 1) : missingResultColor, // #fdcdac
+            resultsExistForInterval[6] ? UIColor.init(red: 0.80, green: 0.84, blue: 0.91, alpha: 1) : missingResultColor, // #cbd5e8
+            resultsExistForInterval[7] ? UIColor.init(red: 0.96, green: 0.79, blue: 0.89, alpha: 1) : missingResultColor, // #f4cae4
+            resultsExistForInterval[8] ? UIColor.init(red: 0.70, green: 0.89, blue: 0.80, alpha: 1) : missingResultColor, // #b3e2cd
+            resultsExistForInterval[9] ? UIColor.init(red: 0.99, green: 0.80, blue: 0.67, alpha: 1) : missingResultColor, // #fdcdac
+            resultsExistForInterval[10] ? UIColor.init(red: 0.80, green: 0.84, blue: 0.91, alpha: 1) : missingResultColor, // #cbd5e8
+            resultsExistForInterval[11] ? UIColor.init(red: 0.96, green: 0.79, blue: 0.89, alpha: 1) : missingResultColor // #f4cae4
         ]
         dataSet.valueFont = UIFont(name: "KohinoorBangla-Regular", size: 11)!
         dataSet.valueColors = [UIColor.white]
