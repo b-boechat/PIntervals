@@ -21,7 +21,6 @@
 		E2A2C6AB25C34FAF0016CDD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2A2C6A925C34FAF0016CDD5 /* LaunchScreen.storyboard */; };
 		E2A2C6B525C351150016CDD5 /* TempiAudioInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6B225C351140016CDD5 /* TempiAudioInput.swift */; };
 		E2A2C6B625C351150016CDD5 /* TempiFFT.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6B325C351150016CDD5 /* TempiFFT.swift */; };
-		E2A2C6B725C351150016CDD5 /* TempiUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A2C6B425C351150016CDD5 /* TempiUtilities.swift */; };
 		E2AE6F6225E3FF9C00FAE857 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AE6F6125E3FF9C00FAE857 /* StatisticsViewController.swift */; };
 		E2AE6F6425E3FFAB00FAE857 /* Statistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2AE6F6325E3FFAB00FAE857 /* Statistics.storyboard */; };
 		E2AE6F6625E99E7300FAE857 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2AE6F6525E99E7300FAE857 /* Menu.storyboard */; };
@@ -51,7 +50,6 @@
 		E2A2C6AC25C34FAF0016CDD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2A2C6B225C351140016CDD5 /* TempiAudioInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiAudioInput.swift; sourceTree = "<group>"; };
 		E2A2C6B325C351150016CDD5 /* TempiFFT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiFFT.swift; sourceTree = "<group>"; };
-		E2A2C6B425C351150016CDD5 /* TempiUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempiUtilities.swift; sourceTree = "<group>"; };
 		E2AE6F6125E3FF9C00FAE857 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		E2AE6F6325E3FFAB00FAE857 /* Statistics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Statistics.storyboard; sourceTree = "<group>"; };
 		E2AE6F6525E99E7300FAE857 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				E2FEF4CA25C387E800465EBA /* debug.swift */,
 				E2A2C6B225C351140016CDD5 /* TempiAudioInput.swift */,
 				E2A2C6B325C351150016CDD5 /* TempiFFT.swift */,
-				E2A2C6B425C351150016CDD5 /* TempiUtilities.swift */,
 				E2A2C6A425C34FAE0016CDD5 /* SingingExercise.storyboard */,
 				E2C0B58F25C63B1300A4865E /* notas */,
 				E2A2C6A725C34FAF0016CDD5 /* Assets.xcassets */,
@@ -258,7 +255,6 @@
 				E2A2C6B525C351150016CDD5 /* TempiAudioInput.swift in Sources */,
 				E2348C4825E30F6000CB29B8 /* utilities.swift in Sources */,
 				E2AE6F6825E99ECD00FAE857 /* MenuViewController.swift in Sources */,
-				E2A2C6B725C351150016CDD5 /* TempiUtilities.swift in Sources */,
 				E2348C2025DB5EF700CB29B8 /* IdentificationExerciseViewController.swift in Sources */,
 				E2FEF4CB25C387E800465EBA /* debug.swift in Sources */,
 				E2A2C6A325C34FAE0016CDD5 /* SingingExerciseViewController.swift in Sources */,
