@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LGs-CC-sTC">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,117 +15,186 @@
             <objects>
                 <viewController id="LGs-CC-sTC" customClass="StatisticsMenuViewController" customModule="Cantar_intervalo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pnk-kG-H6o">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzm-6x-vrX">
-                                <rect key="frame" x="133" y="469" width="54" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
-                                <state key="normal" title="Voltar">
-                                    <color key="titleColor" red="0.76652436300000004" green="0.78529505079999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="PfO-98-GHN" kind="show" id="5mN-rd-Yf2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjk-eg-VSA">
-                                <rect key="frame" x="87" y="65" width="146" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
-                                <state key="normal" title="Cantar Intervalo">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="exerciseButtons:" destination="LGs-CC-sTC" eventType="touchUpInside" id="Rkf-tV-aGN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZe-fo-T5N">
-                                <rect key="frame" x="65" y="104" width="191" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
-                                <state key="normal" title="Reconhecer Intervalo">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="exerciseButtons:" destination="LGs-CC-sTC" eventType="touchUpInside" id="z0C-Cq-WwK"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRb-Pv-PZK">
-                                <rect key="frame" x="76" y="413" width="169" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
-                                <state key="normal" title="Ir para Estatisticas">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="goToStatistics:" destination="LGs-CC-sTC" eventType="touchUpInside" id="dyA-V6-PnK"/>
-                                    <segue destination="bq3-0a-JhF" kind="show" identifier="goToStatistics" id="40j-cs-FvA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCc-Ma-NhP">
-                                <rect key="frame" x="67" y="229" width="50" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
-                                <state key="normal" title="Plot 1">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="graphicsButton:" destination="LGs-CC-sTC" eventType="touchUpInside" id="nVr-uI-P7q"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8w-Dm-ZFS">
-                                <rect key="frame" x="209" y="229" width="57" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
-                                <state key="normal" title=" Plot 2">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="graphicsButton:" destination="LGs-CC-sTC" eventType="touchUpInside" id="R2Q-pc-FbZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGr-Vl-AZ9">
-                                <rect key="frame" x="48" y="316" width="42" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
-                                <state key="normal" title="1 dia">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="timeButton:" destination="LGs-CC-sTC" eventType="touchUpInside" id="kQW-b2-OYl"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1Q-c2-mBn">
-                                <rect key="frame" x="132" y="315" width="53" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
-                                <state key="normal" title="3 dias">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="timeButton:" destination="LGs-CC-sTC" eventType="touchUpInside" id="NhY-qw-PDZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c45-na-pqu">
-                                <rect key="frame" x="227" y="315" width="52" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
-                                <state key="normal" title="7 dias">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="timeButton:" destination="LGs-CC-sTC" eventType="touchUpInside" id="Syw-1K-JLq"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohd-DH-NXO" userLabel="Bottom Container">
+                                <rect key="frame" x="0.0" y="219.5" width="568" height="100.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzm-6x-vrX">
+                                        <rect key="frame" x="257" y="30.5" width="54" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="54" id="ORz-b3-TLr"/>
+                                            <constraint firstAttribute="height" constant="40" id="ZE7-7j-vkK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
+                                        <state key="normal" title="Voltar">
+                                            <color key="titleColor" red="0.76652436300000004" green="0.78529505079999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="PfO-98-GHN" kind="show" id="5mN-rd-Yf2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRb-Pv-PZK">
+                                        <rect key="frame" x="76" y="-4.5" width="417" height="40"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
+                                        <state key="normal" title="Ir para Estatisticas">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goToStatistics:" destination="LGs-CC-sTC" eventType="touchUpInside" id="dyA-V6-PnK"/>
+                                            <segue destination="bq3-0a-JhF" kind="show" identifier="goToStatistics" id="40j-cs-FvA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="IRb-Pv-PZK" secondAttribute="trailing" constant="75" id="Lpg-dq-iob"/>
+                                    <constraint firstItem="zzm-6x-vrX" firstAttribute="centerX" secondItem="ohd-DH-NXO" secondAttribute="centerX" id="Xr2-dw-cdU"/>
+                                    <constraint firstItem="IRb-Pv-PZK" firstAttribute="leading" secondItem="ohd-DH-NXO" secondAttribute="leading" constant="76" id="aOD-PH-SA4"/>
+                                    <constraint firstItem="zzm-6x-vrX" firstAttribute="centerY" secondItem="ohd-DH-NXO" secondAttribute="centerY" id="hvA-qy-Blp"/>
+                                    <constraint firstItem="zzm-6x-vrX" firstAttribute="top" secondItem="IRb-Pv-PZK" secondAttribute="bottom" constant="-5" id="qAB-aE-RZu"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odp-kL-EYv" userLabel="Middle Container">
+                                <rect key="frame" x="124" y="100.5" width="320" height="119"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escolha o intervalo de tempo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgF-xa-V9C">
+                                        <rect key="frame" x="31" y="60" width="264" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
+                                        <color key="textColor" red="0.62557503172588835" green="0.62557503172588835" blue="0.62557503172588835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c45-na-pqu">
+                                        <rect key="frame" x="226" y="81" width="52" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
+                                        <state key="normal" title="7 dias">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="timeButton:" destination="LGs-CC-sTC" eventType="touchUpInside" id="Syw-1K-JLq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8w-Dm-ZFS">
+                                        <rect key="frame" x="219" y="27" width="57" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
+                                        <state key="normal" title=" Plot 2">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="graphicsButton:" destination="LGs-CC-sTC" eventType="touchUpInside" id="R2Q-pc-FbZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1Q-c2-mBn">
+                                        <rect key="frame" x="137" y="81" width="53" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
+                                        <state key="normal" title="3 dias">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="timeButton:" destination="LGs-CC-sTC" eventType="touchUpInside" id="NhY-qw-PDZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGr-Vl-AZ9">
+                                        <rect key="frame" x="49" y="81" width="42" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
+                                        <state key="normal" title="1 dia">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="timeButton:" destination="LGs-CC-sTC" eventType="touchUpInside" id="kQW-b2-OYl"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escolha o tipo de gráfico" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ON-hA-ojj">
+                                        <rect key="frame" x="49" y="5" width="231" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
+                                        <color key="textColor" red="0.62557503172588835" green="0.62557503172588835" blue="0.62557503172588835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCc-Ma-NhP">
+                                        <rect key="frame" x="49" y="27" width="50" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
+                                        <state key="normal" title="Plot 1">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="graphicsButton:" destination="LGs-CC-sTC" eventType="touchUpInside" id="nVr-uI-P7q"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="119" id="JRK-yI-dW9"/>
+                                    <constraint firstAttribute="width" constant="320" id="c5T-Rs-gNw"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gb3-8B-0fO" userLabel="Top Container">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjk-eg-VSA">
+                                        <rect key="frame" x="87" y="20" width="394" height="40"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
+                                        <state key="normal" title="Cantar Intervalo">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="exerciseButtons:" destination="LGs-CC-sTC" eventType="touchUpInside" id="Rkf-tV-aGN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZe-fo-T5N">
+                                        <rect key="frame" x="65" y="60" width="439" height="40"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
+                                        <state key="normal" title="Reconhecer Intervalo">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="exerciseButtons:" destination="LGs-CC-sTC" eventType="touchUpInside" id="z0C-Cq-WwK"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escolha o tipo de exercício" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQ5-6p-XCy">
+                                        <rect key="frame" x="36" y="-4" width="496" height="28"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
+                                        <color key="textColor" red="0.62557503172588835" green="0.62557503172588835" blue="0.62557503172588835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="cQ5-6p-XCy" firstAttribute="leading" secondItem="gb3-8B-0fO" secondAttribute="leading" constant="36" id="7NQ-hN-nox"/>
+                                    <constraint firstAttribute="trailing" secondItem="XZe-fo-T5N" secondAttribute="trailing" constant="64" id="9Qg-M4-Wb2"/>
+                                    <constraint firstAttribute="trailing" secondItem="rjk-eg-VSA" secondAttribute="trailing" constant="87" id="Aiq-8Z-yxe"/>
+                                    <constraint firstItem="rjk-eg-VSA" firstAttribute="leading" secondItem="gb3-8B-0fO" secondAttribute="leading" constant="87" id="DfK-zp-PJR"/>
+                                    <constraint firstAttribute="bottom" secondItem="XZe-fo-T5N" secondAttribute="bottom" id="WN5-N5-AKg"/>
+                                    <constraint firstAttribute="trailing" secondItem="cQ5-6p-XCy" secondAttribute="trailing" constant="36" id="Wk4-el-WW2"/>
+                                    <constraint firstItem="XZe-fo-T5N" firstAttribute="top" secondItem="cQ5-6p-XCy" secondAttribute="bottom" constant="36" id="Yen-gM-vkC"/>
+                                    <constraint firstItem="XZe-fo-T5N" firstAttribute="top" secondItem="rjk-eg-VSA" secondAttribute="bottom" id="kef-uv-wFs"/>
+                                    <constraint firstItem="XZe-fo-T5N" firstAttribute="leading" secondItem="gb3-8B-0fO" secondAttribute="leading" constant="65" id="nhG-J5-ZAZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.08235294118" green="0.16862745100000001" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gb3-8B-0fO" firstAttribute="top" secondItem="pnk-kG-H6o" secondAttribute="top" id="GCL-Qr-9NB"/>
+                            <constraint firstItem="Odp-kL-EYv" firstAttribute="top" secondItem="gb3-8B-0fO" secondAttribute="bottom" id="P2B-Pm-z3T"/>
+                            <constraint firstItem="ohd-DH-NXO" firstAttribute="bottom" secondItem="mRH-Np-PyT" secondAttribute="bottom" id="a8b-7v-TzW"/>
+                            <constraint firstItem="gb3-8B-0fO" firstAttribute="trailing" secondItem="mRH-Np-PyT" secondAttribute="trailing" id="ax0-Kw-94A"/>
+                            <constraint firstItem="Odp-kL-EYv" firstAttribute="centerY" secondItem="pnk-kG-H6o" secondAttribute="centerY" id="fxg-sj-MpJ"/>
+                            <constraint firstItem="gb3-8B-0fO" firstAttribute="leading" secondItem="mRH-Np-PyT" secondAttribute="leading" id="rKC-2f-CQ7"/>
+                            <constraint firstItem="ohd-DH-NXO" firstAttribute="trailing" secondItem="mRH-Np-PyT" secondAttribute="trailing" id="tIQ-O3-9fC"/>
+                            <constraint firstItem="Odp-kL-EYv" firstAttribute="centerX" secondItem="pnk-kG-H6o" secondAttribute="centerX" id="wDn-c3-LoJ"/>
+                            <constraint firstItem="ohd-DH-NXO" firstAttribute="leading" secondItem="mRH-Np-PyT" secondAttribute="leading" id="wE6-nA-dnY"/>
+                            <constraint firstItem="ohd-DH-NXO" firstAttribute="top" secondItem="Odp-kL-EYv" secondAttribute="bottom" id="x0y-45-oE5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mRH-Np-PyT"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdI-PK-XH7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="416" y="-21"/>
+            <point key="canvasLocation" x="414.08450704225351" y="-22.5"/>
         </scene>
         <!--Statistics-->
         <scene sceneID="e4t-x1-0tj">
