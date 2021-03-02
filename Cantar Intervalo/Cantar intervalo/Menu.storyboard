@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vBP-fq-LPW">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,33 +15,29 @@
             <objects>
                 <viewController id="vBP-fq-LPW" customClass="MenuViewController" customModule="Cantar_intervalo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uxC-Eo-FhO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sKT-2Z-rok" userLabel="Top Container">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="167"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="81"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aprendizado Musical" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwL-Pv-v5I">
-                                        <rect key="frame" x="19" y="62" width="282" height="42"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="42" id="0tS-d1-kxu"/>
-                                            <constraint firstAttribute="width" constant="282" id="Irt-lg-Nmr"/>
-                                        </constraints>
+                                        <rect key="frame" x="143" y="19.5" width="282" height="42"/>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="30"/>
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="UwL-Pv-v5I" firstAttribute="centerX" secondItem="sKT-2Z-rok" secondAttribute="centerX" id="K1V-Sa-b0D"/>
-                                    <constraint firstItem="UwL-Pv-v5I" firstAttribute="centerY" secondItem="sKT-2Z-rok" secondAttribute="centerY" id="mhH-oN-bVk"/>
+                                    <constraint firstItem="UwL-Pv-v5I" firstAttribute="centerX" secondItem="sKT-2Z-rok" secondAttribute="centerX" id="gmz-40-GAa"/>
+                                    <constraint firstItem="UwL-Pv-v5I" firstAttribute="centerY" secondItem="sKT-2Z-rok" secondAttribute="centerY" id="hcw-XK-zmB"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciG-a0-hLy" userLabel="Middle Container">
-                                <rect key="frame" x="0.0" y="169" width="320" height="230"/>
+                                <rect key="frame" x="124" y="81" width="320" height="158"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kd-0H-Mbh">
-                                        <rect key="frame" x="116" y="158" width="89" height="36"/>
+                                        <rect key="frame" x="116" y="134" width="89" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                         <state key="normal" title="Estatísticas">
@@ -52,7 +48,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGX-C8-lGq">
-                                        <rect key="frame" x="98" y="97" width="124" height="36"/>
+                                        <rect key="frame" x="98" y="72" width="124" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                         <state key="normal" title="Cantar intervalo">
@@ -63,7 +59,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQJ-5Z-ly5">
-                                        <rect key="frame" x="84" y="36" width="152" height="36"/>
+                                        <rect key="frame" x="84" y="7" width="152" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                         <state key="normal" title="Identificar intervalo">
@@ -75,19 +71,19 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="E6r-2m-UYX"/>
-                                    <constraint firstAttribute="height" constant="230" id="O8a-r5-77p"/>
+                                    <constraint firstAttribute="height" constant="158" id="kzZ-g0-HdU"/>
+                                    <constraint firstAttribute="width" constant="320" id="nQL-xE-ZEK"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.074509803921568626" green="0.16078431372549018" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="sKT-2Z-rok" firstAttribute="leading" secondItem="tai-vc-EPB" secondAttribute="leading" id="9AQ-c5-xci"/>
-                            <constraint firstItem="ciG-a0-hLy" firstAttribute="centerY" secondItem="uxC-Eo-FhO" secondAttribute="centerY" id="aHs-Yt-f1X"/>
-                            <constraint firstItem="sKT-2Z-rok" firstAttribute="trailing" secondItem="tai-vc-EPB" secondAttribute="trailing" id="dMJ-cO-byW"/>
-                            <constraint firstItem="ciG-a0-hLy" firstAttribute="centerX" secondItem="uxC-Eo-FhO" secondAttribute="centerX" id="oYs-YA-XWK"/>
-                            <constraint firstItem="ciG-a0-hLy" firstAttribute="top" secondItem="sKT-2Z-rok" secondAttribute="bottom" constant="2" id="r7L-25-INK"/>
-                            <constraint firstItem="sKT-2Z-rok" firstAttribute="top" secondItem="uxC-Eo-FhO" secondAttribute="top" id="yjb-Dc-fbh"/>
+                            <constraint firstItem="sKT-2Z-rok" firstAttribute="trailing" secondItem="tai-vc-EPB" secondAttribute="trailing" id="0Op-yX-03Q"/>
+                            <constraint firstItem="sKT-2Z-rok" firstAttribute="top" secondItem="uxC-Eo-FhO" secondAttribute="top" id="EEA-ln-tnt"/>
+                            <constraint firstItem="sKT-2Z-rok" firstAttribute="leading" secondItem="tai-vc-EPB" secondAttribute="leading" id="OT4-F9-lnA"/>
+                            <constraint firstItem="ciG-a0-hLy" firstAttribute="top" secondItem="sKT-2Z-rok" secondAttribute="bottom" id="YvZ-yA-soY"/>
+                            <constraint firstItem="ciG-a0-hLy" firstAttribute="centerX" secondItem="uxC-Eo-FhO" secondAttribute="centerX" id="fcJ-yz-Y0P"/>
+                            <constraint firstItem="ciG-a0-hLy" firstAttribute="centerY" secondItem="uxC-Eo-FhO" secondAttribute="centerY" id="swa-i9-qOy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tai-vc-EPB"/>
                     </view>

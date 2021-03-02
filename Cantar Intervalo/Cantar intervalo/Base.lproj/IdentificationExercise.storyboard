@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,60 +15,56 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="IdentificationExerciseViewController" customModule="Cantar_intervalo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DzF-k9-k9k" userLabel="Top Container">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="203"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="97.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual Intervalo?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6VV-BX-614">
-                                        <rect key="frame" x="20" y="79" width="280" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="EWV-64-rLp"/>
-                                            <constraint firstAttribute="width" constant="280" id="ZLb-CU-gTj"/>
-                                        </constraints>
+                                        <rect key="frame" x="174" y="26.5" width="220" height="45"/>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="32"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foU-0N-Sgv">
-                                        <rect key="frame" x="36" y="167" width="249" height="36"/>
-                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
-                                        <state key="normal" title="Emitir novo intervalo">
-                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="EmitNewNote:" destination="BYZ-38-t0r" eventType="touchUpInside" id="to9-fB-FP9"/>
-                                        </connections>
-                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0mp-3i-jNW" userLabel="MiddleTop Container">
+                                        <rect key="frame" x="0.0" y="72" width="568" height="28"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foU-0N-Sgv">
+                                                <rect key="frame" x="159" y="-4" width="250" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="250" id="GIV-g8-Ge1"/>
+                                                    <constraint firstAttribute="height" constant="36" id="hN4-ha-yUY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
+                                                <state key="normal" title="Emitir novo intervalo">
+                                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="EmitNewNote:" destination="BYZ-38-t0r" eventType="touchUpInside" id="to9-fB-FP9"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="foU-0N-Sgv" firstAttribute="centerY" secondItem="0mp-3i-jNW" secondAttribute="centerY" id="A8U-uq-wNs"/>
+                                            <constraint firstItem="foU-0N-Sgv" firstAttribute="centerX" secondItem="0mp-3i-jNW" secondAttribute="centerX" id="sRq-Gf-1Ku"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="6VV-BX-614" firstAttribute="centerX" secondItem="DzF-k9-k9k" secondAttribute="centerX" id="3gT-7E-V5J"/>
-                                    <constraint firstItem="foU-0N-Sgv" firstAttribute="leading" secondItem="DzF-k9-k9k" secondAttribute="leading" constant="36" id="5jb-VD-3sS"/>
-                                    <constraint firstItem="6VV-BX-614" firstAttribute="centerY" secondItem="DzF-k9-k9k" secondAttribute="centerY" id="ViL-a0-Fll"/>
-                                    <constraint firstAttribute="trailing" secondItem="foU-0N-Sgv" secondAttribute="trailing" constant="35" id="YQX-Dl-R8G"/>
-                                    <constraint firstAttribute="bottom" secondItem="foU-0N-Sgv" secondAttribute="bottom" id="bua-2C-gNb"/>
+                                    <constraint firstItem="6VV-BX-614" firstAttribute="centerY" secondItem="DzF-k9-k9k" secondAttribute="centerY" id="7Fj-pN-a9x"/>
+                                    <constraint firstAttribute="trailing" secondItem="0mp-3i-jNW" secondAttribute="trailing" id="BjS-Ib-0sm"/>
+                                    <constraint firstItem="0mp-3i-jNW" firstAttribute="top" secondItem="6VV-BX-614" secondAttribute="bottom" id="HPP-GK-4hD"/>
+                                    <constraint firstAttribute="bottom" secondItem="0mp-3i-jNW" secondAttribute="bottom" constant="-2.5" id="Zog-w4-3JN"/>
+                                    <constraint firstItem="6VV-BX-614" firstAttribute="centerX" secondItem="DzF-k9-k9k" secondAttribute="centerX" id="ovV-PI-3GW"/>
+                                    <constraint firstItem="0mp-3i-jNW" firstAttribute="leading" secondItem="DzF-k9-k9k" secondAttribute="leading" id="pY8-6z-dtd"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Coq-Oq-RK7" userLabel="Bottom Container">
-                                <rect key="frame" x="0.0" y="365" width="320" height="203"/>
+                                <rect key="frame" x="0.0" y="222.5" width="568" height="97.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FgV-dm-eiR">
-                                        <rect key="frame" x="133" y="81.5" width="54" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="54" id="LHl-Ul-zMR"/>
-                                            <constraint firstAttribute="height" constant="40" id="thB-Z2-ahT"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
-                                        <state key="normal" title="Voltar">
-                                            <color key="titleColor" red="0.76652436296383886" green="0.78529505076142136" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="2OU-KP-7eM" kind="show" id="L3P-TF-yJL"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bb-xK-Gwb">
-                                        <rect key="frame" x="28" y="0.0" width="265" height="36"/>
+                                        <rect key="frame" x="28" y="30" width="513" height="36"/>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                         <state key="normal" title="Repetir Intervalo">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -77,17 +73,39 @@
                                             <action selector="RepeatInterval:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QlK-yi-hlJ"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gqn-IG-woZ" userLabel="MiddleBottom Container">
+                                        <rect key="frame" x="0.0" y="66" width="568" height="31.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FgV-dm-eiR">
+                                                <rect key="frame" x="257" y="-4" width="54" height="40"/>
+                                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
+                                                <state key="normal" title="Voltar">
+                                                    <color key="titleColor" red="0.76652436296383886" green="0.78529505076142136" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="2OU-KP-7eM" kind="show" id="L3P-TF-yJL"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="FgV-dm-eiR" firstAttribute="centerY" secondItem="Gqn-IG-woZ" secondAttribute="centerY" id="ASh-96-y2n"/>
+                                            <constraint firstItem="FgV-dm-eiR" firstAttribute="centerX" secondItem="Gqn-IG-woZ" secondAttribute="centerX" id="efS-PS-LFp"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="9bb-xK-Gwb" secondAttribute="trailing" constant="27" id="eQs-Mx-nMq"/>
-                                    <constraint firstItem="9bb-xK-Gwb" firstAttribute="top" secondItem="Coq-Oq-RK7" secondAttribute="top" id="kRP-jP-VRQ"/>
-                                    <constraint firstItem="FgV-dm-eiR" firstAttribute="centerX" secondItem="Coq-Oq-RK7" secondAttribute="centerX" id="osD-DF-BfU"/>
-                                    <constraint firstItem="9bb-xK-Gwb" firstAttribute="leading" secondItem="Coq-Oq-RK7" secondAttribute="leading" constant="28" id="ymt-7a-vAF"/>
-                                    <constraint firstItem="FgV-dm-eiR" firstAttribute="centerY" secondItem="Coq-Oq-RK7" secondAttribute="centerY" id="zhR-rm-cOV"/>
+                                    <constraint firstItem="Gqn-IG-woZ" firstAttribute="top" secondItem="9bb-xK-Gwb" secondAttribute="bottom" id="6vc-kh-w6E"/>
+                                    <constraint firstAttribute="trailing" secondItem="9bb-xK-Gwb" secondAttribute="trailing" constant="27" id="SMR-hx-hoJ"/>
+                                    <constraint firstItem="9bb-xK-Gwb" firstAttribute="leading" secondItem="Coq-Oq-RK7" secondAttribute="leading" constant="28" id="Zuo-Ob-cJM"/>
+                                    <constraint firstItem="Gqn-IG-woZ" firstAttribute="top" secondItem="9bb-xK-Gwb" secondAttribute="bottom" id="drU-Ws-0TO"/>
+                                    <constraint firstItem="9bb-xK-Gwb" firstAttribute="top" secondItem="Coq-Oq-RK7" secondAttribute="top" constant="30" id="f3e-yX-A41"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gqn-IG-woZ" secondAttribute="bottom" id="gud-mj-2OU"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gqn-IG-woZ" secondAttribute="trailing" id="oZR-fO-y4v"/>
+                                    <constraint firstItem="Gqn-IG-woZ" firstAttribute="leading" secondItem="Coq-Oq-RK7" secondAttribute="leading" id="v9e-Dh-g90"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rld-Zb-gAe" userLabel="Middle Container">
-                                <rect key="frame" x="0.0" y="205" width="320" height="158"/>
+                                <rect key="frame" x="124" y="97.5" width="320" height="125"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiQ-KI-Nb2">
                                         <rect key="frame" x="32" y="8" width="69" height="36"/>
@@ -223,23 +241,23 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="DVp-qz-QBG"/>
-                                    <constraint firstAttribute="height" constant="158" id="l6R-lD-egB"/>
+                                    <constraint firstAttribute="width" constant="320" id="Gsi-qC-1nT"/>
+                                    <constraint firstAttribute="height" constant="125" id="tbF-tt-8W8"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.082352941176470587" green="0.16862745098039217" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Coq-Oq-RK7" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="9lX-ZM-hRT"/>
-                            <constraint firstItem="Coq-Oq-RK7" firstAttribute="top" secondItem="Rld-Zb-gAe" secondAttribute="bottom" constant="2" id="JDT-Rf-wDn"/>
-                            <constraint firstItem="Rld-Zb-gAe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MRy-Yl-gcY"/>
-                            <constraint firstItem="Rld-Zb-gAe" firstAttribute="top" secondItem="DzF-k9-k9k" secondAttribute="bottom" constant="2" id="SB2-6g-uhC"/>
-                            <constraint firstItem="DzF-k9-k9k" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Wvz-bN-i9D"/>
-                            <constraint firstItem="DzF-k9-k9k" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="d1f-BT-CJD"/>
-                            <constraint firstItem="Coq-Oq-RK7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fdY-sN-air"/>
-                            <constraint firstItem="Coq-Oq-RK7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fpc-CC-ABH"/>
-                            <constraint firstItem="DzF-k9-k9k" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yqM-gl-JJS"/>
-                            <constraint firstItem="Rld-Zb-gAe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zXT-HZ-xIg"/>
+                            <constraint firstItem="Coq-Oq-RK7" firstAttribute="top" secondItem="Rld-Zb-gAe" secondAttribute="bottom" id="4nz-f6-msh"/>
+                            <constraint firstItem="DzF-k9-k9k" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5Do-Ei-Amr"/>
+                            <constraint firstItem="Coq-Oq-RK7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JRx-tq-X55"/>
+                            <constraint firstItem="DzF-k9-k9k" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Sgk-Gx-Een"/>
+                            <constraint firstItem="DzF-k9-k9k" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VO5-02-vlU"/>
+                            <constraint firstItem="Rld-Zb-gAe" firstAttribute="top" secondItem="DzF-k9-k9k" secondAttribute="bottom" id="YXg-hy-ew2"/>
+                            <constraint firstItem="Coq-Oq-RK7" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="czN-m6-IeT"/>
+                            <constraint firstItem="Coq-Oq-RK7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hVv-pr-U7I"/>
+                            <constraint firstItem="Rld-Zb-gAe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sqq-1K-QR2"/>
+                            <constraint firstItem="Rld-Zb-gAe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yBY-mp-yOM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -261,7 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="84.375" y="32.74647887323944"/>
+            <point key="canvasLocation" x="82.5" y="31.690140845070424"/>
         </scene>
         <!--Menu-->
         <scene sceneID="DtT-gr-Zbv">
