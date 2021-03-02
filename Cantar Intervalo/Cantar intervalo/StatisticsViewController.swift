@@ -180,7 +180,8 @@ class StatisticsViewController: UIViewController {
         
         var confusionArray = [PieChartDataEntry]()
         // Loops through possible intervals.
-        for i in 1 ... 12 {
+        let ranges = [reference..<(12+1), 1..<reference]
+        for i in ranges.joined() {
             // For each interval, calculate the percentage of times it was answered, when reference was the correct answer.
             var confusion : Double = 0
             resultsWithSpecifiedInterval.forEach{
@@ -189,8 +190,9 @@ class StatisticsViewController: UIViewController {
                 }
             }
             print("i = \(i): \(confusion/totalCount)")
-            confusionArray.append(PieChartDataEntry(value: confusion/totalCount, label: "#\(i)"))
+            confusionArray.append(PieChartDataEntry(value: confusion/totalCount, label: intervalsShortNameArray[Int(i)-1]))
         }
+        
         
         return confusionArray
     }
@@ -202,7 +204,7 @@ class StatisticsViewController: UIViewController {
             // Display noDataText
             return
         }
-        let dataSet = PieChartDataSet(values: entries, label: "Intervalos")
+        let dataSet = PieChartDataSet(values: entries, label: "")
         let data = PieChartData(dataSet: dataSet)
         pieChart.data = data
         barChart.chartDescription?.text = ""
@@ -214,16 +216,29 @@ class StatisticsViewController: UIViewController {
                           UIColor.init(red: 0.99, green: 0.55, blue: 0.24, alpha: 1), // #fd8d3c
                           UIColor.init(red: 0.94, green: 0.23, blue: 0.13, alpha: 1), // #f03b20
                           UIColor.init(red: 0.74, green: 0.0, blue: 0.15, alpha: 1), // #bd0026
+            
+                          UIColor.init(red: 0.74, green: 0.0, blue: 0.74, alpha: 1), // #bd0026
+            
+                          UIColor.init(red: 0.74, green: 0.0, blue: 0.15, alpha: 1), // #bd0026
                           UIColor.init(red: 0.94, green: 0.23, blue: 0.13, alpha: 1), // #f03b20
+                          UIColor.init(red: 0.99, green: 0.55, blue: 0.24, alpha: 1), // #fd8d3c
                           UIColor.init(red: 1.00, green: 0.80, blue: 0.36, alpha: 1), // #fecc5c
                           UIColor.init(red: 1.00, green: 1.00, blue: 0.70, alpha: 1), // #ffffb2
         ]
         
         let formatter = NumberFormatter(); formatter.numberStyle = .percent;
         
-        dataSet.valueFont = UIFont(name: "KohinoorBangla-Regular", size: 11)!
-        dataSet.valueColors = [UIColor.white]
+        dataSet.valueFont = UIFont(name: "KohinoorBangla-Regular", size: 12)!
+        dataSet.valueColors = [UIColor.black, UIColor.black, UIColor.black, UIColor.black,
+                               UIColor.white, UIColor.white, UIColor.white, UIColor.white, UIColor.white,
+                               UIColor.black, UIColor.black, UIColor.black
+        ]
         //dataSet.valueFormatter = DefaultAxisValueFormatter(formatter: formatter)
+        dataSet.selectionShift = 0
+        
+        pieChart.legend.textColor = UIColor.white
+        pieChart.legend.font = UIFont(name: "KohinoorBangla-Regular", size: 12)!
+        pieChart.chartDescription?.text = ""
         
         
         pieChart.notifyDataSetChanged()

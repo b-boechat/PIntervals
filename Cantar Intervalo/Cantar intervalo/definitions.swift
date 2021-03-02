@@ -14,12 +14,27 @@ let intervalsArray : [String] = ["Segunda menor",
                                 "Terça menor",
                                 "Terça maior",
                                 "Quarta justa",
-                                "Quarta aumentada",
+                                "Trítono",
                                 "Quinta justa",
                                 "Sexta menor",
                                 "Sexta maior",
                                 "Sétima menor",
-                                "Sétima maior",]
+                                "Sétima maior",
+                                "Oitava"]
+
+let intervalsShortNameArray : [String] = ["2ª menor",
+                                 "2ª maior",
+                                 "3ª menor",
+                                 "3ª maior",
+                                 "4ª justa",
+                                 "Trítono",
+                                 "5ª justa",
+                                 "6ª menor",
+                                 "6ª maior",
+                                 "7ª menor",
+                                 "7ª maior",
+                                 "Oitava"]
+
 
 // Array of note filenames. Notes range from A2 (MIDI 45) to G#4 (MIDI 68)
 let notesArray : [String] = ["45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56",
