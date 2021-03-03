@@ -31,6 +31,11 @@ class IdentificationExerciseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         answerButtonsOutlets = answerButtonsOutlets.sorted{$0.tag < $1.tag}
+        
+        answerButtonsOutlets.forEach{(button) in
+            self.view.bringSubview(toFront: button)
+        }
+        
         audioPlayer = AudioPlayerWrapper()
         setupExercise()
         // Do any additional setup after loading the view, typically from a nib.

@@ -55,9 +55,9 @@ class StatisticsViewController: UIViewController {
         
         changeOrientation()
         
-        //fetchResults()
+        fetchResults()
         //removeResults()
-        replaceWithDebugResults(resultsAsStruct4)
+        //replaceWithDebugResults(resultsAsStruct4)
         
         
         // Setup no data appearance. Bar chart has to be "" since it contains pie chart and, as such, must always be visible.
@@ -72,7 +72,7 @@ class StatisticsViewController: UIViewController {
 
     }
     
-    func presentSpecifiedStatistics(plotType: PlotType, exerciseType: ExerciseType, numberOfPastDaysConsidered: Int) {
+    func presentSpecifiedStatistics(plotType: PlotType, exerciseType: ExerciseType, numberOfPastDaysConsidered: Int, intervalReference: Int16 = 1) {
         
         // Filter results by specified exercise type and date range.
         let filteredResults = filterResults{
@@ -83,7 +83,7 @@ class StatisticsViewController: UIViewController {
             plotIntervalAccuracy(filteredResults)
         }
         else {
-            plotIntervalConfusion(filteredResults)
+            plotIntervalConfusion(filteredResults, reference: intervalReference)
         }
     }
     
@@ -214,9 +214,10 @@ class StatisticsViewController: UIViewController {
     
     
     
-    func plotIntervalConfusion (_ filteredResults: [ExerciseResult], reference: Int16 = 1) {
+    func plotIntervalConfusion (_ filteredResults: [ExerciseResult], reference: Int16) {
         guard let entries = calculateIntervalConfusion(providedResults: filteredResults, reference: reference) else {
             // Display noDataText
+            pieChart.data = nil
             return
         }
         let dataSet = PieChartDataSet(values: entries, label: "")
@@ -272,6 +273,7 @@ class StatisticsViewController: UIViewController {
         
         var entries = [BarChartDataEntry]()
         var resultsExistForInterval = [Bool](repeating: true, count: 12)
+        //var resultsExistForInterval = [Bool](repeating: true, count: 12)
         // Get correct answer percentage for each interval.
         for i in 1 ... 12 {
             var accuracy = calculateIntervalAnswerAccuracy(providedResults: filteredResults,  rawInterval: Int16(i))
@@ -323,6 +325,8 @@ class StatisticsViewController: UIViewController {
         
         let missingResultColor = UIColor.init(red: 0.3, green: 0.3, blue: 0.3, alpha: 1)
         
+        print(resultsExistForInterval[0])
+        
         dataSet.label = "Intervalos"
         dataSet.colors = [resultsExistForInterval[0] ? UIColor.init(red: 0.70, green: 0.89, blue: 0.80, alpha: 1) : missingResultColor, // #b3e2cd
             resultsExistForInterval[1] ? UIColor.init(red: 0.99, green: 0.80, blue: 0.67, alpha: 1) : missingResultColor, // #fdcdac
@@ -348,6 +352,7 @@ class StatisticsViewController: UIViewController {
     
     @IBAction func changeReferenceForIntervalConfusion(_ sender: UIButton) {
         print(sender.tag)
+        presentSpecifiedStatistics(plotType: plotOption!, exerciseType: exerciseOption!, numberOfPastDaysConsidered: timeOption!, intervalReference: Int16(sender.tag + 1))
     }
     
     
@@ -375,8 +380,9 @@ public class PieChartValueFormatter: NSObject, IValueFormatter {
     public func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .percent
-        return formatter.string(from: NSNumber(value:value))!
+        return value == 0 ? "" : formatter.string(from: NSNumber(value:value))!
     }
 }
+
 
 
