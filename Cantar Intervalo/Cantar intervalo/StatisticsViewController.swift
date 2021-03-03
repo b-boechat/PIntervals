@@ -53,6 +53,8 @@ class StatisticsViewController: UIViewController {
             self.view.bringSubview(toFront: button)
         }
         
+        adjustIntervalButtonsColors(forActiveTag: 0)
+        
         changeOrientation()
         
         fetchResults()
@@ -83,7 +85,7 @@ class StatisticsViewController: UIViewController {
             plotIntervalAccuracy(filteredResults)
         }
         else {
-            plotIntervalConfusion(filteredResults, reference: intervalReference)
+            plotIntervalConfusion(filteredResults, reference: intervalReference, exerciseType: exerciseType)
         }
     }
     
@@ -103,6 +105,10 @@ class StatisticsViewController: UIViewController {
                 pieChart.isUserInteractionEnabled = true
                 barChart.isUserInteractionEnabled = true
                 pieChart.alpha = 0.0
+                intervalButtons.forEach{(button) in
+                    button.isEnabled = false
+                    button.alpha = 0.0
+                }
 
             }
             else {
@@ -110,6 +116,10 @@ class StatisticsViewController: UIViewController {
                 pieChart.isUserInteractionEnabled = true
                 barChart.isUserInteractionEnabled = true
                 barChart.alpha = 1.0
+                intervalButtons.forEach{(button) in
+                    button.isEnabled = true
+                    button.alpha = 1.0
+                }
                 
             }
         }
@@ -120,6 +130,10 @@ class StatisticsViewController: UIViewController {
             pieChart.alpha = 0.0
             pieChart.isUserInteractionEnabled = false
             portraitViewWarning.alpha = 1.0
+            intervalButtons.forEach{(button) in
+                button.isEnabled = false
+                button.alpha = 0.0
+            }
         }
     }
     
@@ -184,7 +198,7 @@ class StatisticsViewController: UIViewController {
         
     }
     
-    func calculateIntervalConfusion(providedResults: [ExerciseResult], reference: Int16) -> [PieChartDataEntry]? {
+    func calculateIntervalConfusion(providedResults: [ExerciseResult], reference: Int16, exerciseType: ExerciseType) -> [PieChartDataEntry]? {
         // Filter results by given correct interval, and calculate their total count.
         let resultsWithSpecifiedInterval = filterResults(providedResults){$0.correctInterval == reference}
         let totalCount = Double(resultsWithSpecifiedInterval.count)
@@ -207,6 +221,16 @@ class StatisticsViewController: UIViewController {
             //print("i = \(i): \(confusion/totalCount)")
             confusionArray.append(PieChartDataEntry(value: confusion/totalCount, label: intervalsShortNameArray[Int(i)-1]))
         }
+        if exerciseType == .singingExercise {
+            // No note maintained has to be added.
+            var confusion : Double = 0
+            resultsWithSpecifiedInterval.forEach{
+                if $0.answeredInterval == NO_NOTE_MAINTAINED {
+                    confusion += 1
+                }
+            }
+            confusionArray.append(PieChartDataEntry(value: confusion/totalCount, label: "Sem nota"))
+        }
         
         
         return confusionArray
@@ -214,10 +238,14 @@ class StatisticsViewController: UIViewController {
     
     
     
-    func plotIntervalConfusion (_ filteredResults: [ExerciseResult], reference: Int16) {
-        guard let entries = calculateIntervalConfusion(providedResults: filteredResults, reference: reference) else {
+    func plotIntervalConfusion (_ filteredResults: [ExerciseResult], reference: Int16, exerciseType: ExerciseType) {
+        
+        // Exercise type has to be passed because of NO_NOTE_MAINTAINED
+        
+        guard let entries = calculateIntervalConfusion(providedResults: filteredResults, reference: reference, exerciseType: exerciseType) else {
             // Display noDataText
             pieChart.data = nil
+            pieChart.notifyDataSetChanged()
             return
         }
         let dataSet = PieChartDataSet(values: entries, label: "")
@@ -233,20 +261,23 @@ class StatisticsViewController: UIViewController {
                           UIColor.init(red: 0.94, green: 0.23, blue: 0.13, alpha: 1), // #f03b20
                           UIColor.init(red: 0.74, green: 0.0, blue: 0.15, alpha: 1), // #bd0026
             
-                          UIColor.init(red: 0.74, green: 0.0, blue: 0.74, alpha: 1), // #bd0026
+                          UIColor.init(red: 0.74, green: 0.0, blue: 0.74, alpha: 1), //
             
                           UIColor.init(red: 0.74, green: 0.0, blue: 0.15, alpha: 1), // #bd0026
                           UIColor.init(red: 0.94, green: 0.23, blue: 0.13, alpha: 1), // #f03b20
                           UIColor.init(red: 0.99, green: 0.55, blue: 0.24, alpha: 1), // #fd8d3c
                           UIColor.init(red: 1.00, green: 0.80, blue: 0.36, alpha: 1), // #fecc5c
                           UIColor.init(red: 1.00, green: 1.00, blue: 0.70, alpha: 1), // #ffffb2
+            
+                          UIColor.init(red: 0.3, green: 0.3, blue: 0.3, alpha: 1) // For NO_NOTE_MAINTAINED, it's the same color as missing result for the interval accuracy plot.
         ]
         
         
         dataSet.valueFont = UIFont(name: "KohinoorBangla-Regular", size: 12)!
         dataSet.valueColors = [UIColor.black, UIColor.black, UIColor.black, UIColor.black,
                                UIColor.white, UIColor.white, UIColor.white, UIColor.white, UIColor.white,
-                               UIColor.black, UIColor.black, UIColor.black
+                               UIColor.black, UIColor.black, UIColor.black,
+                               UIColor.white
         ]
         
         
@@ -325,7 +356,7 @@ class StatisticsViewController: UIViewController {
         
         let missingResultColor = UIColor.init(red: 0.3, green: 0.3, blue: 0.3, alpha: 1)
         
-        print(resultsExistForInterval[0])
+        //print(resultsExistForInterval[0])
         
         dataSet.label = "Intervalos"
         dataSet.colors = [resultsExistForInterval[0] ? UIColor.init(red: 0.70, green: 0.89, blue: 0.80, alpha: 1) : missingResultColor, // #b3e2cd
@@ -350,11 +381,24 @@ class StatisticsViewController: UIViewController {
     }
     
     
-    @IBAction func changeReferenceForIntervalConfusion(_ sender: UIButton) {
-        print(sender.tag)
-        presentSpecifiedStatistics(plotType: plotOption!, exerciseType: exerciseOption!, numberOfPastDaysConsidered: timeOption!, intervalReference: Int16(sender.tag + 1))
+    func adjustIntervalButtonsColors(forActiveTag tag: Int) {
+        intervalButtons.forEach{(button) in
+            if button.tag == tag {
+                button.backgroundColor = UIColor.init(red: 240/255, green: 122/255, blue: 160/255, alpha: 1.0) // #f58142
+            }
+            else {
+                button.backgroundColor = UIColor.init(red: 0.45, green: 0.56, blue: 1.00, alpha: 1.0) // #728fff
+            }
+        }
     }
     
+    @IBAction func changeReferenceForIntervalConfusion(_ sender: UIButton) {
+        //print(sender.tag)
+        
+        adjustIntervalButtonsColors(forActiveTag: sender.tag)
+        
+        presentSpecifiedStatistics(plotType: plotOption!, exerciseType: exerciseOption!, numberOfPastDaysConsidered: timeOption!, intervalReference: Int16(sender.tag + 1))
+    }
     
     
     override func didReceiveMemoryWarning() {

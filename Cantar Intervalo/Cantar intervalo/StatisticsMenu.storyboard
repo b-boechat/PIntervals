@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LGs-CC-sTC">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,31 +15,31 @@
             <objects>
                 <viewController id="LGs-CC-sTC" customClass="StatisticsMenuViewController" customModule="Cantar_intervalo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pnk-kG-H6o">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohd-DH-NXO" userLabel="Bottom Container">
-                                <rect key="frame" x="0.0" y="343.5" width="320" height="224.5"/>
+                                <rect key="frame" x="0.0" y="207.5" width="568" height="112.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzm-6x-vrX">
-                                        <rect key="frame" x="133" y="92.5" width="54" height="40"/>
+                                        <rect key="frame" x="257" y="46.5" width="54" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="54" id="ORz-b3-TLr"/>
-                                            <constraint firstAttribute="height" constant="40" id="ZE7-7j-vkK"/>
+                                            <constraint firstAttribute="height" constant="20" id="ZE7-7j-vkK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
                                         <state key="normal" title="Voltar">
-                                            <color key="titleColor" red="0.76652436300000004" green="0.78529505079999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.76470588235294112" green="0.51764705882352935" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="PfO-98-GHN" kind="show" id="5mN-rd-Yf2"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRb-Pv-PZK">
-                                        <rect key="frame" x="76" y="57.5" width="169" height="40"/>
+                                        <rect key="frame" x="179" y="11.5" width="210" height="40"/>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
-                                        <state key="normal" title="Ir para Estatisticas">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Apresentar estatísticas">
+                                            <color key="titleColor" red="0.76470588235294112" green="0.51764705882352935" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="goToStatistics:" destination="LGs-CC-sTC" eventType="touchUpInside" id="dyA-V6-PnK"/>
@@ -48,18 +48,17 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="IRb-Pv-PZK" secondAttribute="trailing" constant="75" id="Lpg-dq-iob"/>
                                     <constraint firstItem="zzm-6x-vrX" firstAttribute="centerX" secondItem="ohd-DH-NXO" secondAttribute="centerX" id="Xr2-dw-cdU"/>
-                                    <constraint firstItem="IRb-Pv-PZK" firstAttribute="leading" secondItem="ohd-DH-NXO" secondAttribute="leading" constant="76" id="aOD-PH-SA4"/>
                                     <constraint firstItem="zzm-6x-vrX" firstAttribute="centerY" secondItem="ohd-DH-NXO" secondAttribute="centerY" id="hvA-qy-Blp"/>
+                                    <constraint firstItem="IRb-Pv-PZK" firstAttribute="centerX" secondItem="ohd-DH-NXO" secondAttribute="centerX" id="li6-xp-can"/>
                                     <constraint firstItem="zzm-6x-vrX" firstAttribute="top" secondItem="IRb-Pv-PZK" secondAttribute="bottom" constant="-5" id="qAB-aE-RZu"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odp-kL-EYv" userLabel="Middle Container">
-                                <rect key="frame" x="0.0" y="224.5" width="320" height="119"/>
+                                <rect key="frame" x="124" y="112.5" width="320" height="95"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escolha o intervalo de tempo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgF-xa-V9C">
-                                        <rect key="frame" x="31" y="60" width="264" height="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escolha o intervalo de tempo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgF-xa-V9C">
+                                        <rect key="frame" x="31" y="60" width="268" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
                                         <color key="textColor" red="0.62557503172588835" green="0.62557503172588835" blue="0.62557503172588835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -77,10 +76,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8w-Dm-ZFS">
-                                        <rect key="frame" x="219" y="27" width="57" height="40"/>
+                                        <rect key="frame" x="205" y="27" width="85" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
-                                        <state key="normal" title=" Plot 2">
+                                        <state key="normal" title="Confusão">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -109,7 +108,7 @@
                                             <action selector="timeButton:" destination="LGs-CC-sTC" eventType="touchUpInside" id="kQW-b2-OYl"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escolha o tipo de gráfico" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ON-hA-ojj">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escolha o tipo de gráfico:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ON-hA-ojj">
                                         <rect key="frame" x="49" y="5" width="231" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
@@ -117,10 +116,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCc-Ma-NhP">
-                                        <rect key="frame" x="49" y="27" width="50" height="40"/>
+                                        <rect key="frame" x="40" y="27" width="68" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
-                                        <state key="normal" title="Plot 1">
+                                        <state key="normal" title="Acertos">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -129,15 +128,15 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="119" id="JRK-yI-dW9"/>
+                                    <constraint firstAttribute="height" constant="95" id="JRK-yI-dW9"/>
                                     <constraint firstAttribute="width" constant="320" id="c5T-Rs-gNw"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gb3-8B-0fO" userLabel="Top Container">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="224"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="112"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjk-eg-VSA">
-                                        <rect key="frame" x="87" y="144" width="146" height="40"/>
+                                        <rect key="frame" x="87" y="32" width="394" height="40"/>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
                                         <state key="normal" title="Cantar Intervalo">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -147,17 +146,17 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZe-fo-T5N">
-                                        <rect key="frame" x="65" y="184" width="191" height="40"/>
+                                        <rect key="frame" x="65" y="72" width="439" height="40"/>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
-                                        <state key="normal" title="Reconhecer Intervalo">
+                                        <state key="normal" title="Identificar Intervalo">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="exerciseButtons:" destination="LGs-CC-sTC" eventType="touchUpInside" id="z0C-Cq-WwK"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escolha o tipo de exercício" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQ5-6p-XCy">
-                                        <rect key="frame" x="36" y="120" width="248" height="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escolha o tipo de exercício:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQ5-6p-XCy">
+                                        <rect key="frame" x="36" y="8" width="496" height="28"/>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
                                         <color key="textColor" red="0.62557503172588835" green="0.62557503172588835" blue="0.62557503172588835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -191,6 +190,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mRH-Np-PyT"/>
                     </view>
+                    <connections>
+                        <outlet property="middleContainer" destination="Odp-kL-EYv" id="AtV-ZZ-b2b"/>
+                        <outletCollection property="exerciseTypeButtons" destination="rjk-eg-VSA" collectionClass="NSMutableArray" id="f6c-Rn-gfJ"/>
+                        <outletCollection property="exerciseTypeButtons" destination="XZe-fo-T5N" collectionClass="NSMutableArray" id="fTS-hy-pSM"/>
+                        <outletCollection property="plotTypeButtons" destination="TCc-Ma-NhP" collectionClass="NSMutableArray" id="blG-kx-dBF"/>
+                        <outletCollection property="plotTypeButtons" destination="A8w-Dm-ZFS" collectionClass="NSMutableArray" id="UcM-AW-rYk"/>
+                        <outletCollection property="timeTypeButtons" destination="KGr-Vl-AZ9" collectionClass="NSMutableArray" id="aVU-D0-e8i"/>
+                        <outletCollection property="timeTypeButtons" destination="s1Q-c2-mBn" collectionClass="NSMutableArray" id="0CP-qs-ZbY"/>
+                        <outletCollection property="timeTypeButtons" destination="c45-na-pqu" collectionClass="NSMutableArray" id="CEU-ea-0bY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdI-PK-XH7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

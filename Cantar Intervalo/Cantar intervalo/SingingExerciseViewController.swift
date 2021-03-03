@@ -195,6 +195,7 @@ class SingingExerciseViewController: UIViewController {
         // Calculates reference from target, according to the interval.
         referenceNote = targetNote - (intervalIndex+1)
         
+        
         // Updates labels.
         upperLabel.text = "Cante o intervalo pedido."
         upperLabel.textColor = UIColor.white
