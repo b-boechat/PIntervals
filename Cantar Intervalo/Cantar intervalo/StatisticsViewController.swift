@@ -32,6 +32,10 @@ class StatisticsViewController: UIViewController {
     @IBOutlet weak var barChart: BarChartView!
     @IBOutlet weak var pieChart: PieChartView!
     
+    @IBOutlet var intervalButtons: [UIButton]!
+    
+    
+    
     @IBOutlet weak var portraitViewWarning: UILabel!
     
     override func viewDidLoad() {
@@ -41,9 +45,13 @@ class StatisticsViewController: UIViewController {
         let plotTypePassed = plotOption!
         let timeTypePassed = timeOption!
         
-        print (exerciseTypePassed)
-        print (plotTypePassed)
-        print (timeTypePassed)
+        //print (exerciseTypePassed)
+        //print (plotTypePassed)
+        //print (timeTypePassed)
+        
+        intervalButtons.forEach{(button) in
+            self.view.bringSubview(toFront: button)
+        }
         
         changeOrientation()
         
@@ -51,12 +59,15 @@ class StatisticsViewController: UIViewController {
         //removeResults()
         replaceWithDebugResults(resultsAsStruct4)
         
+        
+        // Setup no data appearance. Bar chart has to be "" since it contains pie chart and, as such, must always be visible.
         barChart.noDataText = ""
         pieChart.noDataText = "Responda mais exercícios para obter resultados para esse intervalo!"
         pieChart.noDataTextColor = .white
         pieChart.noDataFont = UIFont(name: "KohinoorBangla-Regular", size: 14)!
         
         presentSpecifiedStatistics(plotType: plotTypePassed, exerciseType: exerciseTypePassed, numberOfPastDaysConsidered: timeTypePassed)
+        
  
 
     }
@@ -89,13 +100,17 @@ class StatisticsViewController: UIViewController {
             portraitViewWarning.alpha = 0.0
             if plotOption == PlotType.intervalAccuracyPlot {
                 barChart.alpha = 1.0
-                pieChart.alpha = 0.0
+                pieChart.isUserInteractionEnabled = true
                 barChart.isUserInteractionEnabled = true
+                pieChart.alpha = 0.0
+
             }
             else {
                 pieChart.alpha = 1.0
-                barChart.alpha = 1.0
                 pieChart.isUserInteractionEnabled = true
+                barChart.isUserInteractionEnabled = true
+                barChart.alpha = 1.0
+                
             }
         }
         else {
@@ -189,7 +204,7 @@ class StatisticsViewController: UIViewController {
                     confusion += 1
                 }
             }
-            print("i = \(i): \(confusion/totalCount)")
+            //print("i = \(i): \(confusion/totalCount)")
             confusionArray.append(PieChartDataEntry(value: confusion/totalCount, label: intervalsShortNameArray[Int(i)-1]))
         }
         
@@ -226,19 +241,27 @@ class StatisticsViewController: UIViewController {
                           UIColor.init(red: 1.00, green: 1.00, blue: 0.70, alpha: 1), // #ffffb2
         ]
         
-        let formatter = NumberFormatter(); formatter.numberStyle = .percent;
         
         dataSet.valueFont = UIFont(name: "KohinoorBangla-Regular", size: 12)!
         dataSet.valueColors = [UIColor.black, UIColor.black, UIColor.black, UIColor.black,
                                UIColor.white, UIColor.white, UIColor.white, UIColor.white, UIColor.white,
                                UIColor.black, UIColor.black, UIColor.black
         ]
-        //dataSet.valueFormatter = DefaultAxisValueFormatter(formatter: formatter)
+        
+        
+        
+        dataSet.valueFormatter = PieChartValueFormatter()
+        
         dataSet.selectionShift = 0
+        //dataSet.drawValuesEnabled = false
         
         pieChart.legend.textColor = UIColor.white
         pieChart.legend.font = UIFont(name: "KohinoorBangla-Regular", size: 12)!
         pieChart.chartDescription?.text = ""
+        pieChart.holeRadiusPercent = 0.3
+        pieChart.transparentCircleRadiusPercent = 0.35
+        pieChart.drawEntryLabelsEnabled = false
+        
         
         
         pieChart.notifyDataSetChanged()
@@ -323,6 +346,9 @@ class StatisticsViewController: UIViewController {
     }
     
     
+    @IBAction func changeReferenceForIntervalConfusion(_ sender: UIButton) {
+        print(sender.tag)
+    }
     
     
     
@@ -341,6 +367,16 @@ class StatisticsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
 
 }
+
+public class PieChartValueFormatter: NSObject, IValueFormatter {
+    public func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        return formatter.string(from: NSNumber(value:value))!
+    }
+}
+
 

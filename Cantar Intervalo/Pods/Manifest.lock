@@ -2,21 +2,25 @@ PODS:
   - Charts (3.1.1):
     - Charts/Core (= 3.1.1)
   - Charts/Core (3.1.1)
+  - iOSDropDown (0.3.4)
   - Pitchy (3.0.0)
 
 DEPENDENCIES:
   - Charts (~> 3.1.1)
+  - iOSDropDown
   - Pitchy
 
 SPEC REPOS:
   trunk:
     - Charts
+    - iOSDropDown
     - Pitchy
 
 SPEC CHECKSUMS:
   Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
+  iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
   Pitchy: 15407e4425b6d88fa3e7eef8927ba659fab52d7a
 
-PODFILE CHECKSUM: 78ae4579e0933908999c4e7e6ca304f3faa3adfd
+PODFILE CHECKSUM: b80c0494c959d4c075b5b45ec4f84a3223177f73
 
 COCOAPODS: 1.10.1

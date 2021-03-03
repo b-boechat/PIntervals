@@ -28,6 +28,7 @@
 		E2C0B59025C63B1300A4865E /* notas in Resources */ = {isa = PBXBuildFile; fileRef = E2C0B58F25C63B1300A4865E /* notas */; };
 		E2C67F8525C63D5D001E9B2A /* audioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C67F8425C63D5D001E9B2A /* audioPlayer.swift */; };
 		E2C67F8725C6527B001E9B2A /* definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C67F8625C6527B001E9B2A /* definitions.swift */; };
+		E2F0EE2F25EF0374004D5705 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F0EE2E25EF0374004D5705 /* iOSDropDown.framework */; };
 		E2FEF4CB25C387E800465EBA /* debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FEF4CA25C387E800465EBA /* debug.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		E2C0B58F25C63B1300A4865E /* notas */ = {isa = PBXFileReference; lastKnownFileType = folder; path = notas; sourceTree = SOURCE_ROOT; };
 		E2C67F8425C63D5D001E9B2A /* audioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioPlayer.swift; sourceTree = "<group>"; };
 		E2C67F8625C6527B001E9B2A /* definitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = definitions.swift; sourceTree = "<group>"; };
+		E2F0EE2E25EF0374004D5705 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2FEF4CA25C387E800465EBA /* debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = debug.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2F0EE2F25EF0374004D5705 /* iOSDropDown.framework in Frameworks */,
 				565BFBBF85C12B9274AD3535 /* Pods_Cantar_intervalo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +87,7 @@
 		729375BED61823BBB0A8A915 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E2F0EE2E25EF0374004D5705 /* iOSDropDown.framework */,
 				7760332BA70595B9A54F6167 /* Pods_Cantar_intervalo.framework */,
 			);
 			name = Frameworks;
