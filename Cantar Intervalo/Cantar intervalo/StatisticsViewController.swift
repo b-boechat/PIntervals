@@ -57,9 +57,9 @@ class StatisticsViewController: UIViewController {
         
         changeOrientation()
         
-        fetchResults()
+        //fetchResults()
         //removeResults()
-        //replaceWithDebugResults(resultsAsStruct4)
+        replaceWithDebugResults(resultsAsStruct4)
         
         
         // Setup no data appearance. Bar chart has to be "" since it contains pie chart and, as such, must always be visible.
@@ -255,19 +255,19 @@ class StatisticsViewController: UIViewController {
         
         dataSet.colors = [UIColor.init(red: 0.670, green: 1.0, blue: 0.365, alpha: 1),
                           
-                          UIColor.init(red: 1.00, green: 1.00, blue: 0.70, alpha: 1), // #ffffb2
+                          UIColor.init(red: 254/255, green: 249/255, blue: 92/255, alpha: 1), // #fef95c
                           UIColor.init(red: 1.00, green: 0.80, blue: 0.36, alpha: 1), // #fecc5c
                           UIColor.init(red: 0.99, green: 0.55, blue: 0.24, alpha: 1), // #fd8d3c
                           UIColor.init(red: 0.94, green: 0.23, blue: 0.13, alpha: 1), // #f03b20
                           UIColor.init(red: 0.74, green: 0.0, blue: 0.15, alpha: 1), // #bd0026
             
-                          UIColor.init(red: 0.74, green: 0.0, blue: 0.74, alpha: 1), //
             
-                          UIColor.init(red: 0.74, green: 0.0, blue: 0.15, alpha: 1), // #bd0026
-                          UIColor.init(red: 0.94, green: 0.23, blue: 0.13, alpha: 1), // #f03b20
-                          UIColor.init(red: 0.99, green: 0.55, blue: 0.24, alpha: 1), // #fd8d3c
-                          UIColor.init(red: 1.00, green: 0.80, blue: 0.36, alpha: 1), // #fecc5c
-                          UIColor.init(red: 1.00, green: 1.00, blue: 0.70, alpha: 1), // #ffffb2
+                          UIColor.init(red: 41/255, green: 6/255, blue: 107/255, alpha: 1), // 29066B
+                          UIColor.init(red: 37/255, green: 52/255, blue: 148/255, alpha: 1), // 253494
+                          UIColor.init(red: 44/255, green: 127/255, blue: 184/255, alpha: 1), // 2c7fb8
+                          UIColor.init(red: 65/255, green: 182/255, blue: 196/255, alpha: 1), // 41b6c4
+                          UIColor.init(red: 161/255, green: 218/255, blue: 180/255, alpha: 1), // a1dab4
+                          UIColor.init(red: 255/255, green: 255/255, blue: 204/255, alpha: 1), // ffffcc
             
                           UIColor.init(red: 0.3, green: 0.3, blue: 0.3, alpha: 1) // For NO_NOTE_MAINTAINED, it's the same color as missing result for the interval accuracy plot.
         ]

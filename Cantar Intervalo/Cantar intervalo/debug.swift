@@ -18,10 +18,12 @@ extension SingingExerciseViewController {
 
 extension StatisticsViewController {
     
-    func replaceWithDebugResults(_ resultsAsStruct: [ExerciseResultStruct]) {
+    func replaceWithDebugResults(_ resultsAsStruct: [ExerciseResultStruct], removeFirst: Bool = true) {
         
         // Delete previously saved results.
-        removeResults()
+        if (removeFirst) {
+            removeResults()
+        }
         
         
         
