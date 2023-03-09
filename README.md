@@ -1,4 +1,4 @@
 # PIntervals
-iOS app for musical ear training. School project
+iOS app for musical ear training.
 
-Bernardo Boechat e Rafael Cardozo
+Bernardo Boechat and Rafael Cardozo
